@@ -1,15 +1,7 @@
-<head>
-  <title>The Ambula</title>
-</head>
-
-<body>
+<template name="layout">
   {{> nav }}
   {{> sideNav}}
 	<div class="container">
-
-		<div class="starter-template">
-			<h1>Container Here</h1>
-		</div>
-
+    {{>yield }}
 	</div>
-</body>
+</template>
