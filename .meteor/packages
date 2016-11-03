@@ -23,3 +23,9 @@ insecure@1.0.7                # Allow all DB writes from clients (for prototypin
 twbs:bootstrap
 iron:router
 pcel:loading
+stylus
+ian:accounts-ui-bootstrap-3
+npm-bcrypt@0.8.7
+accounts-password
+accounts-google
+accounts-facebook
