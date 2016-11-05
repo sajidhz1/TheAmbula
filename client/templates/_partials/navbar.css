@@ -1,13 +1,13 @@
 .navbar-default {
-  background-color: #5f1f19;
-  border-color: #8c3830;
+  background-color: #3e2723;
+  border-color: #795548;
 }
 .navbar-default .navbar-brand {
   color: #ecf0f1;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #f8f8f8;
+  color: #f7f7f7;
 }
 .navbar-default .navbar-text {
   color: #ecf0f1;
@@ -17,28 +17,27 @@
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #f8f8f8;
+  color: #f7f7f7;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #f8f8f8;
-  background-color: #8c3830;
+  color: #f7f7f7;
+  background-color: #795548;
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-  color: #f8f8f8;
-  background-color: #8c3830;
+  color: #f7f7f7;
+  background-color: #795548;
 }
 .navbar-default .navbar-toggle {
-  border-color: #8c3830;
+  border-color: #795548;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-  background-color: #8c3830;
+  background-color: #795548;
 }
-
 .navbar-default .navbar-toggle .icon-bar {
   background-color: #ecf0f1;
 }
@@ -50,7 +49,7 @@
   color: #ecf0f1;
 }
 .navbar-default .navbar-link:hover {
-  color: #f8f8f8;
+  color: #f7f7f7;
 }
 
 @media (max-width: 767px) {
@@ -59,16 +58,12 @@
   }
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #f8f8f8;
+    color: #f7f7f7;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #f8f8f8;
-    background-color: #8c3830;
-  }
-  
-  .dropdown-menu{
-      background: #fff; 
+    color: #f7f7f7;
+    background-color: #795548;
   }
 }
