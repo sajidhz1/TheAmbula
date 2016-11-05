@@ -38,6 +38,7 @@
 .navbar-default .navbar-toggle:focus {
   background-color: #8c3830;
 }
+
 .navbar-default .navbar-toggle .icon-bar {
   background-color: #ecf0f1;
 }
@@ -65,5 +66,9 @@
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #f8f8f8;
     background-color: #8c3830;
+  }
+  
+  .dropdown-menu{
+      background: #fff; 
   }
 }
