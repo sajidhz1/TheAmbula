@@ -52,7 +52,11 @@ body{
     width: auto;
 }
 /* Sidebar Styles */
- 
+.img-circle {
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+}
 .sidebar-nav {
     position: absolute;
     top: 0;
