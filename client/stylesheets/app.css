@@ -19,7 +19,7 @@ body{
  
 #sidebar-wrapper {
     z-index: 1000;
-    position: absolute; 
+    position: fixed; 
     left: 200px;
     width: 0;
     height: 100%;
