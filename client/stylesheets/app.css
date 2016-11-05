@@ -25,7 +25,7 @@ body{
     height: 100%;
     margin-left: -200px;
     overflow-y: auto;
-    background: #000;
+    background: #eeeeee;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -71,13 +71,14 @@ body{
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999999;
+    color: #000;
+    background: #e0e0e0;
 }
  
 .sidebar-nav li a:hover {
     text-decoration: none;
     color: #fff;
-    background: rgba(255,255,255,0.2);
+    background: rgba(0,0,0,0.2);
     border-left: red 2px solid;
 }
  
