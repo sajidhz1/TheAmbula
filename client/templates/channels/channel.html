@@ -1,0 +1,37 @@
+<template name="userChannel">
+	<div id="page-content-wrapper">
+		<div class="container-fluid xyz">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="row clearfix well">
+						<div class="col-md-2 col-xs-12 column">
+							<form>
+								<img id="profPic" width="150" height="150" src="{{c.url currentUser.profile.user_avatar width=250 height=250 crop='fill'}}">
+								<div class="row">
+									<div class="col-md-7">
+										<label id="inputArea" class="btn btn-default btn-file">
+										Browse <input type="file" style="display: none;" id="userimage" name="userimage" />
+										</label >
+										<button id="cancelButton" style="display: none;" class="btn btn-danger" type="submit">Cancel</button> 	
+									</div>
+									<div class="col-md-5">
+										<button id="saveButton" style="display: none;"  class="btn btn-success" type="submit">Save</button>					
+									</div>
+								</div>																
+							</form>
+						</div>
+						<div class="col-md-8 column">
+								<span class="page-header text-capitalize"><h1>{{ Message }}
+								</h1></span> <small>21 / M / Single / Straight <cite>London England</cite></small>
+						</div>
+						<div class="col-md-2 column">
+							<button class="btn btn-default btn-block" type="button">Poke</button>
+							<button class="btn btn-default btn-block" type="button">Message</button>
+							<button class="btn btn-default btn-block" type="button">New Recipe </button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
