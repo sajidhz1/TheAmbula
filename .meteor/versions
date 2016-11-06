@@ -19,6 +19,7 @@ caching-compiler@1.1.8
 caching-html-compiler@1.0.7
 callback-hook@1.0.10
 check@1.2.4
+coffeescript@1.0.17
 ddp@1.2.5
 ddp-client@1.2.9
 ddp-common@1.2.7
@@ -52,6 +53,7 @@ iron:router@1.0.13
 iron:url@1.0.11
 jquery@1.11.10
 launch-screen@1.0.12
+lepozepo:cloudinary@4.2.6
 livedata@1.0.18
 localstorage@1.0.12
 logging@1.1.16
