@@ -18,10 +18,13 @@
 				</a>
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<form class="navbar-form" role="search">
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Search">
+						<input class="form-control typeahead" name="search" type="text"
+						placeholder="recipes"
+						autocomplete="off" spellcheck="off"
+						data-source="search"/>
 						<span class="input-group-btn">
 							<button type="reset" class="btn btn-default">
 								<span class="glyphicon glyphicon-remove">
