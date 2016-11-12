@@ -8,7 +8,7 @@ import {check} from 'meteor/check';
 export const YoutubeVideos = new Mongo.Collection('youtubevideos');
 
 Meteor.methods({
-    'youtubevideos.insert'(video_title, video_url, video_description) {
+    'youtubevideos.insert'(video_id, video_title, video_url, video_description) {
         //alert('Api eka athule');
 
         check(video_title, String);
@@ -20,6 +20,7 @@ Meteor.methods({
         }
 
         YoutubeVideos.insert({
+            videoId: video_id,
             videoTitle: video_title,
             videoUrl: video_url,
             videoDescription: video_description,

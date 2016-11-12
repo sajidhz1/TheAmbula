@@ -24,12 +24,18 @@ Meteor.startup(function () {
                 width: "600",
 
                 // videoId is the "v" in URL (ex: http://www.youtube.com/watch?v=LdH1hSWGFGU, videoId = "LdH1hSWGFGU")
-                videoId: "LdH1hSWGFGU",
+                videoId: "UprcpdwuwCg",
 
                 // Events like ready, state change,
                 events: {
 
                     onReady: function (event) {
+
+                        // Play video when player ready.
+                        event.target.playVideo();
+                    },
+
+                    onload: function (event) {
 
                         // Play video when player ready.
                         event.target.playVideo();
@@ -45,7 +51,15 @@ Meteor.startup(function () {
     }
 });
 
+Template.youtubeVideoViewComp.onCreated(function bodyOnCreated() {
+
+});
 
 Template.youtubeVideoViewComp.helpers({
 
 });
+
+Meteor.methods({
+
+});
+
