@@ -295,13 +295,11 @@ body{
 .panel-google-plus > .panel-body > .panel-google-plus-image {
     display: block;
     text-align: center;
-    height :300px;
     background-color: rgb(245, 245, 245);
     border: 1px solid rgb(217, 217, 217);
 }
 .panel-google-plus > .panel-body > .panel-google-plus-image > img {
     max-width: 100%;
-    height: 300px;
 }
 
 .panel-google-plus > .panel-footer {
