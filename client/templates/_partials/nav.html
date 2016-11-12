@@ -4,20 +4,41 @@
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
 					aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </button>
-		<div class="navbar-brand">
-			<a style="cursor:pointer" data-toggle="collapse"  id="menu-toggle">
-                      <span  style="color:#bcaaa4"  class="glyphicon glyphicon-th" aria-hidden="true"></span>
-              </a>
-			<a  class="#" href="#" style="margin-left:9px;color:white;text-decoration:none"  >The Ambula
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<div class="navbar-brand">
+					<a style="cursor:pointer" data-toggle="collapse" id="menu-toggle">
+						<span style="color:#bcaaa4" class="glyphicon glyphicon-th" aria-hidden="true"></span>
+					</a>
+					<a class="#" href="{{pathFor 'homeIndex'}}" style="margin-left:9px;color:white;text-decoration:none">The Ambula
 				<!--<img style="margin-left:5px;" src="images/ambula-nav.png" alt="The Ambula"/>-->
 				</a>
-		</div>
-				
+				</div>
+			</div>
+			<div class="col-md-4">
+				<form class="navbar-form" role="search">
+					<div class="input-group">
+						<input class="form-control typeahead" name="search" type="text"
+						placeholder="recipes"
+						autocomplete="off" spellcheck="off"
+						data-source="search"/>
+						<span class="input-group-btn">
+							<button type="reset" class="btn btn-default">
+								<span class="glyphicon glyphicon-remove">
+									<span class="sr-only">Close</span>
+								</span>
+							</button>
+							<button type="submit" class="btn btn-default">
+								<span class="glyphicon glyphicon-search">
+									<span class="sr-only">Search</span>
+								</span>
+							</button>
+						</span>
+					</div>
+				</form>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<!--<ul class="nav navbar-nav">
@@ -26,8 +47,8 @@
 					<li><a href="#contact">Contact</a></li>
 				</ul>-->
 				<ul class="nav navbar-nav navbar-right">{{> loginButtons }}</ul>
-			</div>	
-			  
+			</div>
+
 		</div>
 	</nav>
 </template>

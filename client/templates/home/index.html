@@ -1,14 +1,23 @@
 <template name="homeIndex">
-      <div id="page-content-wrapper">
-            <div class="container-fluid xyz">
-                <div class="row">
-                    <div class="col-lg-12">
-                           {{>postTile}}
-                           {{>postTile}}
-                           {{>postTile}}
-                           {{>postTile}}
-                    </div>
+    <div id="page-content-wrapper">
+        <div class="container-fluid xyz">
+            <div class="row">
+                <div class="col-lg-12">
+                    {{> collectionPagination}}
                 </div>
             </div>
         </div>
+    </div>
+</template>
+
+<template name="collectionPagination">
+    {{#each videos}}
+        {{>postTile }}
+    {{/each}}
+
+    {{#if moreResults}}
+    <div class="col-sm-8 col-xs-12" id="showMoreResults" style="margin-left: 25px;">
+        <span class="loading">Loading...</span>
+    </div>
+    {{/if}}
 </template>
