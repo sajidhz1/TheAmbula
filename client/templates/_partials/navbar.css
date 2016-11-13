@@ -52,6 +52,10 @@
   color: #f7f7f7;
 }
 
+#login .dropdown-toggle{
+    font-size: 20px;
+}
+
 @media (max-width: 768px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #ecf0f1;
@@ -68,11 +72,17 @@
   }
 }
 
+.twitter-typeahead{
+      top : 3px;
+      position: absolute;
+      width: 100% !important;
+}
+
 .typeahead ,
 .tt-query,
 .tt-hint {
   margin-bottom: 0;
-  width: 400px !important;
+  width: 100% !important;
 }
 
 /*.typeahead {
