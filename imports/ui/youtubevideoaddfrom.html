@@ -2,19 +2,25 @@
     <div id="page-content-wrapper" class="container">
         <div class="col-md-5 xyz">
             <div class="form-area">
+                {{> itemerrors contextName="insertForm"}}
                 <form role="form" id="youtubeVideoAddFormClient">
                     <br style="clear:both">
                     <h3 style="margin-bottom: 25px; text-align: center;">Share Your Recipe Video From Youtube</h3>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="videoUrl" name="video_url" placeholder="Youtube Video Link" required>
+                        <input type="text" class="form-control" id="videoUrl" name="video_url"
+                               placeholder="Youtube Video Link">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="videoTitle" name="video_title" placeholder="Video Title" value="{{videoTitle}}" required>
+                        <input type="text" class="form-control" id="videoTitle" name="video_title"
+                               placeholder="Video Title" value="{{videoTitle}}">
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" type="textarea" id="videoDescription" name="video_description" placeholder="Video Description" maxlength="140" rows="7" value="{{videoDesc}}"></textarea>
+                        <textarea class="form-control" type="textarea" id="videoDescription" name="video_description"
+                                  placeholder="Video Description" maxlength="140" rows="7"
+                                  value="{{videoDesc}}"></textarea>
                     </div>
-                    <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Submit Recipe</button>
+                    <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Submit Recipe
+                    </button>
                 </form>
             </div>
         </div>

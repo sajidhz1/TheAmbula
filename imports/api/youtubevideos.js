@@ -7,26 +7,66 @@ import {check} from 'meteor/check';
 
 export const YoutubeVideos = new Mongo.Collection('youtubevideos');
 
-Meteor.methods({
-    'youtubevideos.insert'(video_id, video_title, video_url, video_description) {
-        //alert('Api eka athule');
+var Schemas = {};
 
-        check(video_title, String);
-        check(video_url, String);
-        check(video_description, String);
+Schemas.youtubevideo = new SimpleSchema({
+    videoId: {
+        type: String,
+        label: "Video id",
+        max: 11,
+        min: 11
+    },
+    videoTitle: {
+        type: String,
+        label: "Video title",
+        max: 250,
+        min: 10
+    },
+    videoUrl: {
+        type: String,
+        label: "Youtube video url",
+        regEx: SimpleSchema.RegEx.Url,
+    },
+    videoDescription: {
+        type: String,
+        label: "Video description",
+        max: 1500,
+        min: 100
+    },
+    createdAt: {
+        type: Date,
+        label: "Date video was saved",
+    },
+    owner: {
+        type: String,
+        label: "User who saved the video"
+    },
+    username: {
+        type: String,
+        label: "Username of who saved the video",
+    }
+});
+
+YoutubeVideos.attachSchema(Schemas.youtubevideo);
+
+Meteor.methods({
+    'youtubevideos.insert': function (newYoutubeVideo) {
 
         if (!this.userId) {
             throw new Meteor.Error('not-authorized');
         }
 
-        YoutubeVideos.insert({
-            videoId: video_id,
-            videoTitle: video_title,
-            videoUrl: video_url,
-            videoDescription: video_description,
-            createdAt: new Date(),
-            owner: this.userId,
-            username: Meteor.users.findOne(this.userId).username,
-        });
+        newYoutubeVideo.owner = this.userId;
+        newYoutubeVideo.username = Meteor.users.findOne(this.userId).username;
+
+        YoutubeVideos.insert(
+            newYoutubeVideo, {validationContext: 'insertForm'}, function (error, response) {
+                if (error) {
+                    return error;
+                }else{
+                    return response;
+                }
+            }
+        );
     },
 });

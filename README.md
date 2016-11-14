@@ -17,3 +17,6 @@ Image Upload : https://atmospherejs.com/lepozepo/cloudinary
 youtube related packages being used :
     meteor npm install get-youtube-id
     meteor npm install youtube-validate
+
+Form Validation and DB Schema validation package :
+    meteor add aldeed:collection2

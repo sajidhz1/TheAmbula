@@ -56,20 +56,32 @@ Template.youtubeVideoAddForm.events({
         const video_id = getYouTubeID(video_url);
         const video_description = target.video_description.value;
 
+
+        var newYoutubeVideo = {
+            videoId: video_id,
+            videoTitle: video_title,
+            videoUrl: video_url,
+            videoDescription: video_description,
+            createdAt: new Date(),
+        };
+
         // Insert a youtubevideo into the collection
-        Meteor.call('youtubevideos.insert', video_id, video_title, video_url, video_description, function (error, response) {
+        Meteor.call('youtubevideos.insert', newYoutubeVideo, function (error, response) {
             if (error) {
-                console.log(error)
+                console.log(error);
             } else {
+                console.log(response);
                 Template.youtubeVideoAddForm.ytVideoTitle.set(null);
                 Template.youtubeVideoAddForm.ytVideoDescription.set(null);
+
+                // Clear form
+                target.video_title.value = '';
+                target.video_url.value = '';
+                target.video_description.value = '';
             }
         });
 
-        // Clear form
-        target.video_title.value = '';
-        target.video_url.value = '';
-        target.video_description.value = '';
+
     },
 
     'blur #videoUrl': function (event) {
