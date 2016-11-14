@@ -15,3 +15,6 @@ Login :  https://atmospherejs.com/ian/accounts-ui-bootstrap-3 </br>
 youtube related packages being used :
     meteor npm install get-youtube-id
     meteor npm install youtube-validate
+
+Form Validation and DB Schema validation package :
+    meteor add aldeed:collection2
