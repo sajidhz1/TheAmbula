@@ -1,29 +1,40 @@
 <template name="youtubeVideoAddForm">
-    <div id="page-content-wrapper" class="container">
-        <div class="col-md-5 xyz">
-            <div class="form-area">
-                <form role="form" id="youtubeVideoAddFormClient">
-                    <br style="clear:both">
-                    <h3 style="margin-bottom: 25px; text-align: center;">Share Your Recipe Video From Youtube</h3>
-                    <div class="form-group">
-                        <input type="text" class="form-control help-block" id="videoUrl" name="video_url"
-                               placeholder="Youtube Video Link">
-                        <p class="help-block with-errors">{{ errors.[1].message}}</p>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="videoTitle" name="video_title"
-                               placeholder="Video Title" value="{{videoTitle}}">
-                        <p class="help-block with-errors">{{ errors.[0].message}}</p>
-                    </div>
-                    <div class="form-group">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body row">
+                    <!--<div id="page-content-wrapper" class="container">-->
+                    <div class="col-md-12">
+                        <div class="form-area">
+                            <form role="form" id="youtubeVideoAddFormClient">
+                                <br style="clear:both">
+                                <h3 style="margin-bottom: 25px; text-align: center;">Share Your Recipe Video From
+                                    Youtube</h3>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="videoUrl" name="video_url"
+                                           placeholder="Youtube Video Link">
+                                    <p class="help-block with-errors">{{ errors.[1].message}}</p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="videoTitle" name="video_title"
+                                           placeholder="Video Title" value="{{videoTitle}}">
+                                    <p class="help-block with-errors">{{ errors.[0].message}}</p>
+                                </div>
+                                <div class="form-group">
                         <textarea class="form-control" type="textarea" id="videoDescription" name="video_description"
-                                  placeholder="Video Description" maxlength="140" rows="7"
+                                  placeholder="Video Description" rows="7"
                                   value="{{videoDesc}}"></textarea>
-                        <p class="help-block with-errors">{{ errors.[2].message}}</p>
+                                    <p class="help-block with-errors">{{ errors.[2].message}}</p>
+                                </div>
+                                <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">
+                                    Submit Recipe
+                                </button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            </form>
+                        </div>
                     </div>
-                    <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Submit Recipe
-                    </button>
-                </form>
+                    <!--</div>-->
+                </div>
             </div>
         </div>
     </div>

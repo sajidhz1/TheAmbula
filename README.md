@@ -20,3 +20,9 @@ youtube related packages being used :
 
 Form Validation and DB Schema validation package :
     meteor add aldeed:collection2
+
+Bootstrap3 Modal window package added
+    meteor add peppelg:bootstrap-3-modal
+
+Fontawesome official icon pack added
+    meteor add fortawesome:fontawesome

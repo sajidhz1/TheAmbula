@@ -91,6 +91,8 @@ Template.youtubeVideoAddForm.events({
                 target.video_title.value = '';
                 target.video_url.value = '';
                 target.video_description.value = '';
+
+                Modal.hide('youtubeVideoAddForm');
             }
         });
 
