@@ -9,8 +9,15 @@ import {YoutubeVideos} from '../api/youtubevideos.js';
 import './itemerrors.html';
 
 Template.itemerrors.helpers({
-    errors: function(){
-        var context = YoutubeVideos.simpleSchema().namedContext(this.contextName);
-        return context.invalidKeys().map(function(data){ return {message: context.keyErrorMessage(data.name)}});
+    errors: function () {
+        var context = YoutubeVideos.simpleSchema().namedContext("insertForm");
+        
+        return context.invalidKeys().filter(function (item) {
+            if (item.name != 'videoId') {
+                return item;
+            }
+        }).map(function (data) {
+            return {message: context.keyErrorMessage(data.name)}
+        });
     }
 });

@@ -4,6 +4,7 @@
 import {Meteor} from 'meteor/meteor';
 import {Template} from 'meteor/templating';
 import {ReactiveVar} from 'meteor/reactive-var';
+import {YoutubeVideos} from '../api/youtubevideos.js';
 
 var getYouTubeID = require('get-youtube-id');
 
@@ -40,6 +41,18 @@ Template.youtubeVideoAddForm.helpers({
 
     videoDesc: function () {
         return Template.youtubeVideoAddForm.ytVideoDescription.get();
+    },
+
+    errors: function () {
+        var context = YoutubeVideos.simpleSchema().namedContext("insertForm");
+
+        return context.invalidKeys().filter(function (item) {
+            if (item.name != 'videoId') {
+                return item;
+            }
+        }).map(function (data) {
+            return {field: data.name, message: context.keyErrorMessage(data.name)}
+        });
     }
 
 });
@@ -70,7 +83,7 @@ Template.youtubeVideoAddForm.events({
             if (error) {
                 console.log(error);
             } else {
-                console.log(response);
+                //console.log(response);
                 Template.youtubeVideoAddForm.ytVideoTitle.set(null);
                 Template.youtubeVideoAddForm.ytVideoDescription.set(null);
 
@@ -108,7 +121,7 @@ Template.youtubeVideoAddForm.events({
             });
 
         } else {
-            console.log('Invalid youtube url');
+            return false;
         }
     },
 });
