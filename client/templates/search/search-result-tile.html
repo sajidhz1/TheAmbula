@@ -1,5 +1,5 @@
-<template name="postTile">
-       <div class="[ col-xs-12 col-sm-8 ]">
+<template name="searchTile">
+     <div class="[ col-xs-12 col-sm-4 ]">
             <div class="[ panel panel-default ] panel-google-plus">
                 <div class="dropdown">
                     <span class="dropdown-toggle" type="button" data-toggle="dropdown">
@@ -24,28 +24,12 @@
                     <h5><span>Shared publicly</span> - <span>Jun 25, 2014</span> </h5>
                 </div>
                 <div class="panel-body">
-                    <p><b>{{ videoTitle }}</b> <a href="{{videoUrl }}">{{videoUrl}}</a></p>
+                    <p><b>{{ videoTitle }}</b></p>
                     <a class="panel-google-plus-image" href="https://plus.google.com/photos/115077481218689845626/albums/6028961040749409985/6028961040650432498">
                         <div  class="col-md-12 embed-responsive embed-responsive-16by9">
                             <iframe class="embed-responsive-item" src="//www.youtube.com/embed/TQl_Sv3LztQ"></iframe>
                         </div>
                     </a>
-                </div>
-                <div class="panel-footer">
-                    <button type="button" class="[ btn btn-default ]">+1</button>
-                    <button type="button" class="[ btn btn-default ]">
-                        <span class="[ glyphicon glyphicon-share-alt ]"></span>
-                    </button>
-                    <div class="input-placeholder">Add a comment...</div>
-                </div>
-                <div class="panel-google-plus-comment">
-                    <img class="img-circle" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="User Image" />
-                    <div class="panel-google-plus-textarea">
-                        <textarea rows="4"></textarea>
-                        <button type="submit" class="[ btn btn-success disabled ]">Post comment</button>
-                        <button type="reset" class="[ btn btn-default ]">Cancel</button>
-                    </div>
-                    <div class="clearfix"></div>
                 </div>
             </div>
         </div>
