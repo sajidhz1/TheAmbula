@@ -1,9 +1,10 @@
+import './nav.html';
+
+
 //inject type ahead when navbar is loaded
 Template.nav.rendered = function() {
   Meteor.typeahead.inject();
 };
-
-//Nba = new Meteor.Collection("youtubevideos");
 
 Template.nav.helpers({
    search : function(query, sync, callback) {
@@ -17,4 +18,12 @@ Template.nav.helpers({
       });
     }
  
+});
+
+Template.nav.events({
+    'click #addNewYtVideo': function(e) {
+        e.preventDefault();
+
+        Modal.show('youtubeVideoAddForm');
+    }
 });
