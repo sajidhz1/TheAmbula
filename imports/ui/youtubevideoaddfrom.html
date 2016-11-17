@@ -3,7 +3,6 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body row">
-                    <!--<div id="page-content-wrapper" class="container">-->
                     <div class="col-md-12">
                         <div class="form-area">
                             <form role="form" id="youtubeVideoAddFormClient">
@@ -13,18 +12,36 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="videoUrl" name="video_url"
                                            placeholder="Youtube Video Link">
-                                    <p class="help-block with-errors">{{ errors.[1].message}}</p>
+                                    <p class="help-block with-errors">
+                                        {{#each errors}}
+                                            {{#if equals 'videoUrl' field}}
+                                                {{message}}
+                                            {{/if}}
+                                        {{/each}}
+                                    </p>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="videoTitle" name="video_title"
                                            placeholder="Video Title" value="{{videoTitle}}">
-                                    <p class="help-block with-errors">{{ errors.[0].message}}</p>
+                                    <p class="help-block with-errors">
+                                        {{#each errors}}
+                                            {{#if equals 'videoTitle' field}}
+                                                {{message}}
+                                            {{/if}}
+                                        {{/each}}
+                                    </p>
                                 </div>
                                 <div class="form-group">
                         <textarea class="form-control" type="textarea" id="videoDescription" name="video_description"
                                   placeholder="Video Description" rows="7"
                                   value="{{videoDesc}}"></textarea>
-                                    <p class="help-block with-errors">{{ errors.[2].message}}</p>
+                                    <p class="help-block with-errors">
+                                        {{#each errors}}
+                                            {{#if equals 'videoDescription' field}}
+                                                {{message}}
+                                            {{/if}}
+                                        {{/each}}
+                                    </p>
                                 </div>
                                 <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">
                                     Submit Recipe
@@ -33,7 +50,6 @@
                             </form>
                         </div>
                     </div>
-                    <!--</div>-->
                 </div>
             </div>
         </div>
