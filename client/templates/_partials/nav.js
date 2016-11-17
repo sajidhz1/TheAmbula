@@ -25,5 +25,14 @@ Template.nav.events({
         e.preventDefault();
 
         Modal.show('youtubeVideoAddForm');
+    },
+    'click #logout' : function(e){
+      Meteor.logout(function(err){
+        if(err){
+
+        }else{
+          Router.go('/');
+        }
+      });
     }
 });
