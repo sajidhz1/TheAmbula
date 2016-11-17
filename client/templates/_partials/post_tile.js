@@ -24,3 +24,9 @@ Template.postTile.events({
         }
   }
 });
+
+Template.postTile.helpers({
+   createdDate : function(date){
+     return moment(date).format('MMMM Do YYYY, h:mm:ss a');
+   }
+});

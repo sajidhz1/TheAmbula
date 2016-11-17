@@ -19,18 +19,14 @@
  
                     </ul>
                 </li>-->
-                <li>
-                    <a href="/channels/yfocdsu0suok7fotdnll">
-                        <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
-                        <span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span>Overview
-                    </a>
-                </li>
-                <li>
-                    <a href="/channels/Events">
-                         <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
-                         <span class="fa-stack fa-lg pull-left"><i class="fa fa-cart-plus fa-stack-1x "></i></span>Events
-                    </a>
-                </li>
+                {{#each users}}
+                    <li>
+                        <a href="/channels/yfocdsu0suok7fotdnll">
+                            <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
+                            <span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span>{{username}}
+                        </a>
+                    </li>
+                {{/each}}
                 <li>
                     <a href="/channels/coiasx1sozy6ulfu2tu4">
                         <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >

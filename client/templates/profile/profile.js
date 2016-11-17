@@ -26,7 +26,11 @@ Template.userProfile.events({
       console.log("Upload Error: " + err);
       console.log("Upload Result: " + res.public_id);
 
-      Meteor.users.update(Meteor.userId(), {$set: {"profile.user_avatar": res.public_id}});
+      Meteor.users.update(Meteor.userId(), { $set: { "profile.user_avatar": res.public_id } });
+
+      $('#inputArea').show();
+      $('#saveButton').hide();
+      $('#cancelButton').hide();
     });
   },
 
@@ -35,8 +39,8 @@ Template.userProfile.events({
     var reader = new FileReader();
     var file = $('#userimage')[0].files[0]
     reader.onload = function (e) {
-        // get loaded data and render thumbnail.
-        document.getElementById("profPic").src = e.target.result;
+      // get loaded data and render thumbnail.
+      document.getElementById("profPic").src = e.target.result;
     };
     // read the image file as a data URL.
     reader.readAsDataURL(file);

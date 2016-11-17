@@ -12,3 +12,5 @@ Meteor.publish("search-videos-by-owner", function(owner){
 
   return YoutubeVideos.find({owner : owner});
 });
+
+
