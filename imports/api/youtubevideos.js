@@ -59,14 +59,7 @@ Meteor.methods({
         newYoutubeVideo.owner = this.userId;
         newYoutubeVideo.username = Meteor.users.findOne(this.userId).username;
 
-        YoutubeVideos.insert(
-            newYoutubeVideo, {validationContext: 'insertForm'}, function (error, response) {
-                if (error) {
-                    return error;
-                }else{
-                    return response;
-                }
-            }
-        );
+        return YoutubeVideos.insert(newYoutubeVideo, {validationContext: 'insertForm'});
+
     },
 });

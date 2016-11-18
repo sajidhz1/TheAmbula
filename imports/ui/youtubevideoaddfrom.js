@@ -53,6 +53,10 @@ Template.youtubeVideoAddForm.helpers({
         }).map(function (data) {
             return {field: data.name, message: context.keyErrorMessage(data.name)}
         });
+    },
+
+    equals: function (v1, v2) {
+        return (v1 === v2);
     }
 
 });
@@ -79,11 +83,11 @@ Template.youtubeVideoAddForm.events({
         };
 
         // Insert a youtubevideo into the collection
-        Meteor.call('youtubevideos.insert', newYoutubeVideo, function (error, response) {
+        Meteor.call('youtubevideos.insert', newYoutubeVideo, function (error, result) {
+
             if (error) {
-                console.log(error);
+                //console.log(error);
             } else {
-                //console.log(response);
                 Template.youtubeVideoAddForm.ytVideoTitle.set(null);
                 Template.youtubeVideoAddForm.ytVideoDescription.set(null);
 
@@ -94,8 +98,8 @@ Template.youtubeVideoAddForm.events({
 
                 Modal.hide('youtubeVideoAddForm');
             }
-        });
 
+        });
 
     },
 
