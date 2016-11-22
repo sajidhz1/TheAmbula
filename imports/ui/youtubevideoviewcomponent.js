@@ -9,7 +9,11 @@ import {YoutubeVideos} from '../api/youtubevideos.js';
 import './youtubevideoviewcomponent.html';
 
 Meteor.startup(function () {
-    // Make sure it's in client
+
+});
+
+Template.youtubeVideoViewComp.onCreated(function bodyOnCreated() {
+// Make sure it's in client
     if (Meteor.isClient) {
 
         // YouTube API will call onYouTubeIframeAPIReady() when API ready.
@@ -24,7 +28,7 @@ Meteor.startup(function () {
                 width: "600",
 
                 // videoId is the "v" in URL (ex: http://www.youtube.com/watch?v=LdH1hSWGFGU, videoId = "LdH1hSWGFGU")
-                videoId: "UprcpdwuwCg",
+                videoId: "nxvm4P0jFKY",
 
                 // Events like ready, state change,
                 events: {
@@ -32,13 +36,13 @@ Meteor.startup(function () {
                     onReady: function (event) {
 
                         // Play video when player ready.
-                        event.target.playVideo();
+                        //event.target.playVideo();
                     },
 
                     onload: function (event) {
 
                         // Play video when player ready.
-                        event.target.playVideo();
+                        //event.target.playVideo();
                     }
 
                 }
@@ -51,15 +55,7 @@ Meteor.startup(function () {
     }
 });
 
-Template.youtubeVideoViewComp.onCreated(function bodyOnCreated() {
+Template.youtubeVideoViewComp.helpers({});
 
-});
-
-Template.youtubeVideoViewComp.helpers({
-
-});
-
-Meteor.methods({
-
-});
+Meteor.methods({});
 
