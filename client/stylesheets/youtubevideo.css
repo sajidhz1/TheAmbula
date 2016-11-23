@@ -27,3 +27,7 @@
     min-height: inherit !important;
     height: auto !important;
 }
+
+.mdl-card a{
+    text-decoration: none;
+}
