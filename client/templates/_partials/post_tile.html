@@ -1,35 +1,52 @@
 <template name="postTile">
-    <div class="col-xs-12 col-sm-8 col-md-8">
-        <div class="ytvideoview-hometile-card-wide mdl-card mdl-shadow--2dp">
-            <!--<div class="panel-heading">-->
-            <!--<img class="[ img-circle pull-left ]" src="/images/icons/apple-icon-60x60.png" alt="Mouse0270" />-->
-            <!--<h3>{{ owner }}</h3>-->
-            <!--<h5><span>Shared publicly</span> - <span>{{ createdDate createdAt }}</span> </h5>-->
-            <!--</div>-->
-            <div class="mdl-card__media">
-                <a class="panel-google-plus-image"
-                   href="https://plus.google.com/photos/115077481218689845626/albums/6028961040749409985/6028961040650432498">
-                    <div class="col-md-12 embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="//www.youtube.com/embed/{{videoId}}"></iframe>
+       <div class="[ col-xs-12 col-sm-8 ]">
+            <div class="[ panel panel-default ] panel-google-plus">
+                <div class="dropdown">
+                    <span class="dropdown-toggle" type="button" data-toggle="dropdown">
+                        <span class="[ glyphicon glyphicon-chevron-down ]"></span>
+                    </span>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                    </ul>
+                </div>
+                <div class="panel-google-plus-tags">
+                    <ul>
+                        <li>#Snippet</li>
+                    </ul>
+                </div>
+                <div class="panel-heading">
+                    <img class="[ img-circle pull-left ]" src="/images/icons/apple-icon-60x60.png" alt="Mouse0270" />
+                    <h3>{{ owner }}</h3>
+                    <h5><span>Shared publicly</span> - <span>{{ createdDate createdAt }}</span> </h5>
+                </div>
+                <div class="panel-body">
+                    <p><b>{{ videoTitle }}</b> <a href="{{videoUrl }}">{{videoUrl}}</a></p>
+                    <a class="panel-google-plus-image" href="https://plus.google.com/photos/115077481218689845626/albums/6028961040749409985/6028961040650432498">
+                        <div  class="col-md-12 embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/TQl_Sv3LztQ"></iframe>
+                        </div>
+                    </a>
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="[ btn btn-default ]">+1</button>
+                    <button type="button" class="[ btn btn-default ]">
+                        <span class="[ glyphicon glyphicon-share-alt ]"></span>
+                    </button>
+                    <div class="input-placeholder">Add a comment...</div>
+                </div>
+                <div class="panel-google-plus-comment">
+                    <img class="img-circle" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="User Image" />
+                    <div class="panel-google-plus-textarea">
+                        <textarea rows="4"></textarea>
+                        <button type="submit" class="[ btn btn-success disabled ]">Post comment</button>
+                        <button type="reset" class="[ btn btn-default ]">Cancel</button>
                     </div>
-                </a>
-            </div>
-            <div class="mdl-card__title">
-                <div class="mdl-card__title-text">
-                    {{ videoTitle }}
+                    <div class="clearfix"></div>
                 </div>
             </div>
-            <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
-                    <i class="material-icons md-18">favorite_border</i>
-                </a>
-                <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
-                    <i class="material-icons md-18">share</i>
-                </a>
-                <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
-                    <i class="material-icons">more_horiz</i>
-                </a>
-            </div>
         </div>
-    </div>
 </template>
