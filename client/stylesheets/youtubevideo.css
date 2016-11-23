@@ -1,29 +1,14 @@
-.form-area {
+.form-area
+{
     background-color: #FAFAFA;
     padding: 10px 40px 60px;
     border: 1px solid GREY;
 }
 
-.form-control, .btn {
+.form-control, .btn{
     border-radius: 0px;
 }
 
-.help-block {
+.help-block{
     color: #a94442;
-}
-
-/*Google Material Design Related Styles*/
-.mdl-card__title{
-    padding: 5px 15px 5px 15px !important;
-    font-size: larger;
-}
-
-.ytvideoview-card-wide, .ytvideoview-title-card-wide, .ytvideoview-desc-card-wide, .ytvideoview-recent-list-card-wide, .ytvideoview-comments-card-wide, .ytvideoview-hometile-card-wide {
-    margin-bottom: 12px !important;
-    width: 100% !important;
-}
-
-.ytvideoview-title-card-wide, .ytvideoview-desc-card-wide {
-    min-height: inherit !important;
-    height: auto !important;
 }
