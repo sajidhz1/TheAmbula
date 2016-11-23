@@ -62,6 +62,10 @@ Template.youtubeVideoAddForm.helpers({
 });
 
 Template.youtubeVideoAddForm.events({
+    'click #cancel': function () {
+        
+    },
+
     'submit #youtubeVideoAddFormClient': function (event) {
         // Prevent default browser form submit
         event.preventDefault();
