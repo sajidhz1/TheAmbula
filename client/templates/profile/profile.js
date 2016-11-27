@@ -49,6 +49,9 @@ Template.userProfile.events({
     $('#inputArea').hide();
     $('#saveButton').show();
     $('#cancelButton').show();
+  },
+  'click #editButton' : function(){
+    Router.go('/editProfile');
   }
 });
 

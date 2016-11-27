@@ -30,21 +30,23 @@
                     <div class="col-sm-6">
                         <div style="margin-bottom: 25px" class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="login-username" type="text" class="form-control" name="first_name" value="" placeholder="first name">
+                            <input id="login-username" type="text" class="form-control" value="{{currentUser.profile.first_name}}" name="first_name"  placeholder="first name">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div style="margin-bottom: 25px" class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="login-password" type="text" class="form-control" name="last_name" placeholder="last name">
+                            <input id="login-password" type="text" class="form-control" value="{{currentUser.profile.last_name}}" name="last_name" placeholder="last name">
                         </div>
                     </div>
                     <div style="margin-bottom: 35px;margin-top : 15px;" class="">
-                        <textarea id="login-password" rows="4" style="width :100%"  class="form-control" name="description" placeholder="About yourself / Organization"></textarea>
+                        <textarea id="login-password" rows="4" style="width :100%"  class="form-control" name="description" placeholder="About yourself / Organization">
+                        {{currentUser.profile.description}}
+                        </textarea>
                     </div>
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i style="color: #3b5998" class="fa pull-left fa-facebook fa-lg"></i></span>
-                        <input id="login-password" type="text" class="form-control" name="facebook_url" placeholder="facebook page">
+                        <input id="login-password" type="text" class="form-control" value="{{currentUser.profile.facebook_url}}" name="facebook_url" placeholder="facebook page">
                     </div>
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i style="color: #b31217;" class="fa pull-left fa-youtube fa-lg"></i></span>
