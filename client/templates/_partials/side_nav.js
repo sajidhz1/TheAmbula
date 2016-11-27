@@ -57,9 +57,9 @@ Template.sideNav.helpers({
   users: function () {
     const userNames = Template.instance().distinct.get();
     // turn our array of project values into an array of {project: project}
-    return _.map(userNames, username => {
+    return _.map(userNames, userObject => {
 
-      return { username }
+      return { userObject }
     });
   }
 });

@@ -21,14 +21,14 @@
                 </li>-->
             {{#each users}}
             <li>
-                <a href="/channels/{{username._id}}">
-                              {{#if username.profile.user_avatar }}
-								<img class="img-circle" src="{{c.url username.profile.user_avatar width=30 height=30 crop='fill'}}">
+                <a href="/channels/{{userObject._id}}">
+                              {{#if userObject.profile.user_avatar }}
+								<img class="img-circle" src="{{c.url userObject.profile.user_avatar width=30 height=30 crop='fill'}}">
 								{{else}}
                                  <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
 								{{/if}}
                            
-                            <b>{{username.profile.first_name}}</b>
+                            <b>{{userObject.profile.first_name}}</b>
                  </a>
             </li>
             {{/each}}
