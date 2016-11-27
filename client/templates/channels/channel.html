@@ -3,17 +3,18 @@
 		<div class="container-fluid xyz">
 			<div class="row">
 				<div class="col-lg-12">
-					<div class="row clearfix well">
+					<div class="row clearfix well" style="background : #fff;">
+						 {{#each users}} 
 						<div class="col-md-2 col-xs-12 column">
-							{{#if userObject.profile.user_avatar }}
-								<img id="profPic" width="150" height="150" src="{{c.url userChannel.profile.user_avatar width=250 height=250 crop='fill'}}">
+							{{#if profile.user_avatar }}
+								<img id="profPic" width="150" height="150" src="{{c.url profile.user_avatar width=250 height=250 crop='fill'}}">
 								{{else}}
   								<img id="profPic" width="150" height="150" src="/images/user-avatar.jpg">
 							{{/if}}												
 						</div>
 						<div class="col-md-8 column">
-								<span class="page-header text-capitalize"><h1>{{ userObject.profile.first_name }} {{ userObject.profile.last_name }}
-								</h1></span> <small>21 / M / Single / Straight <cite>London England</cite></small>
+								<span class="page-header text-capitalize"><h1>{{ profile.first_name}} {{ profile.last_name }}
+								</h1></span> <small>{{profile.description }}</small>
 						</div>
 						<div class="col-md-2 column">
 							<button class="btn btn-default btn-block" type="button">
@@ -26,7 +27,15 @@
 								<i class="fa pull-left fa-globe fa-lg"></i> Website
 							</button>
 						</div>
+						{{/each}}
 					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+                    {{#each videos}}
+                        {{>searchTile }}
+                    {{/each}}
 				</div>
 			</div>
 		</div>

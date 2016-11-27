@@ -12,7 +12,7 @@ Meteor.publish("search-videos-by-owner", function(ownerId){
 });
 
 Meteor.publish("user-channel"  , function(userId){
-  console.log(Meteor.users.find({ _id : userId}).fetch());
+  check(userId, String);
   return Meteor.users.find({ _id : userId});
 });
 

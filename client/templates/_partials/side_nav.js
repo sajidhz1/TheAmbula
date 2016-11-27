@@ -45,7 +45,6 @@ Template.sideNav.onCreated(function () {
           console.log(error);
         } else {
           console.log(result);
-
           this.distinct.set(result); // save result when we get it
         }
       });
@@ -63,4 +62,3 @@ Template.sideNav.helpers({
     });
   }
 });
-  //  $(document).ready(function() {});
