@@ -1,3 +1,6 @@
+.modal-content{
+    border-radius: 0px;
+}
 .form-area {
     background-color: #FAFAFA;
     padding: 10px 40px 60px;
@@ -15,7 +18,9 @@
 /*Google Material Design Related Styles*/
 .mdl-card__title{
     padding: 5px 15px 5px 15px !important;
-    font-size: larger;
+}
+.mdl-card__title-text{
+    display: inline-block !important;
 }
 
 .ytvideoview-card-wide, .ytvideoview-title-card-wide, .ytvideoview-desc-card-wide, .ytvideoview-recent-list-card-wide, .ytvideoview-comments-card-wide, .ytvideoview-hometile-card-wide {
@@ -30,4 +35,10 @@
 
 .mdl-card a{
     text-decoration: none;
+}
+
+.ytvideo-owner-thumbnail{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
 }
