@@ -34,26 +34,32 @@ Template.nav.events({
 });
 
 
-Template.sideNav.onCreated(function() {
+Template.sideNav.onCreated(function () {
   this.distinct = new ReactiveVar();
   Meteor.call('usersHasVideos', (error, result) => {
     if (error) {
       console.log(error);
     } else {
-      console.log(result);
-      this.distinct.set(result); // save result when we get it
+      Meteor.call('getUserObjects' ,result , (error, result) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(result);
+
+          this.distinct.set(result); // save result when we get it
+        }
+      });
     }
   });
 });
 
 Template.sideNav.helpers({
-  users : function() {
+  users: function () {
     const userNames = Template.instance().distinct.get();
     // turn our array of project values into an array of {project: project}
-
     return _.map(userNames, username => {
 
-      return {username}
+      return { username }
     });
   }
 });

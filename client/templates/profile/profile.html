@@ -6,7 +6,11 @@
 					<div class="row clearfix well">
 						<div class="col-md-2 col-xs-12 column">
 							<form>
+								{{#if checkAvatarExists }}
 								<img id="profPic" width="150" height="150" src="{{c.url currentUser.profile.user_avatar width=250 height=250 crop='fill'}}">
+								{{else}}
+  								<img id="profPic" width="150" height="150" src="/images/user-avatar.jpg">
+								{{/if}}
 								<div class="row">
 									<div class="col-md-7">
 										<label id="inputArea" class="btn btn-default btn-file">
@@ -22,14 +26,16 @@
 						</div>
 						<div class="col-md-8 column">
 								<span class="page-header text-capitalize"><h1>{{ currentUser.profile.first_name }} {{ currentUser.profile.last_name }}
-								</h1></span> <small>21 / M / Single / Straight <cite>London England</cite></small>
+								</h1></span> <small>{{ currentUser.profile.description }}</small>
 						</div>
 						<div class="col-md-2 column">
 							<!--<button class="btn btn-default btn-block" type="button">Poke</button>-->
+							{{#if currentUser}}
 							<button class="btn btn-default pull-right" style="margin-bottom: 10px;" type="button">
 			 					<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 								Edit
-								</button>
+							</button>
+							{{/if}}	
 							<button class="btn btn-default btn-block" type="button">
 								 <i style="color: #3b5998" class="fa pull-left fa-facebook fa-lg"></i>Facebook
 							</button>

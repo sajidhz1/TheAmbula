@@ -15,7 +15,7 @@
 /*Google Material Design Related Styles*/
 .mdl-card__title{
     padding: 5px 15px 5px 15px !important;
-    font-size: larger;
+    font-size: large;
 }
 
 .ytvideoview-card-wide, .ytvideoview-title-card-wide, .ytvideoview-desc-card-wide, .ytvideoview-recent-list-card-wide, .ytvideoview-comments-card-wide, .ytvideoview-hometile-card-wide {

@@ -7,10 +7,13 @@ Meteor.publish("search-videos", function(query){
 });
 
 
-Meteor.publish("search-videos-by-owner", function(owner){
-  check(owner, String);
+Meteor.publish("search-videos-by-owner", function(ownerId){
+  return YoutubeVideos.find({owner : ownerId});
+});
 
-  return YoutubeVideos.find({owner : owner});
+Meteor.publish("user-channel"  , function(userId){
+  console.log(Meteor.users.find({ _id : userId}).fetch());
+  return Meteor.users.find({ _id : userId});
 });
 
 

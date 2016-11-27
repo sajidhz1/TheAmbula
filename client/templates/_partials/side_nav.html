@@ -1,17 +1,17 @@
 <template name="sideNav">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper" >
-            <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
-                <label style="text-align:center;padding:3px;">Trending Channels</label>
-                <!--<li class="active">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+            <label style="text-align:center;padding:3px;">Trending Channels</label>
+            <!--<li class="active">
                     <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span> Dashboard</a>
                        <ul class="nav-pills nav-stacked" style="list-style-type:none;">
                         <li><a href="#">link1</a></li>
                         <li><a href="#">link2</a></li>
                     </ul>
                 </li>-->
-                <!--<li>
+            <!--<li>
                     <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span> Shortcut</a>
                     <ul class="nav-pills nav-stacked" style="list-style-type:none;">
                         <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>link1</a></li>
@@ -19,34 +19,40 @@
  
                     </ul>
                 </li>-->
-                {{#each users}}
-                    <li>
-                        <a href="/channels/yfocdsu0suok7fotdnll">
-                            <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
-                            <span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span>{{username}}
-                        </a>
-                    </li>
-                {{/each}}
-                <li>
-                    <a href="/channels/coiasx1sozy6ulfu2tu4">
-                        <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
-                        <span class="fa-stack fa-lg pull-left"><i class="fa fa-youtube-play fa-stack-1x "></i></span>About
-                    </a>
-                </li>
-                <li>
-                    <a href="/singlerecipevideoview">
-                        <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
-                        <span class="fa-stack fa-lg pull-left"><i class="fa fa-wrench fa-stack-1x "></i></span>Services    
-                    </a>
-                </li>
-                <li>
-                    <a href="/addrecipevideo">
-                        <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
-                        <span class="fa-stack fa-lg pull-left"><i class="fa fa-server fa-stack-1x "></i></span>Add Recipe Video
-                    </a>
-                </li>
-            </ul>
-        </div><!-- /#sidebar-wrapper -->
-   
-   
+            {{#each users}}
+            <li>
+                <a href="/channels/{{username._id}}">
+                              {{#if username.profile.user_avatar }}
+								<img class="img-circle" src="{{c.url username.profile.user_avatar width=30 height=30 crop='fill'}}">
+								{{else}}
+                                 <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
+								{{/if}}
+                           
+                            <b>{{username.profile.first_name}}</b>
+                 </a>
+            </li>
+            {{/each}}
+            <li>
+                <a href="/channels/coiasx1sozy6ulfu2tu4">
+                    <img class="img-circle" src="/images/icons/apple-icon-60x60.png">
+                    About
+                </a>
+            </li>
+            <li>
+                <a href="/singlerecipevideoview">
+                    <img class="img-circle" src="/images/icons/apple-icon-60x60.png">
+                    Services
+                </a>
+            </li>
+            <li>
+                <a href="/addrecipevideo">
+                    <img class="img-circle" src="/images/icons/apple-icon-60x60.png">
+                    <span class="fa-stack fa-lg pull-left"><i class="fa fa-server fa-stack-1x "></i></span>Add Recipe Video
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+
 </template>
