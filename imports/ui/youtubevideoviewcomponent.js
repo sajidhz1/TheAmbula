@@ -8,12 +8,15 @@ import {YoutubeVideos} from '../api/youtubevideos.js';
 
 import './youtubevideoviewcomponent.html';
 
-Meteor.startup(function () {
-
-});
-
 Template.youtubeVideoViewComp.onCreated(function bodyOnCreated() {
-// Make sure it's in client
+
+    //To access reactive data context of the template instance. The Computation is automatically stopped when the template is destroyed.
+    var dataContext = Template.currentData();
+
+    //Subscription for video owner user profile
+    Meteor.subscribe('get-user-by-id');
+
+    // Make sure it's in client
     if (Meteor.isClient) {
 
         // YouTube API will call onYouTubeIframeAPIReady() when API ready.
@@ -28,7 +31,7 @@ Template.youtubeVideoViewComp.onCreated(function bodyOnCreated() {
                 width: "600",
 
                 // videoId is the "v" in URL (ex: http://www.youtube.com/watch?v=LdH1hSWGFGU, videoId = "LdH1hSWGFGU")
-                videoId: "nxvm4P0jFKY",
+                videoId: dataContext.video.videoId,
 
                 // Events like ready, state change,
                 events: {
@@ -53,9 +56,34 @@ Template.youtubeVideoViewComp.onCreated(function bodyOnCreated() {
 
         YT.load();
     }
+
+
 });
 
-Template.youtubeVideoViewComp.helpers({});
+Template.youtubeVideoViewComp.helpers({
+    createdDate: function () {
+        return moment(this.video.createdAt).format('MMMM Do YYYY, h:mm:ss a');
+    },
 
-Meteor.methods({});
+    ownerProfile: function () {
+        try {
+            var user = Meteor.users.find({_id: this.video.owner}, {fields: {profile: 1}}).fetch();
+            var profile = user[0].profile;
+            return profile['first_name'] + ' ' + profile['last_name'];
+        } catch (e) {
+            //console.log(e);
+        }
+    },
+
+    profileAvatar: function () {
+        try {
+            var user = Meteor.users.find({_id: this.video.owner}, {fields: {profile: 1}}).fetch();
+            var profile = user[0].profile;
+            return profile['user_avatar'];
+        } catch (e) {
+            //console.log(e);
+        }
+    }
+});
+
 

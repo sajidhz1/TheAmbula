@@ -33,14 +33,30 @@ function matchYoutubeUrl(url) {
     return false;
 }
 
+//Every time the template rendered
+Template.youtubeVideoAddForm.onRendered(function () {
+    $(document).ready(function () {
+        $('#summernote').summernote({
+            height: 150,
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']]
+            ],
+            placeholder: 'Video Description'
+        });
+    });
+
+});
+
 Template.youtubeVideoAddForm.helpers({
 
     videoTitle: function () {
         return Template.youtubeVideoAddForm.ytVideoTitle.get();
-    },
-
-    videoDesc: function () {
-        return Template.youtubeVideoAddForm.ytVideoDescription.get();
     },
 
     errors: function () {
@@ -63,25 +79,29 @@ Template.youtubeVideoAddForm.helpers({
 
 Template.youtubeVideoAddForm.events({
     'click #cancel': function () {
-        
+
     },
 
     'submit #youtubeVideoAddFormClient': function (event) {
         // Prevent default browser form submit
         event.preventDefault();
 
-        // Get value from form element
+        //Get value from form elements
         const target = event.target;
+
         const video_title = target.video_title.value;
         const video_url = target.video_url.value;
+        const recipe_category = $(target.recipe_category).val();
+
         const video_id = getYouTubeID(video_url);
-        const video_description = target.video_description.value;
+        const video_description = $('#summernote').summernote('code');
 
 
         var newYoutubeVideo = {
             videoId: video_id,
             videoTitle: video_title,
             videoUrl: video_url,
+            recipeCategory: recipe_category,
             videoDescription: video_description,
             createdAt: new Date(),
         };
@@ -98,13 +118,12 @@ Template.youtubeVideoAddForm.events({
                 // Clear form
                 target.video_title.value = '';
                 target.video_url.value = '';
-                target.video_description.value = '';
+                $('#summernote').summernote('reset');
 
                 Modal.hide('youtubeVideoAddForm');
             }
 
         });
-
     },
 
     'blur #videoUrl': function (event) {
@@ -126,6 +145,8 @@ Template.youtubeVideoAddForm.events({
 
                     Template.youtubeVideoAddForm.ytVideoTitle.set(vidData['title']);
                     Template.youtubeVideoAddForm.ytVideoDescription.set(vidData['description']);
+
+                    $('#summernote').summernote('editor.insertText', Template.youtubeVideoAddForm.ytVideoDescription.get());
 
                 }
             });

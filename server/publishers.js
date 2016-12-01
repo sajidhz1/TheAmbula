@@ -22,8 +22,12 @@ Meteor.publish("search-videos-by-owner", function (owner) {
 
 Meteor.publish("get-user-by-id", function () {
     return Meteor.users.find({}, {fields: {profile: 1}});
-
 });
 
+Meteor.publish("get-ytvideo-by-id", function (videoId) {
+    check(videoId, String);
+    
+    return YoutubeVideos.find({_id: videoId});
+})
 
 

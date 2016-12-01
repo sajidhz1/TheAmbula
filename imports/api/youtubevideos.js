@@ -27,6 +27,10 @@ Schemas.youtubevideo = new SimpleSchema({
         label: "Youtube video url",
         regEx: SimpleSchema.RegEx.Url,
     },
+    recipeCategory:{
+        type: String,
+        label: "Recipe category",
+    },
     videoDescription: {
         type: String,
         label: "Video description",
