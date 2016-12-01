@@ -373,6 +373,13 @@ body{
 }
 
 
+@media only screen and (max-width: 768px) { 
+    .xyz{
+        padding-top: 70px;
+    }
+ }
+
+
 .panel-google-plus .btn {
     border-radius: 3px;   
 }
