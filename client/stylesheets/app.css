@@ -10,6 +10,12 @@ button{
     border-radius: 0px !important;
 }
 
+.small-card-title{
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
 /* side panel style */
 #wrapper {
     margin-top: 0px;
@@ -367,6 +373,13 @@ button{
         width: auto;
     }    
 }
+
+
+@media only screen and (max-width: 768px) { 
+    .xyz{
+        padding-top: 70px;
+    }
+ }
 
 
 .panel-google-plus .btn {
