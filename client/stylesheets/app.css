@@ -3,6 +3,12 @@ body{
     background: #f5f5f5;
 }
 
+.small-card-title{
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
 /* side panel style */
 #wrapper {
     margin-top: 0px;

@@ -1,6 +1,6 @@
-import {Meteor} from 'meteor/meteor';
-import {Template} from 'meteor/templating';
-import {ReactiveDict} from 'meteor/reactive-dict';
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+import { ReactiveDict } from 'meteor/reactive-dict';
 
 import './post_tile.html';
 
@@ -29,14 +29,21 @@ Template.postTile.events({
     }
 });
 
+
+//TODO : handle profile code using the profile object
 Template.postTile.helpers({
     createdDate: function () {
         return moment(this.createdAt).format('MMMM Do YYYY, h:mm:ss a');
     },
 
     ownerProfile: function () {
-        var user = Meteor.users.find({_id: this.owner},{fields: {profile: 1}}).fetch();
+        var user = Meteor.users.find({ _id: this.owner }, { fields: { profile: 1 } }).fetch();
         var profile = user[0].profile;
         return profile['first_name'] + ' ' + profile['last_name'];
+    },
+    profileAvatar: function () {
+        var user = Meteor.users.find({ _id: this.owner }, { fields: { profile: 1 } }).fetch();
+        var profile = user[0].profile;
+        return profile['user_avatar'];
     }
 });

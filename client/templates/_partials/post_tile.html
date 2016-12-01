@@ -7,8 +7,7 @@
             <!--<h5><span>Shared publicly</span> - <span>{{ createdDate createdAt }}</span> </h5>-->
             <!--</div>-->
             <div class="mdl-card__media">
-                <a class="panel-google-plus-image"
-                   href="https://plus.google.com/photos/115077481218689845626/albums/6028961040749409985/6028961040650432498">
+                <a class="panel-google-plus-image" href="https://plus.google.com/photos/115077481218689845626/albums/6028961040749409985/6028961040650432498">
                     <div class="col-md-12 embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" src="//www.youtube.com/embed/{{videoId}}"></iframe>
                     </div>
@@ -17,27 +16,32 @@
             <a href="#">
                 <div class="mdl-card__title">
                     <div class="mdl-card__title-text">
-                        {{ videoTitle }}
+                        <span>{{ videoTitle }}</span>
+                        <div><small><span>{{createdDate}}</span></small></div>
                     </div>
                 </div>
             </a>
-            <div class="mdl-card__supporting-text">
-                <div>
-                    <img class="ytvideo-owner-thumbnail" src="/images/icons/apple-icon-76x76.png">
-                    <span><strong>{{ownerProfile}}</strong></span>
-                </div>
-                <div><span>{{createdDate}}</span></div>
-            </div>
             <div class="mdl-card__actions mdl-card--border">
-                <a id="heart" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
-                    <i class="material-icons md-18">favorite_border</i>
-                </a>
-                <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
-                    <i class="material-icons md-18">share</i>
-                </a>
-                <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
-                    <i class="material-icons">more_horiz</i>
-                </a>
+                <div class="pull-right">
+                    <a id="heart" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+                        <i class="material-icons md-18">favorite_border</i>
+                    </a>
+                    <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+                        <i class="material-icons md-18">share</i>
+                    </a>
+                    <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+                        <i class="material-icons">more_horiz</i>
+                    </a>
+                </div>
+                <div class="pull-left">
+                    {{#if profileAvatar }}                    
+                    <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150" src="{{c.url profileAvatar width=250 height=250 crop='fill'}}">
+                    {{else}}
+                    <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150" src="/images/user-avatar.jpg">
+                    {{/if}}
+                    <span><strong>{{ownerProfile}}</strong></span>
+                    
+                </div>
             </div>
         </div>
     </div>
