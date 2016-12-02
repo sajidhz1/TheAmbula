@@ -1,11 +1,6 @@
 <template name="postTile">
     <div class="col-xs-12 col-sm-8 col-md-8">
         <div class="ytvideoview-hometile-card-wide mdl-card mdl-shadow--2dp">
-            <!--<div class="panel-heading">-->
-            <!--<img class="[ img-circle pull-left ]" src="/images/icons/apple-icon-60x60.png" alt="Mouse0270" />-->
-            <!--<h3>{{ owner }}</h3>-->
-            <!--<h5><span>Shared publicly</span> - <span>{{ createdDate createdAt }}</span> </h5>-->
-            <!--</div>-->
             <div class="mdl-card__media">
                 <a class="panel-google-plus-image" href="https://plus.google.com/photos/115077481218689845626/albums/6028961040749409985/6028961040650432498">
                     <div class="col-md-12 embed-responsive embed-responsive-16by9">
@@ -13,11 +8,11 @@
                     </div>
                 </a>
             </div>
-            <a href="#">
+            <a href="/singlerecipevideoview/{{_id}}">
                 <div class="mdl-card__title">
                     <div class="mdl-card__title-text">
                         <span>{{ videoTitle }}</span>
-                        <div><small><span>{{createdDate}}</span></small></div>
+
                     </div>
                 </div>
             </a>
@@ -39,8 +34,8 @@
                     {{else}}
                     <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150" src="/images/user-avatar.jpg">
                     {{/if}}
-                    <span><strong>{{ownerProfile}}</strong></span>
-                    
+                    <span><strong>{{ownerProfile}}</strong></span><br>
+                    <span><small>{{createdDate}}</small></span>
                 </div>
             </div>
         </div>

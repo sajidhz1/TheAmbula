@@ -26,3 +26,6 @@ Bootstrap3 Modal window package added
 
 Fontawesome official icon pack added
     meteor add fortawesome:fontawesome
+
+WYSIWYG html 5 editor summernote added
+    meteor add summernote:summernote

@@ -1,6 +1,7 @@
-.modal-content{
+.modal-content {
     border-radius: 0px;
 }
+
 .form-area {
     background-color: #FAFAFA;
     padding: 10px 40px 60px;
@@ -15,12 +16,25 @@
     color: #a94442;
 }
 
+#cancel, #submit {
+    width: 135px;
+}
+
+#cancel{
+    margin-right: 5px;
+}
+
+select option:first-child {
+    color: grey;
+}
+
 /*Google Material Design Related Styles*/
-.mdl-card__title{
+.mdl-card__title {
     padding: 5px 15px 5px 15px !important;
     font-size: large;
 }
-.mdl-card__title-text{
+
+.mdl-card__title-text {
     display: inline-block !important;
 }
 
@@ -34,11 +48,11 @@
     height: auto !important;
 }
 
-.mdl-card a{
+.mdl-card a {
     text-decoration: none;
 }
 
-.ytvideo-owner-thumbnail{
+.ytvideo-owner-thumbnail {
     width: 45px;
     height: 45px;
     border-radius: 50%;
