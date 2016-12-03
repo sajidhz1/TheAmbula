@@ -1,56 +1,52 @@
 <template name="sideNav">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper" >
-            <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
-                <label >Something Here</label>
-                <!--<li class="active">
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span> Dashboard</a>
-                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                        <li><a href="#">link1</a></li>
-                        <li><a href="#">link2</a></li>
-                    </ul>
-                </li>-->
-                <!--<li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span> Shortcut</a>
-                    <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                        <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>link1</a></li>
-                        <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>link2</a></li>
- 
-                    </ul>
-                </li>-->
-                <li>
-                    <a href="/channels/Overview">
-                        <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
-                        <span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span>Overview
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+            <label id="sidenav-title" style="text-align:center;width : 100%;padding : 3px;">Recipe Channels</label>
+            {{#each users}}
+            {{#if currentUser}}
+            
+            {{#if not_equals userObject.username currentUser.username}}
+                 <li>
+                <a href="/channels/{{userObject._id}}">
+                              {{#if userObject.profile.user_avatar }}
+								<img class="img-circle" src="{{c.url userObject.profile.user_avatar width=30 height=30 crop='fill'}}">
+								{{else}}
+                                 <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
+								{{/if}}
+                           
+                            <b>{{userObject.profile.first_name}}</b>
                     </a>
                 </li>
+                {{/if}}
+            {{else}}
                 <li>
-                    <a href="/channels/Events">
-                         <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
-                         <span class="fa-stack fa-lg pull-left"><i class="fa fa-cart-plus fa-stack-1x "></i></span>Events
+                <a href="/channels/{{userObject._id}}">
+                              {{#if userObject.profile.user_avatar }}
+								<img class="img-circle" src="{{c.url userObject.profile.user_avatar width=30 height=30 crop='fill'}}">
+								{{else}}
+                                 <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
+								{{/if}}
+                           
+                            <b>{{userObject.profile.first_name}}</b>
                     </a>
                 </li>
-                <li>
-                    <a href="/channels/About">
-                        <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
-                        <span class="fa-stack fa-lg pull-left"><i class="fa fa-youtube-play fa-stack-1x "></i></span>About
-                    </a>
-                </li>
-                <li>
-                    <a href="/channels/Services">
-                        <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
-                        <span class="fa-stack fa-lg pull-left"><i class="fa fa-wrench fa-stack-1x "></i></span>Services    
-                    </a>
-                </li>
-                <li>
-                    <a href="/channels/lalalalal">
-                        <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
-                        <span class="fa-stack fa-lg pull-left"><i class="fa fa-server fa-stack-1x "></i></span>lalalalal
-                    </a>
-                </li>
-            </ul>
-        </div><!-- /#sidebar-wrapper -->
-   
-   
+            {{/if}}
+            {{/each}}
+            <li>
+                <a href="#">
+                    <img class="img-circle" src="/images/icons/apple-icon-60x60.png">
+                    About
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="img-circle" src="/images/icons/apple-icon-60x60.png">
+                    Services
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
 </template>

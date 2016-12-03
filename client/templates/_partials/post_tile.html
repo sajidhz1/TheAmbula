@@ -1,50 +1,42 @@
 <template name="postTile">
-       <div class="[ col-xs-12 col-sm-8 ]">
-            <div class="[ panel panel-default ] panel-google-plus">
-                <div class="dropdown">
-                    <span class="dropdown-toggle" type="button" data-toggle="dropdown">
-                        <span class="[ glyphicon glyphicon-chevron-down ]"></span>
-                    </span>
-                    <ul class="dropdown-menu" role="menu">
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-                        <li role="presentation" class="divider"></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-                    </ul>
+    <div class="col-xs-12 col-sm-8 col-md-8" style="margin-bottom:15px;">
+        <div class="ytvideoview-hometile-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__media">
+                <a class="panel-google-plus-image" href="https://plus.google.com/photos/115077481218689845626/albums/6028961040749409985/6028961040650432498">
+                    <div class="col-md-12 embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="//www.youtube.com/embed/{{videoId}}"></iframe>
+                    </div>
+                </a>
+            </div>
+            <a href="/recipe/{{_id}}">
+                <div class="mdl-card__title">
+                    <div class="mdl-card__title-text">
+                        <span>{{ videoTitle }}</span>
+                    </div>
                 </div>
-                <div class="panel-google-plus-tags">
-                    <ul>
-                        <li>#Snippet</li>
-                    </ul>
+                <div style="margin-left:15px;color:#333;">
+                    <span><small>{{createdDate}}</small></span>
                 </div>
-                <div class="panel-heading">
-                    <img class="[ img-circle pull-left ]" src="https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg" alt="Mouse0270" />
-                    <h3>Robert McIntosh</h3>
-                    <h5><span>Shared publicly</span> - <span>Jun 25, 2014</span> </h5>
-                </div>
-                <div class="panel-body">
-                    <p>Just created a new snippet inspired by the Svbtle Menu. Find it here: <a href="http://bootsnipp.com/snippets/MaWrA">http://bootsnipp.com/snippets/MaWrA</a></p>
-                    <a class="panel-google-plus-image" href="https://plus.google.com/photos/115077481218689845626/albums/6028961040749409985/6028961040650432498">
-                        <!--<img src="https://lh4.googleusercontent.com/-6oO7re5XALY/U6ssH6ijb_I/AAAAAAAAARQ/CeqYilQH7dI/w426-h428/svbtle-inspired-menu.PNG" />-->
+            </a>
+            <div class="mdl-card__actions mdl-card--border">
+                <div class="pull-right">
+                    <a id="heart" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+                        <i class="material-icons md-18">favorite_border</i>
+                    </a>
+                    <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+                        <i class="material-icons md-18">share</i>
+                    </a>
+                    <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+                        <i class="material-icons">more_horiz</i>
                     </a>
                 </div>
-                <div class="panel-footer">
-                    <button type="button" class="[ btn btn-default ]">+1</button>
-                    <button type="button" class="[ btn btn-default ]">
-                        <span class="[ glyphicon glyphicon-share-alt ]"></span>
-                    </button>
-                    <div class="input-placeholder">Add a comment...</div>
-                </div>
-                <div class="panel-google-plus-comment">
-                    <img class="img-circle" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="User Image" />
-                    <div class="panel-google-plus-textarea">
-                        <textarea rows="4"></textarea>
-                        <button type="submit" class="[ btn btn-success disabled ]">Post comment</button>
-                        <button type="reset" class="[ btn btn-default ]">Cancel</button>
-                    </div>
-                    <div class="clearfix"></div>
+                <div class="pull-left">
+                    {{#if profileAvatar }}
+                    <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150" src="{{c.url profileAvatar width=250 height=250 crop='fill'}}">                    {{else}}
+                    <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150" src="/images/user-avatar.jpg">                    {{/if}}
+                    <span><strong>{{ownerProfile}}</strong></span><br>
                 </div>
             </div>
         </div>
+    </div>
 </template>

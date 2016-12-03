@@ -32,4 +32,37 @@ Template.nav.events({
     $('#menu ul').hide();
   }
 });
-  //  $(document).ready(function() {});
+
+
+Template.sideNav.onCreated(function () {
+  this.distinct = new ReactiveVar();
+  Meteor.call('usersHasVideos', (error, result) => {
+    if (error) {
+      console.log(error);
+    } else {
+      Meteor.call('getUserObjects' ,result , (error, result) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(result);
+          this.distinct.set(result); // save result when we get it
+        }
+      });
+    }
+  });
+});
+
+Template.sideNav.helpers({
+  users: function () {
+    const userNames = Template.instance().distinct.get();
+    // turn our array of project values into an array of {project: project}
+    return _.map(userNames, userObject => {
+
+      return { userObject }
+    });
+  }
+});
+
+Template.registerHelper('not_equals', function (a, b) {
+      return a !== b;
+    });

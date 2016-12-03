@@ -26,7 +26,11 @@ Template.userProfile.events({
       console.log("Upload Error: " + err);
       console.log("Upload Result: " + res.public_id);
 
-      Meteor.users.update(Meteor.userId(), {$set: {"profile.user_avatar": res.public_id}});
+      Meteor.users.update(Meteor.userId(), { $set: { "profile.user_avatar": res.public_id } });
+
+      $('#inputArea').show();
+      $('#saveButton').hide();
+      $('#cancelButton').hide();
     });
   },
 
@@ -35,8 +39,8 @@ Template.userProfile.events({
     var reader = new FileReader();
     var file = $('#userimage')[0].files[0]
     reader.onload = function (e) {
-        // get loaded data and render thumbnail.
-        document.getElementById("profPic").src = e.target.result;
+      // get loaded data and render thumbnail.
+      document.getElementById("profPic").src = e.target.result;
     };
     // read the image file as a data URL.
     reader.readAsDataURL(file);
@@ -45,5 +49,38 @@ Template.userProfile.events({
     $('#inputArea').hide();
     $('#saveButton').show();
     $('#cancelButton').show();
+  },
+  'click #editButton' : function(){
+    Router.go('/editProfile');
   }
+});
+
+
+var trimInput = function (val) {
+  return val.replace(/^\s*|\s*$/g, "");
+}
+
+
+Template.profileEdit.events({
+  'submit #editProfile': function (e) {
+    e.preventDefault();
+    
+
+    Meteor.users.update(Meteor.userId(), {
+      $set: {
+        "profile.first_name": trimInput(e.target.first_name.value),
+        "profile.last_name": trimInput(e.target.last_name.value),
+        "profile.description": trimInput(e.target.description.value),
+        "profile.facebook_url": trimInput(e.target.facebook_url.value),
+        "profile.youtube_url": trimInput(e.target.youtube_url.value),
+        "profile.website_url": trimInput(e.target.website_url.value)
+      }
+    });
+  }
+});
+
+Template.userProfile.helpers({
+  checkAvatarExists : function(){
+     return Meteor.user().profile.user_avatar;
+  } 
 });

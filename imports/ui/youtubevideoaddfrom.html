@@ -1,0 +1,79 @@
+<template name="youtubeVideoAddForm">
+    <div id="ytVideoAddModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body row">
+                    <div class="col-md-12">
+                        <div class="form-area">
+                            <form role="form" id="youtubeVideoAddFormClient">
+                                <br style="clear:both">
+                                <h4 style="margin-bottom: 25px; text-align: center;">Share Your Recipe Video From
+                                    Youtube</h4>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="videoUrl" name="video_url"
+                                           placeholder="Youtube Video Link">
+                                    <p class="help-block with-errors">
+                                        {{#each errors}}
+                                            {{#if equals 'videoUrl' field}}
+                                                {{message}}
+                                            {{/if}}
+                                        {{/each}}
+                                    </p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="videoTitle" name="video_title"
+                                           placeholder="Video Title" value="{{videoTitle}}">
+                                    <p class="help-block with-errors">
+                                        {{#each errors}}
+                                            {{#if equals 'videoTitle' field}}
+                                                {{message}}
+                                            {{/if}}
+                                        {{/each}}
+                                    </p>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="recipeCategory" name="recipe_category">
+                                        <option value="" disabled selected>Select a category</option>
+                                        <option value="breakfast">Breakfast</option>
+                                        <option value="lunch">Lunch</option>
+                                        <option value="dinner">Dinner</option>
+                                        <option value="beverage">Beverage</option>
+                                        <option value="dessert">Dessert</option>
+                                    </select>
+                                    <p class="help-block with-errors">
+                                        {{#each errors}}
+                                            {{#if equals 'recipeCategory' field}}
+                                                {{message}}
+                                            {{/if}}
+                                        {{/each}}
+                                    </p>
+                                </div>
+                                <div class="form-group">
+                                    <div id="summernote" class="form-control"></div>
+                                    <span class="help-block with-errors">
+                                        {{#each errors}}
+                                            {{#if equals 'videoDescription' field}}
+                                                {{message}}
+                                            {{/if}}
+                                        {{/each}}
+                                    </span>
+                                </div>
+                                <div class="form-group pull-right">
+                                    <button type="button" id="cancel"
+                                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                                            data-dismiss="modal">
+                                        Cancel
+                                    </button>
+                                    <button type="submit" id="submit" name="submit"
+                                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                                        Submit Recipe
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
