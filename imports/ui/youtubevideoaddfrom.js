@@ -121,6 +121,7 @@ Template.youtubeVideoAddForm.events({
                 $('#summernote').summernote('reset');
 
                 Modal.hide('youtubeVideoAddForm');
+                sAlert.success('Successfully Added !');
             }
 
         });
