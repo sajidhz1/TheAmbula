@@ -1,10 +1,10 @@
 <template name="registration">
 	<div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 		{{> flashMessages}}
-		<div class="panel panel-danger">
+		<div class="panel panel-custom">
 			<div class="panel-heading">
 				<div class="panel-title">Sign Up</div>
-				<div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="/login">Sign In</a></div>
+				<div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" class="links" href="/login">Sign In</a></div>
 			</div>
 			<div class="panel-body">
 				<form id="signupform" class="form-horizontal" role="form">
@@ -56,7 +56,7 @@
 					<div class="form-group">
 						<!-- Button -->
 						<div class="col-md-offset-3 col-md-9">
-							<button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> Sign Up</button>
+							<button id="btn-signup" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"><i class="icon-hand-right"></i>submit</button>
 							<!--<span style="margin-left:8px;">or</span>-->
 						</div>
 					</div>
@@ -64,7 +64,7 @@
 					<div style="border-top: 1px solid #999; padding-top:20px" class="form-group">
 
 						<div class="col-md-offset-2 col-md-9">
-							<button id="btn-fbsignup" type="button" class="btn btn-primary btnfb"><i class="icon-facebook"></i>   Sign Up with Facebook</button>
+							<button id="btn-fbsignup" type="button" class="btn btn-primary btnfb "><i class="icon-facebook"></i>   Sign Up with Facebook</button>
 							<button id="btn-fbsignup" type="button" class="btn btn-danger btngoogle"><i class="icon-facebook"></i>   Sign Up with Google</button>
 						</div>
 						</div>
