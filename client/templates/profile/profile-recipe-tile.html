@@ -1,0 +1,35 @@
+<template name="profileRecipeTile">
+    <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="ytvideoview-hometile-card-wide mdl-card mdl-shadow--2dp">
+            <!--<div class="panel-heading">-->
+            <!--<img class="[ img-circle pull-left ]" src="/images/icons/apple-icon-60x60.png" alt="Mouse0270" />-->
+            <!--<h3>{{ owner }}</h3>-->
+            <!--<h5><span>Shared publicly</span> - <span>{{ createdDate createdAt }}</span> </h5>-->
+            <!--</div>-->
+            <a href="/recipe/{{_id}}">
+                <div class="mdl-card__title">
+                    <div class="mdl-card__title-text">
+                        <h6><span class="small-card-title">{{ videoTitle }}</span></h6>
+                        <div><small><span>{{createdDate}}</span></small></div>
+                    </div>
+                </div>
+            </a>
+            <div class="mdl-card__media" >
+                    <img src="https://img.youtube.com/vi/{{videoId}}/mqdefault.jpg" style="width : 100%;" />
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <div class="pull-right">
+                    <a id="heart" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+                        <i class="material-icons md-18">favorite_border</i>
+                    </a>
+                    <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+                        <i class="material-icons md-18">share</i>
+                    </a>
+                    <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+                        <i class="material-icons">more_horiz</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
