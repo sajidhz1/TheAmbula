@@ -65,17 +65,20 @@ Template.profileEdit.events({
   'submit #editProfile': function (e) {
     e.preventDefault();
     
+    var description  = $('#userDescription').summernote('code');
 
     Meteor.users.update(Meteor.userId(), {
       $set: {
         "profile.first_name": trimInput(e.target.first_name.value),
         "profile.last_name": trimInput(e.target.last_name.value),
-        "profile.description": trimInput(e.target.description.value),
+        "profile.description": trimInput(description),
         "profile.facebook_url": trimInput(e.target.facebook_url.value),
         "profile.youtube_url": trimInput(e.target.youtube_url.value),
         "profile.website_url": trimInput(e.target.website_url.value)
       }
     });
+
+     sAlert.success('Successfully Updated !');
   }
 });
 
@@ -83,4 +86,25 @@ Template.userProfile.helpers({
   checkAvatarExists : function(){
      return Meteor.user().profile.user_avatar;
   } 
+});
+
+//profile edit function
+Template.profileEdit.onRendered(function () {
+    $(document).ready(function () {
+        $('#userDescription').summernote({
+            height: 150,
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']]
+            ],
+            placeholder: 'User Description'
+        });
+
+    });
+     $('#userDescription').summernote('editor.insertText', Meteor.user().profile.description);
 });
