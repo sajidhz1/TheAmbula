@@ -16,8 +16,8 @@
     color: #a94442;
 }
 
-#cancel, #submit {
-    width: 135px;
+#cancel, #submit, #deleteBtn , #cancelBtn{
+    width: 10em;
 }
 
 #cancel{

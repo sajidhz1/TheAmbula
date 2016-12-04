@@ -69,6 +69,7 @@ Template.youtubeVideoAddForm.helpers({
         }).map(function (data) {
             return {field: data.name, message: context.keyErrorMessage(data.name)}
         });
+
     },
 
     equals: function (v1, v2) {
@@ -79,7 +80,9 @@ Template.youtubeVideoAddForm.helpers({
 
 Template.youtubeVideoAddForm.events({
     'click #cancel': function () {
-
+        Template.youtubeVideoAddForm.ytVideoTitle.set(null);
+        Template.youtubeVideoAddForm.ytVideoDescription.set(null);
+        $('#summernote').summernote('reset');
     },
 
     'submit #youtubeVideoAddFormClient': function (event) {
@@ -106,23 +109,29 @@ Template.youtubeVideoAddForm.events({
             createdAt: new Date(),
         };
 
-        // Insert a youtubevideo into the collection
-        Meteor.call('youtubevideos.insert', newYoutubeVideo, function (error, result) {
+        Meteor.call('youtubevideos.exist',video_id, function (error,result) {
+            if(!result){
+                // Insert a youtubevideo into the collection
+                Meteor.call('youtubevideos.insert', newYoutubeVideo, function (error, result) {
 
-            if (error) {
-                //console.log(error);
-            } else {
-                Template.youtubeVideoAddForm.ytVideoTitle.set(null);
-                Template.youtubeVideoAddForm.ytVideoDescription.set(null);
+                    if (error) {
+                        //console.log(error);
+                    } else {
+                        Template.youtubeVideoAddForm.ytVideoTitle.set(null);
+                        Template.youtubeVideoAddForm.ytVideoDescription.set(null);
 
-                // Clear form
-                target.video_title.value = '';
-                target.video_url.value = '';
-                $('#summernote').summernote('reset');
+                        // Clear form
+                        target.video_title.value = '';
+                        target.video_url.value = '';
+                        $('#summernote').summernote('reset');
 
-                Modal.hide('youtubeVideoAddForm');
+                        Modal.hide('youtubeVideoAddForm');
+                    }
+
+                });
+            }else{
+                FlashMessages.sendError('This video already exist in theambula.lk, Please try a new one');
             }
-
         });
     },
 
@@ -133,25 +142,33 @@ Template.youtubeVideoAddForm.events({
         if (matchYoutubeUrl(video_url)) {
             var video_id = getYouTubeID(video_url);
 
-            Meteor.call('getWithParameter', video_id, function (error, response) {
-                if (error) {
-                    // If our API returned an error, we'd see it in the console.
-                    console.log(error);
-                } else {
-                    Template.youtubeVideoAddForm.apiData.set(response);
+            Meteor.call('youtubevideos.exist',video_id, function (error,result) {
+                if(!result){
+                    Meteor.call('getWithParameter', video_id, function (error, response) {
+                        if (error) {
+                            // If our API returned an error, we'd see it in the console.
+                            console.log(error);
+                        } else {
+                            Template.youtubeVideoAddForm.apiData.set(response);
 
-                    var responseData = Template.youtubeVideoAddForm.apiData.get();
-                    var vidData = responseData['data']['items'][0]['snippet'];
+                            var responseData = Template.youtubeVideoAddForm.apiData.get();
+                            var vidData = responseData['data']['items'][0]['snippet'];
 
-                    Template.youtubeVideoAddForm.ytVideoTitle.set(vidData['title']);
-                    Template.youtubeVideoAddForm.ytVideoDescription.set(vidData['description']);
+                            Template.youtubeVideoAddForm.ytVideoTitle.set(vidData['title']);
+                            Template.youtubeVideoAddForm.ytVideoDescription.set(vidData['description']);
 
-                    $('#summernote').summernote('editor.insertText', Template.youtubeVideoAddForm.ytVideoDescription.get());
+                            $('#summernote').summernote('editor.insertText', Template.youtubeVideoAddForm.ytVideoDescription.get());
 
+                        }
+                    });
+                }else{
+                    FlashMessages.sendError('This video already exist in theambula.lk, Please try a new one');
                 }
             });
-
         } else {
+            Template.youtubeVideoAddForm.ytVideoTitle.set(null);
+            Template.youtubeVideoAddForm.ytVideoDescription.set(null);
+            $('#summernote').summernote('reset');
             return false;
         }
     },

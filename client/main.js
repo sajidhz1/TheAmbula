@@ -4,3 +4,4 @@
 import '../imports/ui/youtubevideoaddfrom.js';
 import '../imports/ui/youtubevideoviewcomponent.js';
 import '../imports/ui/itemerrors.js'
+import '../imports/ui/confirmation_dialog/recipedeleteconfirmbox.js'

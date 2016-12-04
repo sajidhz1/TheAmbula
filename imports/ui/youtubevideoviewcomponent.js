@@ -83,7 +83,23 @@ Template.youtubeVideoViewComp.helpers({
         } catch (e) {
             //console.log(e);
         }
+    },
+
+    isOwner: function () {
+        return this.video.owner === Meteor.userId();
     }
 });
 
+Template.youtubeVideoViewComp.events({
+    'click .single-view-dlete': function (event) {
+
+        event.preventDefault();
+
+        Modal.show('recipeDeleteConfirmBox', {
+            videoIdToDelete: this.video._id,
+            videoOwner: this.video.owner
+        });
+        
+    },
+});
 
