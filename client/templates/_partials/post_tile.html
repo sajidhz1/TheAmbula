@@ -1,5 +1,5 @@
 <template name="postTile">
-    <div class="col-xs-12 col-sm-8 col-md-8">
+    <div class="col-xs-12 col-sm-8 col-md-8" style="margin-bottom:15px;">
         <div class="ytvideoview-hometile-card-wide mdl-card mdl-shadow--2dp">
             <div class="mdl-card__media">
                 <a class="panel-google-plus-image"
@@ -9,12 +9,14 @@
                     </div>
                 </a>
             </div>
-            <a href="/singlerecipevideoview/{{_id}}">
+            <a href="/recipe/{{_id}}">
                 <div class="mdl-card__title">
                     <div class="mdl-card__title-text">
                         <span>{{ videoTitle }}</span>
-
                     </div>
+                </div>
+                <div style="margin-left:15px;color:#333;">
+                    <span><small>{{createdDate}}</small></span>
                 </div>
             </a>
             <div class="mdl-card__actions mdl-card--border">
@@ -53,7 +55,6 @@
                              src="/images/user-avatar.jpg">
                     {{/if}}
                     <span><strong>{{ownerProfile}}</strong></span><br>
-                    <span><small>{{createdDate}}</small></span>
                 </div>
             </div>
         </div>

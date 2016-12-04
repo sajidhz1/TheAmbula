@@ -2,7 +2,7 @@ Template.loading.rendered = function () {
   if ( ! Session.get('loadingSplash') ) {
     this.loading = window.pleaseWait({
       logo: 'images/icons/favicon-96x96.png',
-      backgroundColor: '#795548',
+      backgroundColor: ' #efebe9',
       loadingHtml: message + spinner
     });
     Session.set('loadingSplash', true); // just show loading splash once

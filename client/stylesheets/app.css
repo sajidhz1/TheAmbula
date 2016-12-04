@@ -69,6 +69,7 @@ button{
 }
 /* Sidebar Styles */
 .img-circle {
+        border : 1px solid #fff;
         border-radius: 50%;
         height: 30px;
         width: 30px;
@@ -379,6 +380,9 @@ button{
     .xyz{
         padding-top: 70px;
     }
+    #sidenav-title{
+       padding-top: 70px !important;
+    }
  }
 
 
@@ -396,3 +400,13 @@ button{
     border-color: rgb(0, 0, 0);    
 }
 
+/* login styles */
+.panel-custom > .panel-heading {
+  color: #3e2723 !important;
+  background-color: #d7ccc8 !important;
+  border-color: #4e342e !important;
+}
+
+.links{
+    color : #3e2723;
+}

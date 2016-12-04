@@ -62,3 +62,7 @@ Template.sideNav.helpers({
     });
   }
 });
+
+Template.registerHelper('not_equals', function (a, b) {
+      return a !== b;
+    });

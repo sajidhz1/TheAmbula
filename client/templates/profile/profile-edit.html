@@ -1,13 +1,13 @@
 <template name="profileEdit">
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         {{> flashMessages}}
-        <div class="panel panel-danger">
+        <div class="panel panel-custom">
             <div class="panel-heading">
                 <div class="panel-title">User Details</div>
             </div>
 
             <div style="padding-top:30px" class="panel-body">
-                <div class="col-md-12 col-md-offset-4 col-xs-12 column">
+                <!--<div class="col-md-12 col-md-offset-4 col-xs-12 column" style="margin-bottom: 25px;">
                     <form>
                         <img id="profPic" width="150" height="150" src="{{c.url currentUser.profile.user_avatar width=250 height=250 crop='fill'}}">
                         <div class="row">
@@ -22,43 +22,58 @@
 							</div>
 						</div>																
                     </form>
-		     	</div>         
+		     	</div>         -->
                 
-                <form id="editProfile" class="form-horizontal" role="form">
-                    <div class="form-group">
-                    </div>
-                    <div class="col-sm-6">
+                <form id="editProfile" class="form-horizontal" role="form" >
+                    <div class="form-group" >
+                         <div class="col-sm-6">
+                            <label for="first_name">First name</label>
                         <div style="margin-bottom: 25px" class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <!--<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>-->
                             <input id="login-username" type="text" class="form-control" value="{{currentUser.profile.first_name}}" name="first_name"  placeholder="first name">
                         </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div style="margin-bottom: 25px" class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="login-password" type="text" class="form-control" value="{{currentUser.profile.last_name}}" name="last_name" placeholder="last name">
+                                    </div>
+                        <div class="col-sm-6">
+                            <label for="last_name">Last name</label>
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <!--<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>-->
+                                <input id="login-password" type="text" class="form-control" value="{{currentUser.profile.last_name}}" name="last_name" placeholder="last name">
+                            </div>
                         </div>
                     </div>
-                    <div style="margin-bottom: 35px;margin-top : 15px;" class="">
-                        <textarea id="login-password" rows="4" style="width :100%"  class="form-control" name="description" placeholder="About yourself / Organization">
+                   
+                    <div style="margin-bottom: 35px;margin-top : 15px;" class="input-group">
+                        <label for="description">Description</label>
+                         <div id="userDescription" class="form-control"></div>
+                        
+                        <!--<textarea id="login-password" rows="4" style="width :100%"  class="form-control" name="description" placeholder="About yourself / Organization">
                         {{currentUser.profile.description}}
-                        </textarea>
+                        </textarea>-->
                     </div>
-                    <div style="margin-bottom: 25px" class="input-group">
-                        <span class="input-group-addon"><i style="color: #3b5998" class="fa pull-left fa-facebook fa-lg"></i></span>
+                    <div style="margin-bottom: 25px" >
+                        <label for="description">Facebook url</label>
+                        <div class="col-sm-10 input-group" >
+                             <span class="input-group-addon"><i style="color: #3b5998" class="fa pull-left fa-facebook fa-lg"></i></span>
                         <input id="login-password" type="text" class="form-control" value="{{currentUser.profile.facebook_url}}" name="facebook_url" placeholder="facebook page">
+                        </div>
                     </div>
-                    <div style="margin-bottom: 25px" class="input-group">
-                        <span class="input-group-addon"><i style="color: #b31217;" class="fa pull-left fa-youtube fa-lg"></i></span>
-                        <input id="login-password" type="text" class="form-control" name="youtube_url" placeholder="youtube channel">
+                    <div style="margin-bottom: 25px" >
+                         <label for="description">Youtube url</label>
+                        <div class="col-sm-10 input-group">
+                            <span class="input-group-addon"><i style="color: #b31217;" class="fa pull-left fa-youtube fa-lg"></i></span>
+                            <input id="login-password" type="text" class="form-control" name="youtube_url" placeholder="youtube channel">
+                        </div>
                     </div>
-                    <div style="margin-bottom: 25px" class="input-group">
-                        <span class="input-group-addon"><i  class="fa pull-left fa-globe fa-lg"></i></span>
-                        <input id="login-password" type="text" class="form-control" name="website_url" placeholder="website url">
+                    <div style="margin-bottom: 25px" >
+                        <label for="description">Website url</label>
+                        <div class="col-sm-10 input-group">
+                            <span class="input-group-addon"><i  class="fa pull-left fa-globe fa-lg"></i></span>
+                             <input id="login-password" type="text" class="form-control" name="website_url" placeholder="website url">
+                        </div>
                     </div>
                      <div style="margin-bottom: 25px;margin-top:50px;" class="input-group col-md-offset-4">
-                        <button class="btn btn-success" type="submit">Save</button>
-                        <button class="btn btn-danger" type="button">Reset</button>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" type="submit">Save</button>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button">Reset</button>
                     </div>
                 </form>
 

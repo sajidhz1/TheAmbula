@@ -25,8 +25,12 @@ Template.nav.helpers({
 Template.nav.events({
     'click #addNewYtVideo': function (e) {
         e.preventDefault();
-
-        Modal.show('youtubeVideoAddForm');
+        if(Meteor.user()){
+             Modal.show('youtubeVideoAddForm');
+        }else{
+            Router.go('/login');
+        }
+       
     },
     'click #logout' : function(e){
       Meteor.logout(function(err){

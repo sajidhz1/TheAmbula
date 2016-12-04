@@ -109,8 +109,8 @@ Template.youtubeVideoAddForm.events({
             createdAt: new Date(),
         };
 
-        Meteor.call('youtubevideos.exist',video_id, function (error,result) {
-            if(!result){
+        Meteor.call('youtubevideos.exist', video_id, function (error, result) {
+            if (!result) {
                 // Insert a youtubevideo into the collection
                 Meteor.call('youtubevideos.insert', newYoutubeVideo, function (error, result) {
 
@@ -124,12 +124,13 @@ Template.youtubeVideoAddForm.events({
                         target.video_title.value = '';
                         target.video_url.value = '';
                         $('#summernote').summernote('reset');
-
+                        
                         Modal.hide('youtubeVideoAddForm');
+                        sAlert.success('Successfully Added !');
                     }
 
                 });
-            }else{
+            } else {
                 FlashMessages.sendError('This video already exist in theambula.lk, Please try a new one');
             }
         });
@@ -142,8 +143,8 @@ Template.youtubeVideoAddForm.events({
         if (matchYoutubeUrl(video_url)) {
             var video_id = getYouTubeID(video_url);
 
-            Meteor.call('youtubevideos.exist',video_id, function (error,result) {
-                if(!result){
+            Meteor.call('youtubevideos.exist', video_id, function (error, result) {
+                if (!result) {
                     Meteor.call('getWithParameter', video_id, function (error, response) {
                         if (error) {
                             // If our API returned an error, we'd see it in the console.
@@ -161,7 +162,7 @@ Template.youtubeVideoAddForm.events({
 
                         }
                     });
-                }else{
+                } else {
                     FlashMessages.sendError('This video already exist in theambula.lk, Please try a new one');
                 }
             });

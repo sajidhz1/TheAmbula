@@ -1,10 +1,10 @@
 <template name="login">
 	<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 		{{> flashMessages}}
-		<div class="panel panel-danger">
+		<div class="panel panel-custom">
 			<div class="panel-heading">
 				<div class="panel-title">Sign In</div>
-				<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
+				<div style="float:right; font-size: 1.1em; position: relative; top:-10px"></div>
 			</div>
 
 			<div style="padding-top:30px" class="panel-body">
@@ -32,29 +32,35 @@
 					</div>
 
 
-					<div style="margin-top:10px" class="form-group">
+					<div style="margin-top:17px" class="form-group">
 						<!-- Button -->
 
 						<div class="col-sm-12 controls">
-							<button   class="btn btn-success" type="submit" >login</button>
-							<button  class="btn btn-primary btnfb"  type="button">Login with Facebook</button>
-                            <button  class="btn btn-danger btngoogle"  type="button" >Login with Google</button>
+							<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" type="submit">login</button>
+							<button class="btn btn-primary btnfb col-sm-offset-3" type="button">Login with Facebook</button>
+							<button class="btn btn-danger btngoogle" type="button">Login with Google</button>
 						</div>
 					</div>
 
 
 					<div class="form-group">
-						<div class="col-md-12 control">
-							<div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
-								Don't have an account!
-								<a href="/registration" >
+						<div style="border-top: 1px solid#888; margin-top:25px; font-size:85%;background:#d7ccc8;">
+							<div class="col-md-6 control">
+								<h6>Don't have an account ?</h6>
+								<a href="/registration" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
                                             Sign Up Here
+                                </a>
+							</div>
+							<div class="col-md-6 control">
+								<h6>Problems Signing in ?</h6>
+								<a href="/registration" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                                            Reset password
                                 </a>
 							</div>
 						</div>
 					</div>
 				</form>
-							
+
 
 
 			</div>
