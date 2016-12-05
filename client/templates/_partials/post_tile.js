@@ -1,14 +1,13 @@
-import { Meteor } from 'meteor/meteor';
-import { Template } from 'meteor/templating';
-import { ReactiveDict } from 'meteor/reactive-dict';
+import {Meteor} from 'meteor/meteor';
+import {Template} from 'meteor/templating';
+import {ReactiveDict} from 'meteor/reactive-dict';
 
 import './post_tile.html';
 
 Template.postTile.onCreated(function bodyOnCreated() {
 
-    var instance = this;
-
     Meteor.subscribe('get-user-by-id');
+
 });
 
 
@@ -19,13 +18,14 @@ Template.postTile.events({
 });
 
 Template.postTile.events({
-    'keyup .panel-google-plus-comment > .panel-google-plus-textarea > textarea': function (e) {
-        var $comment = $(this).closest('.panel-google-plus-comment');
+    'click .post-tile-view-dlete': function (event) {
 
-        $comment.find('button[type="submit"]').addClass('disabled');
-        if ($(this).val().length >= 1) {
-            $comment.find('button[type="submit"]').removeClass('disabled');
-        }
+        event.preventDefault();
+
+        Modal.show('recipeDeleteConfirmBox', {
+            videoIdToDelete: this._id,
+            videoOwner: this.owner
+        });
     }
 });
 
@@ -38,16 +38,24 @@ Template.postTile.helpers({
 
     ownerProfile: function () {
         try {
-            var user = Meteor.users.find({_id: this.owner},{fields: {profile: 1}}).fetch();
+            var user = Meteor.users.find({_id: this.owner}, {fields: {profile: 1}}).fetch();
             var profile = user[0].profile;
             return profile['first_name'] + ' ' + profile['last_name'];
-        }catch (e){
+        } catch (e) {
             //console.log(e);
         }
     },
     profileAvatar: function () {
-        var user = Meteor.users.find({ _id: this.owner }, { fields: { profile: 1 } }).fetch();
-        var profile = user[0].profile;
-        return profile['user_avatar'];
+        try {
+            var user = Meteor.users.find({_id: this.owner}, {fields: {profile: 1}}).fetch();
+            var profile = user[0].profile;
+            return profile['user_avatar'];
+        } catch (e) {
+            //console.log(e);
+        }
+    },
+
+    isOwner: function () {
+        return this.owner === Meteor.userId();
     }
 });
