@@ -57,3 +57,7 @@ select option:first-child {
     height: 45px;
     border-radius: 50%;
 }
+
+.dropdown-menu .divider{
+    margin: 4px 0px !important;
+}

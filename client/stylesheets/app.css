@@ -1,21 +1,22 @@
 /* googleplus look alike post */
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
 
-body{
+body {
     padding-top: 50px;
     background: #f5f5f5;
 }
 
-button{
+button {
     border-radius: 0px !important;
 }
 
-.small-card-title{
-  width: 250px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; 
+.small-card-title {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
 /* side panel style */
 #wrapper {
     margin-top: 0px;
@@ -25,17 +26,17 @@ button{
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
     overflow: hidden;
-    
+
 }
- 
+
 #wrapper.toggled {
     padding-left: 200px;
     overflow: scroll;
 }
- 
+
 #sidebar-wrapper {
     z-index: 1000;
-    position: fixed; 
+    position: fixed;
     left: 200px;
     width: 0;
     height: 100%;
@@ -47,33 +48,39 @@ button{
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
+
 #wrapper.toggled #sidebar-wrapper {
     width: 200px;
 }
- 
+
 #page-content-wrapper {
     position: absolute;
     padding: 15px;
-    width: 100%;  
-    overflow-x: hidden; 
+    width: 100%;
+    overflow-x: hidden;
 }
-.xyz{
+
+.xyz {
     min-width: 360px;
 }
+
 #wrapper.toggled #page-content-wrapper {
     position: relative;
-    margin-right: 0px; 
+    margin-right: 0px;
 }
-.fixed-brand{
+
+.fixed-brand {
     width: auto;
 }
+
 /* Sidebar Styles */
 .img-circle {
-        border : 1px solid #fff;
-        border-radius: 50%;
-        height: 30px;
-        width: 30px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
 }
+
 .sidebar-nav {
     position: absolute;
     top: 0;
@@ -83,76 +90,80 @@ button{
     list-style: none;
     margin-top: 2px;
 }
- 
+
 .sidebar-nav li {
     text-indent: 15px;
     line-height: 40px;
 }
- 
+
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
     color: #000;
     background: #e0e0e0;
 }
- 
+
 .sidebar-nav li a:hover {
     text-decoration: none;
     color: #fff;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.2);
     border-left: red 2px solid;
 }
- 
+
 .sidebar-nav li a:active,
 .sidebar-nav li a:focus {
     text-decoration: none;
 }
- 
+
 .sidebar-nav > .sidebar-brand {
     height: 65px;
     font-size: 18px;
     line-height: 60px;
 }
- 
+
 .sidebar-nav > .sidebar-brand a {
     color: #999999;
 }
- 
+
 .sidebar-nav > .sidebar-brand a:hover {
     color: #fff;
     background: none;
 }
-.no-margin{
-    margin:0;
+
+.no-margin {
+    margin: 0;
 }
- 
-@media(min-width:768px) {
+
+@media (min-width: 768px) {
     #wrapper {
         padding-left: 200px;
-        
+
     }
-    .fixed-brand{
+
+    .fixed-brand {
         width: 200px;
     }
+
     #wrapper.toggled {
         padding-left: 0;
     }
- 
+
     #sidebar-wrapper {
         width: 200px;
     }
- 
+
     #wrapper.toggled #sidebar-wrapper {
         width: 200px;
     }
+
     #wrapper.toggled-2 #sidebar-wrapper {
         width: 50px;
     }
+
     #wrapper.toggled-2 #sidebar-wrapper:hover {
         width: 200px;
     }
- 
- 
+
     #page-content-wrapper {
         padding: 20px;
         position: relative;
@@ -161,12 +172,13 @@ button{
         -o-transition: all 0.5s ease;
         transition: all 0.5s ease;
     }
- 
+
     #wrapper.toggled #page-content-wrapper {
         position: relative;
         margin-right: 0;
         padding-left: 200px;
     }
+
     #wrapper.toggled-2 #page-content-wrapper {
         position: relative;
         margin-right: 0;
@@ -176,43 +188,44 @@ button{
         -o-transition: all 0.5s ease;
         transition: all 0.5s ease;
         width: auto;
- 
+
     }
 }
+
 /* 404 not found template */
 
 .error {
-  margin: 0 auto;
-  text-align: center;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .error-code {
-  bottom: 60%;
-  color: #2d353c;
-  font-size: 96px;
-  line-height: 100px;
+    bottom: 60%;
+    color: #2d353c;
+    font-size: 96px;
+    line-height: 100px;
 }
 
 .error-desc {
-  font-size: 12px;
-  color: #647788;
+    font-size: 12px;
+    color: #647788;
 }
 
 .m-b-10 {
-  margin-bottom: 10px!important;
+    margin-bottom: 10px !important;
 }
 
 .m-b-20 {
-  margin-bottom: 20px!important;
+    margin-bottom: 20px !important;
 }
 
 .m-t-20 {
-  margin-top: 20px!important;
+    margin-top: 20px !important;
 }
 
 /*loading spinner */
 .sk-spinner-rotating-plane.sk-spinner {
-  background-color: #fff;
+    background-color: #fff;
 }
 
 .panel-google-plus {
@@ -221,33 +234,40 @@ button{
     border: 1px solid rgb(216, 216, 216);
     font-family: 'Roboto', sans-serif;
 }
+
 .panel-google-plus > .dropdown {
     position: absolute;
     top: 5px;
     right: 15px;
 }
+
 .panel-google-plus > .dropdown > span > span {
-    font-size: 10px;   
+    font-size: 10px;
 }
+
 .panel-google-plus > .dropdown > .dropdown-menu {
     left: initial;
     right: 0px;
     border-radius: 2px;
 }
+
 .panel-google-plus > .panel-google-plus-tags {
     position: absolute;
     top: 35px;
     right: -3px;
 }
+
 .panel-google-plus > .panel-google-plus-tags > ul {
     list-style: none;
     padding: 0px;
     margin: 0px;
 }
+
 .panel-google-plus > .panel-google-plus-tags > ul:hover {
-    box-shadow: 0px 0px 3px rgb(0, 0, 0);   
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);   
+    box-shadow: 0px 0px 3px rgb(0, 0, 0);
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
 }
+
 .panel-google-plus > .panel-google-plus-tags > ul > li {
     display: block;
     right: 0px;
@@ -257,14 +277,16 @@ button{
     font-size: 12px;
     overflow: hidden;
 }
+
 .panel-google-plus > .panel-google-plus-tags > ul > li::after {
-    content:"";
+    content: "";
     position: absolute;
     top: 0px;
     right: 0px;
     height: 100%;
-	border-right: 3px solid rgb(66, 127, 237);
+    border-right: 3px solid rgb(66, 127, 237);
 }
+
 .panel-google-plus > .panel-google-plus-tags > ul:hover > li,
 .panel-google-plus > .panel-google-plus-tags > ul > li:first-child {
     padding: 5px 15px 5px 10px;
@@ -272,45 +294,55 @@ button{
     cursor: pointer;
     margin-left: auto;
 }
+
 .panel-google-plus > .panel-google-plus-tags > ul:hover > li {
-    background-color: rgb(255, 255, 255);   
+    background-color: rgb(255, 255, 255);
 }
+
 .panel-google-plus > .panel-google-plus-tags > ul > li:hover {
     background-color: rgb(66, 127, 237);
     color: rgb(255, 255, 255);
 }
+
 .panel-google-plus > .panel-heading,
 .panel-google-plus > .panel-footer {
     background-color: rgb(255, 255, 255);
-    border-width: 0px; 
+    border-width: 0px;
 }
+
 .panel-google-plus > .panel-heading {
-    margin-top: 20px;    
-    padding-bottom: 5px; 
+    margin-top: 20px;
+    padding-bottom: 5px;
 }
-.panel-google-plus > .panel-heading > img { 
+
+.panel-google-plus > .panel-heading > img {
     margin-right: 15px;
 }
+
 .panel-google-plus > .panel-heading > h3 {
     margin: 0px;
     font-size: 14px;
     font-weight: 700;
 }
+
 .panel-google-plus > .panel-heading > h5 {
     color: rgb(153, 153, 153);
     font-size: 12px;
     font-weight: 400;
 }
+
 .panel-google-plus > .panel-body {
     padding-top: 5px;
     font-size: 13px;
 }
+
 .panel-google-plus > .panel-body > .panel-google-plus-image {
     display: block;
     text-align: center;
     background-color: rgb(245, 245, 245);
     border: 1px solid rgb(217, 217, 217);
 }
+
 .panel-google-plus > .panel-body > .panel-google-plus-image > img {
     max-width: 100%;
 }
@@ -320,10 +352,12 @@ button{
     font-weight: 700;
     min-height: 54px;
 }
+
 .panel-google-plus > .panel-footer > .btn {
     float: left;
     margin-right: 8px;
 }
+
 .panel-google-plus > .panel-footer > .input-placeholder {
     display: block;
     margin-left: 98px;
@@ -335,18 +369,22 @@ button{
     border-radius: 2px;
     box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 0px 0px;
 }
+
 .panel-google-plus.panel-google-plus-show-comment > .panel-footer > .input-placeholder {
-    display: none;   
+    display: none;
 }
+
 .panel-google-plus > .panel-google-plus-comment {
     display: none;
     padding: 10px 20px 15px;
     border-top: 1px solid rgb(229, 229, 229);
     background-color: rgb(245, 245, 245);
 }
+
 .panel-google-plus.panel-google-plus-show-comment > .panel-google-plus-comment {
     display: block;
 }
+
 /*.panel-google-plus > .panel-google-plus-comment > img {
     float: left;   
 }*/
@@ -354,6 +392,7 @@ button{
     float: right;
     width: calc(100% - 56px);
 }
+
 .panel-google-plus > .panel-google-plus-comment > .panel-google-plus-textarea > textarea {
     display: block;
     /*margin-left: 60px;
@@ -364,49 +403,53 @@ button{
     box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 0px 0px;
     resize: vertical;
 }
+
 .panel-google-plus > .panel-google-plus-comment > .panel-google-plus-textarea > .btn {
     margin-top: 10px;
     margin-right: 8px;
     width: 100%;
 }
+
 @media (min-width: 992px) {
     .panel-google-plus > .panel-google-plus-comment > .panel-google-plus-textarea > .btn {
         width: auto;
-    }    
+    }
 }
 
-
-@media only screen and (max-width: 768px) { 
-    .xyz{
+@media only screen and (max-width: 768px) {
+    .xyz {
         padding-top: 70px;
     }
-    #sidenav-title{
-       padding-top: 70px !important;
-    }
- }
 
+    #sidenav-title {
+        padding-top: 70px !important;
+    }
+}
 
 .panel-google-plus .btn {
-    border-radius: 3px;   
+    border-radius: 3px;
 }
+
 .panel-google-plus .btn-default {
     border: 1px solid rgb(217, 217, 217);
     box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 0px 0px;
 }
-.panel-google-plus .btn-default:hover, 
-.panel-google-plus .btn-default:focus, 
+
+.panel-google-plus .btn-default:hover,
+.panel-google-plus .btn-default:focus,
 .panel-google-plus .btn-default:active {
     background-color: rgb(255, 255, 255);
-    border-color: rgb(0, 0, 0);    
+    border-color: rgb(0, 0, 0);
 }
 
 /* login styles */
 .panel-custom > .panel-heading {
-  color: #3e2723 !important;
-  background-color: #d7ccc8 !important;
-  border-color: #4e342e !important;
+    color: #3e2723 !important;
+    background-color: #d7ccc8 !important;
+    border-color: #4e342e !important;
+    border-radius: 0px !important;
 }
 
-.links{
-    color : #3e2723;
+.links {
+    color: #3e2723;
 }

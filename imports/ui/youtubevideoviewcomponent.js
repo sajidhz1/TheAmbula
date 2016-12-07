@@ -101,5 +101,13 @@ Template.youtubeVideoViewComp.events({
         });
         
     },
+
+    'click .single-view-edit': function (event) {
+
+        event.preventDefault();
+
+        Router.go('youtubeVideoUpdateForm',{videoId: this.video._id});
+
+    },
 });
 
