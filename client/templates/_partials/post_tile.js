@@ -26,7 +26,15 @@ Template.postTile.events({
             videoIdToDelete: this._id,
             videoOwner: this.owner
         });
-    }
+    },
+
+    'click .post-tile-view-edit': function (event) {
+
+        event.preventDefault();
+
+        Router.go('youtubeVideoUpdateForm',{videoId: this._id});
+
+    },
 });
 
 

@@ -48,6 +48,11 @@ Schemas.youtubevideo = new SimpleSchema({
     username: {
         type: String,
         label: "Username of who saved the video",
+    },
+    updatedAt: {
+        type: Date,
+        label: "Date video details were updated",
+        optional: true
     }
 });
 
@@ -69,6 +74,8 @@ Meteor.methods({
 
     'youtubevideos.delete': function (ytVideoID) {
 
+        check(ytVideoID, String);
+
         if (Meteor.isServer) {
             if (!this.userId) {
                 throw new Meteor.Error('not-authorized');
@@ -85,13 +92,40 @@ Meteor.methods({
     },
 
     'youtubevideos.exist': function (ytVideoID) {
-        
+
+        check(ytVideoID, String);
+
         var ytVideo = YoutubeVideos.findOne({videoId: ytVideoID});
         if (ytVideo) {
             return true;
         } else {
             return false;
         }
+
+    },
+
+    'youtubevideos.update': function (ytVideoID, videoTitle, videoCategory, videoDescription) {
+
+        check(ytVideoID, String);
+        check(videoTitle, String);
+        check(videoCategory, String);
+        check(videoDescription, String);
+
+        const ytVideo = YoutubeVideos.findOne(ytVideoID);
+
+        // Make sure only the task owner can make a task private
+        if (ytVideo.owner !== this.userId) {
+            throw new Meteor.Error('not-authorized');
+        }
+
+        return YoutubeVideos.update(ytVideoID, {
+            $set: {
+                videoTitle: videoTitle,
+                recipeCategory: videoCategory,
+                videoDescription: videoDescription,
+                updatedAt: new Date()
+            }
+        });
 
     }
 });

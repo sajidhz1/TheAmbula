@@ -3,8 +3,8 @@
  */
 import '../imports/ui/youtubevideoaddfrom.js';
 import '../imports/ui/youtubevideoviewcomponent.js';
-import '../imports/ui/itemerrors.js'
-import '../imports/ui/confirmation_dialog/recipedeleteconfirmbox.js'
+import '../imports/ui/confirmation_dialog/recipedeleteconfirmbox.js';
+import '../imports/ui/youtubevideoupdate/youtubevideoupdateform.js';
 
 Meteor.startup(function () {
   console.log('here');
