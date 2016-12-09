@@ -9,14 +9,14 @@ body {
 button {
     border-radius: 0px !important;
 }
-
+/*
 .small-card-title {
     width: 250px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
+*/
 /* side panel style */
 #wrapper {
     margin-top: 0px;

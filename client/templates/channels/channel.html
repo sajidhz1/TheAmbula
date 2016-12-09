@@ -15,7 +15,7 @@
 						</div>
 						<div class="col-md-8 column">
 								<span class="text-capitalize"><h2>{{ profile.first_name}} {{ profile.last_name }}
-								</h2></span> <small>{{profile.description }}</small>
+								</h2></span> <small>{{{profile.description }}}</small>
 						</div>
 						<div class="col-md-2 column">
 							<button class="btn btn-default btn-block" type="button">
@@ -36,7 +36,7 @@
 			<div class="row">
 				<div class="col-lg-12">
                     {{#each videos}}
-                        {{>searchTile }}
+                        {{>channelRecipeTile }}
                     {{/each}}
 				</div>
 			</div>

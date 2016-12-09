@@ -21,11 +21,11 @@ Template.userProfile.events({
         e.preventDefault();
 
         var file = $('#userimage')[0].files[0];
-        console.log(file)
+        document.getElementById("profPic").src = 'http://loading.io/loader/?use=eyJzaXplIjo2MCwic3BlZWQiOjEsImNiayI6InJnYmEoMjU1LDI1NSwyNTUsMCkiLCJjMSI6IiM1MDUwNTAiLCJjMiI6IjEyIiwiYzMiOiI3IiwiYzQiOiIyMCIsImM1IjoiNSIsImM2IjoiMzAiLCJ0eXBlIjoiZGVmYXVsdCJ9';
         Cloudinary.upload(file, function (err, res) {
             console.log("Upload Error: " + err);
             console.log("Upload Result: " + res.public_id);
-
+            
             Meteor.users.update(Meteor.userId(), {$set: {"profile.user_avatar": res.public_id}});
 
             $('#inputArea').show();
@@ -40,7 +40,7 @@ Template.userProfile.events({
         var file = $('#userimage')[0].files[0]
         reader.onload = function (e) {
             // get loaded data and render thumbnail.
-            document.getElementById("profPic").src = e.target.result;
+         //   document.getElementById("profPic").src = e.target.result;
         };
         // read the image file as a data URL.
         reader.readAsDataURL(file);
@@ -90,6 +90,7 @@ Template.userProfile.helpers({
 
 //profile edit function
 Template.profileEdit.onRendered(function () {
+     var dataContext = Template.currentData();
     $(document).ready(function () {
         $('#userDescription').summernote({
             height: 150,
@@ -106,7 +107,8 @@ Template.profileEdit.onRendered(function () {
         });
 
     });
-    $('#userDescription').summernote('editor.insertText', Meteor.user().profile.description);
+    
+    $('#userDescription').val(dataContext.profile.description);
 });
 
 Template.profileRecipeTile.helpers({

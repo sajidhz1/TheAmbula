@@ -8,9 +8,9 @@
 						<div class="col-md-2 col-xs-12 column">
 							<form>
 								{{#if checkAvatarExists }}
-								<img id="profPic" width="150" height="150" src="{{c.url currentUser.profile.user_avatar width=250 height=250 crop='fill'}}">
+								<img id="profPic" width="160" height="160" src="{{c.url currentUser.profile.user_avatar width=250 height=250 crop='fill'}}">
 								{{else}}
-  								<img id="profPic" width="150" height="150" src="/images/user-avatar.jpg">
+  								<img id="profPic" width="160" height="160" src="/images/user-avatar.jpg">
 								{{/if}}
 								<div class="row">
 									<div class="col-md-7">
@@ -28,7 +28,7 @@
 						<div class="col-md-9 column">
 								<span class="page-header text-capitalize"><h2>{{ currentUser.profile.first_name }} {{ currentUser.profile.last_name }}
 								</h2></span> <small>{{{ currentUser.profile.description }}}</small><br>
-								<div class="row" style="margin-top:15px;">
+								<div class="row" style="margin-top:15px;margin-left:10px;">
 									<button class="btn btn-default" type="button">
 								 	<i style="color: #3b5998" class="fa pull-left fa-facebook fa-lg"></i>Facebook
 									</button>

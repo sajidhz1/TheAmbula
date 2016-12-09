@@ -1,4 +1,4 @@
-<template name="profileRecipeTile">
+<template name="channelRecipeTile">
     <div class="col-xs-12 col-sm-4 col-md-4">
         <div class="ytvideoview-hometile-card-wide mdl-card mdl-shadow--2dp">
             <a href="/recipe/{{_id}}">
@@ -15,24 +15,24 @@
                 <img src="https://img.youtube.com/vi/{{videoId}}/mqdefault.jpg" style="width : 100%;"/>
             </div>
             <div class="mdl-card__actions mdl-card--border">
-                <div class="pull-right">
-                    <!--<a id="heart"
+                <!--<div class="pull-right">
+                    <a id="heart"
                        class="mdl-button mdl-js-button mdl-buttonfab mdl-buttonmini-fab mdl-js-ripple-effect">
                         <i class="material-icons md-18">favorite_border</i>
                     </a>
-                    <a class="mdl-button mdl-js-button mdl-buttonfab mdl-buttonmini-fab mdl-js-ripple-effect">
+                    <a class="mdl-button mdl-js-button mdl-button fab mdl-buttomini-fab mdl-js-ripple-effect">
                         <i class="material-icons md-18">share</i>
-                    </a>-->
+                    </a>
                     <span class="dropup">
-                        <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
+                        <a class="mdl-button mdl-js-button mdl-buttonfab mdl-buttonmini-fab mdl-js-ripple-effect"
                            data-toggle="dropdown">
                                 <i class="material-icons">more_horiz</i>
                             </a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Report...</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Report...</a></li>
                             <li class="divider"></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                       href="#">Copy Share URL</a></li>-->
+                                                       href="#">Copy Share URL</a></li>
                             {{#if isOwner }}
                                 <li class="divider"></li>
                                 <li role="presentation"><a class="profile-view-dlete" role="menuitem" tabindex="-1"
@@ -43,7 +43,7 @@
                             {{/if}}
                         </ul>
                     </span>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
