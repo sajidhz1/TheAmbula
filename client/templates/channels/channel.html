@@ -18,15 +18,15 @@
 								</h2></span> <small>{{{profile.description }}}</small>
 						</div>
 						<div class="col-md-2 column">
-							<button class="btn btn-default btn-block" type="button">
+							<a href="{{profile.facebook_url}}" class="btn btn-default btn-block" type="button">
 								 <i style="color: #3b5998" class="fa pull-left fa-facebook fa-lg"></i>Facebook
-							</button>
-							<button class="btn btn-default btn-block" type="button">
+							</a>
+							<a href="{{profile.youtube_url}}" class="btn btn-default btn-block" type="button">
 								<i style="color: #b31217;" class="fa pull-left fa-youtube-play fa-lg"></i> Youtube
-							</button>
-							<button class="btn btn-default btn-block" type="button">
+							</a>
+							<a href="{{profile.website_url}}" class="btn btn-default btn-block" type="button">
 								<i class="fa pull-left fa-globe fa-lg"></i> Website
-							</button>
+							</a>
 						</div>
 						{{/each}}
 					</div>

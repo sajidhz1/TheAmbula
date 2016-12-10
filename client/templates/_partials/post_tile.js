@@ -53,6 +53,14 @@ Template.postTile.helpers({
             //console.log(e);
         }
     },
+    ownerID : function (){
+          try {
+            var user = Meteor.users.find({_id: this.owner}, {fields: {profile: 1}}).fetch();
+            return user[0]._id;
+        } catch (e) {
+            //console.log(e);
+        }
+    },
     profileAvatar: function () {
         try {
             var user = Meteor.users.find({_id: this.owner}, {fields: {profile: 1}}).fetch();
