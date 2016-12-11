@@ -17,10 +17,7 @@
             <div class="mdl-card__actions mdl-card--border">
                 <div class="pull-right">
                     <span>{{username}}</span>
-                    <a id="heart"
-                       class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
-                        <i class="material-icons md-18">favorite_border</i>
-                    </a>
+                    {{>heartButton videoHeartId=_id}}
                     <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
                         <i class="material-icons md-18">share</i>
                     </a>
