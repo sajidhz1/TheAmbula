@@ -16,11 +16,11 @@
     color: #a94442;
 }
 
-#cancel, #submit, #deleteBtn , #cancelBtn{
+#cancel, #submit, #deleteBtn, #cancelBtn {
     width: 10em;
 }
 
-#cancel{
+#cancel {
     margin-right: 5px;
 }
 
@@ -58,6 +58,18 @@ select option:first-child {
     border-radius: 50%;
 }
 
-.dropdown-menu .divider{
+.dropdown-menu .divider {
     margin: 4px 0px !important;
+}
+
+/*//////////////////////heart button styles////////////////////*/
+
+a.heart-full{
+    background-size: 40px 40px;
+    background: #ffffff url("/images/heartbutton/full.png") no-repeat center !important;
+}
+
+a.heart{
+    background-size: 40px 40px;
+    background: #ffffff url("/images/heartbutton/empty.png") no-repeat center;
 }
