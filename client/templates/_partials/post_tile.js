@@ -10,13 +10,6 @@ Template.postTile.onCreated(function bodyOnCreated() {
 
 });
 
-
-Template.postTile.events({
-    'click #heart': function () {
-        alert(this.owner);
-    },
-});
-
 Template.postTile.events({
     'click .post-tile-view-dlete': function (event) {
 
