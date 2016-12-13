@@ -21,7 +21,7 @@ Template.userProfile.events({
         e.preventDefault();
 
         var file = $('#userimage')[0].files[0];
-        document.getElementById("profPic").src = 'http://loading.io/loader/?use=eyJzaXplIjo2MCwic3BlZWQiOjEsImNiayI6InJnYmEoMjU1LDI1NSwyNTUsMCkiLCJjMSI6IiM1MDUwNTAiLCJjMiI6IjEyIiwiYzMiOiI3IiwiYzQiOiIyMCIsImM1IjoiNSIsImM2IjoiMzAiLCJ0eXBlIjoiZGVmYXVsdCJ9';
+        document.getElementById("profPic").src = '/images/loading.gif';
         Cloudinary.upload(file, function (err, res) {
             console.log("Upload Error: " + err);
             console.log("Upload Result: " + res.public_id);
@@ -108,7 +108,6 @@ Template.profileEdit.onRendered(function () {
 
     });
     
-    $('#userDescription').val(dataContext.profile.description);
 });
 
 Template.profileRecipeTile.helpers({

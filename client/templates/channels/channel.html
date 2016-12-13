@@ -13,20 +13,14 @@
   								<img id="profPic" width="150" height="150" src="/images/user-avatar.jpg">
 							{{/if}}												
 						</div>
-						<div class="col-md-8 column">
+						<div class="col-md-9 column">
 								<span class="text-capitalize"><h2>{{ profile.first_name}} {{ profile.last_name }}
 								</h2></span> <small>{{{profile.description }}}</small>
 						</div>
-						<div class="col-md-2 column">
-							<a href="{{profile.facebook_url}}" class="btn btn-default btn-block" type="button">
-								 <i style="color: #3b5998" class="fa pull-left fa-facebook fa-lg"></i>Facebook
-							</a>
-							<a href="{{profile.youtube_url}}" class="btn btn-default btn-block" type="button">
-								<i style="color: #b31217;" class="fa pull-left fa-youtube-play fa-lg"></i> Youtube
-							</a>
-							<a href="{{profile.website_url}}" class="btn btn-default btn-block" type="button">
-								<i class="fa pull-left fa-globe fa-lg"></i> Website
-							</a>
+						<div class="col-md-1 column">
+							<a class="facebookBtn smGlobalBtn" href="//{{ profile.facebok_url }}" ></a>
+							<a class="googleplusBtn smGlobalBtn" href="//{{ profile.youtube_url }}" ></a>
+							<a class="websiteButton smGlobalBtn" href="//{{ profile.website_url }}" ></a>
 						</div>
 						{{/each}}
 					</div>

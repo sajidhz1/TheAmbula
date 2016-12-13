@@ -30,6 +30,7 @@ Template.registration.events({
             Accounts.createUser(user, function (err) {
                 if (err) {
                     FlashMessages.sendError(err);
+                    console.log(err.message);
                 } else {
                     FlashMessages.sendSuccess('Successfully registered');
                     Router.go('/');

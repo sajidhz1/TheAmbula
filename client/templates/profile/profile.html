@@ -4,17 +4,15 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="ytvideoview-hometile-card-wide mdl-card mdl-shadow--2dp">
-					<div class="row clearfix well" style="background : #fff;">
-						<div class="col-md-2 col-xs-12 column">
-							<form>
-								{{#if checkAvatarExists }}
-								<img id="profPic" width="160" height="160" src="{{c.url currentUser.profile.user_avatar width=250 height=250 crop='fill'}}">
-								{{else}}
-  								<img id="profPic" width="160" height="160" src="/images/user-avatar.jpg">
-								{{/if}}
-								<div class="row">
-									<div class="col-md-7">
-										<label id="inputArea" class="btn btn-default btn-file">
+						<div class="row clearfix well" style="background : #fff;">
+							<div class="col-md-2 col-xs-12 column">
+								<form>
+									{{#if checkAvatarExists }}
+									<img id="profPic" width="160" height="160" src="{{c.url currentUser.profile.user_avatar width=250 height=250 crop='fill'}}">									{{else}}
+									<img id="profPic" width="160" height="160" src="/images/user-avatar.jpg"> {{/if}}
+									<div class="row">
+										<div class="col-md-7">
+											<label id="inputArea" class="btn btn-default btn-file">
 										Browse <input type="file" style="display: none;" id="userimage" name="userimage" />
 										</label >
 										<button id="cancelButton" style="display: none;" class="btn btn-danger" type="submit">Cancel</button> 	
@@ -29,15 +27,9 @@
 								<span class="page-header text-capitalize"><h2>{{ currentUser.profile.first_name }} {{ currentUser.profile.last_name }}
 								</h2></span> <small>{{{ currentUser.profile.description }}}</small><br>
 								<div class="row" style="margin-top:15px;margin-left:10px;">
-									<a class="btn btn-default" type="button">
-								 	<i style="color: #3b5998" class="fa pull-left fa-facebook fa-lg"></i>Facebook
-									</a>
-									<a class="btn btn-default" type="button">
-										<i style="color: #b31217;" class="fa pull-left fa-youtube-play fa-lg"></i> Youtube
-									</a>
-									<a class="btn btn-default" type="button">
-										<i class="fa pull-left fa-globe fa-lg"></i> Website
-									</a>
+									<a class="facebookBtn smGlobalBtn" href="//{{ currentUser.profile.facebook_url }}" ></a>
+									<a class="googleplusBtn smGlobalBtn" href="//{{ currentUser.profile.youtube_url }}" ></a>
+									<a class="websiteButton smGlobalBtn" href="//{{ currentUser.profile.website_url }}" ></a>
 								</div>
 						</div>
 						<div class="col-md-1 column">
