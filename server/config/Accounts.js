@@ -4,7 +4,7 @@ Accounts.config({
 });
 
 // Accounts.emailTemplates.siteName = "TheAmbula";
- Accounts.emailTemplates.from     = "mail@theambula.lk";
+ Accounts.emailTemplates.from     = "sajidhz@mail.theambula.lk";
 
 Accounts.emailTemplates.verifyEmail = {
   subject() {
