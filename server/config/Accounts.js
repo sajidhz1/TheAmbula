@@ -29,3 +29,12 @@ ServiceConfiguration.configurations.insert({
     appId: process.env.FACEBOOK_APPID,
     secret: process.env.FACEBOOK_APP_SECRET
 });
+
+ServiceConfiguration.configurations.remove({
+  service: "google"
+});
+ServiceConfiguration.configurations.insert({
+  service: "google",
+  clientId: process.env.GOOGLE_CLIENT_ID,
+  secret: process.env.GOOGLE_SECRET
+});
