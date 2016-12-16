@@ -26,6 +26,6 @@ ServiceConfiguration.configurations.remove({
  
 ServiceConfiguration.configurations.insert({
     service: 'facebook',
-    appId: process.env.METEOR_SETTINGS.private.oAuth.facebook.appId,
-    secret: process.env.METEOR_SETTINGS.private.oAuth.facebook.secret
+    appId: process.env.FACEBOOK_APPID,
+    secret: process.env.FACEBOOK_APP_SECRET
 });
