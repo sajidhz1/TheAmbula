@@ -41,12 +41,14 @@
             <div id="navbar" class="collapse navbar-collapse">
                 <!--<ul id="login" class="nav navbar-nav navbar-right">{{> loginButtons }}</ul>-->
                 <ul class="nav navbar-nav navbar-right" style="margin-right : 5px;">
-                    <li><a href="">postmaster@theambula.lk</a></li>
-                    <li><a href="">abuse@theambula.lk</a></li>
                     <li class=""><a id="addNewYtVideo" href="#"><i class="fa fa-cutlery" aria-hidden="true"></i>  New Recipe</a></li>
                     {{#if currentUser}}
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome <strong>{{currentUser.username}} <span class="caret"></span></strong></a>
+                        {{#if currentUser.username}}
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome <strong>{{currentUser.username}} <span class="caret"></span></strong></a>
+                        {{else}}
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome <strong>{{currentUser.services.facebook.name}} <span class="caret"></span></strong></a>
+                        {{/if}}   
                         <ul class="dropdown-menu">
                             <li><a href="/profile" id="profile">profile</a></li>
                             <li role="separator" class="divider"></li>
