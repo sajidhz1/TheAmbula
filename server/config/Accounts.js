@@ -19,3 +19,13 @@ Accounts.emailTemplates.verifyEmail = {
     return emailBody;
   }
 };
+
+ServiceConfiguration.configurations.remove({
+    service: 'facebook'
+});
+ 
+ServiceConfiguration.configurations.insert({
+    service: 'facebook',
+    appId: process.env.METEOR_SETTINGS.private.oAuth.facebook.appId,
+    secret: process.env.METEOR_SETTINGS.private.oAuth.facebook.secret
+});
