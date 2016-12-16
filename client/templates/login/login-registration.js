@@ -130,6 +130,7 @@ Template.login.events({
             requestPermissions: ['user_friends', 'public_profile', 'email']
         }, (err) => {
             if (err) {
+                console.log(err);
             } else {
                 Router.go('/');
             }
@@ -142,6 +143,7 @@ Template.login.events({
             requestPermissions: ['user_friends', 'public_profile', 'email']
         }, (err) => {
             if (err) {
+                console.log(err);
             } else {
                 Router.go('/');
             }
