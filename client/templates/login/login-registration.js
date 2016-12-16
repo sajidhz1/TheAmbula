@@ -140,7 +140,7 @@ Template.login.events({
       'click .btngoogle': function (e) {
         e.preventDefault();
         Meteor.loginWithGoogle({
-            requestPermissions: ['user_friends', 'public_profile', 'email']
+            requestPermissions: ['email']
         }, (err) => {
             if (err) {
                 console.log(err);
