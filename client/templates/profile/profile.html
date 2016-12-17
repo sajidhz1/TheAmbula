@@ -24,8 +24,14 @@
 							</form>
 						</div>
 						<div class="col-md-9 column">
-								<span class="page-header text-capitalize"><h2>{{ currentUser.profile.first_name }} {{ currentUser.profile.last_name }}
-								</h2></span> <small>{{{ currentUser.profile.description }}}</small><br>
+								<span class="page-header text-capitalize"><h2>
+									{{#if currentUser.profile.first_name}}
+										{{ currentUser.profile.first_name }} {{ currentUser.profile.last_name }}
+									{{else}}
+										{{ currentUser.profile.name }}
+									{{/if}}									
+								</h2></span> 
+								<small>{{{ currentUser.profile.description }}}</small><br>
 								<div class="row" style="margin-top:15px;margin-left:10px;">
 									<a class="facebookBtn smGlobalBtn" href="//{{ currentUser.profile.facebook_url }}" ></a>
 									<a class="googleplusBtn smGlobalBtn" href="//{{ currentUser.profile.youtube_url }}" ></a>
