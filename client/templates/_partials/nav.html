@@ -13,8 +13,8 @@
                     <a style="cursor:pointer;visibility:hidden;" data-toggle="collapse" class="toggle-button"  id="menu-toggle">
                         <span style="color:#bcaaa4" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                     </a>
-                    <a class="#" href="{{pathFor 'homeIndex'}}" style="margin-left:9px;color:white;text-decoration:none">The Ambula
-                        <!--<img style="margin-left:5px;" src="images/ambula-nav.png" alt="The Ambula"/>-->
+                    <a class="#" href="{{pathFor 'homeIndex'}}" style="color:white;text-decoration:none">
+                        <img style="margin-left:5px;padding:0px;" src="images/ambula-nav.png" alt="The Ambula"/>
                     </a>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                         {{#if currentUser.username}}
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome <strong>{{currentUser.username}} <span class="caret"></span></strong></a>
                         {{else}}
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome <strong>{{currentUser.services.facebook.name}} <span class="caret"></span></strong></a>
+                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome <strong>{{currentUser.profile.name}} <span class="caret"></span></strong></a>                             
                         {{/if}}   
                         <ul class="dropdown-menu">
                             <li><a href="/profile" id="profile">profile</a></li>
