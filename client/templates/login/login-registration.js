@@ -52,6 +52,7 @@ Template.registration.events({
             requestPermissions: ['user_friends', 'public_profile', 'email']
         }, (err) => {
             if (err) {
+                console.log(err);
             } else {
                 Router.go('/');
             }
@@ -63,6 +64,7 @@ Template.registration.events({
         Meteor.loginWithGoogle({
             requestPermissions: ['user_friends', 'public_profile', 'email']
         }, (err) => {
+            console.log(err);
             if (err) {
             } else {
                 Router.go('/');
