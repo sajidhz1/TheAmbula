@@ -48,6 +48,8 @@ Schemas.youtubevideo = new SimpleSchema({
     username: {
         type: String,
         label: "Username of who saved the video",
+        optional: true
+
     },
     updatedAt: {
         type: Date,
