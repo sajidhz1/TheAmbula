@@ -36,7 +36,7 @@ Meteor.startup(function () {
   });
   Accounts.loginServiceConfiguration.insert({
     service: "google",
-    clientId: process.env.GOOGLE_CLIENT_ID,
+    clientId: "390686010514-2k1lktgp7r2unobd64t1gi6c9duq6n7i.apps.googleusercontent.com",
     secret: process.env.GOOGLE_SECRET
   });
 
