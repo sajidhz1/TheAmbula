@@ -34,7 +34,7 @@ Template.registration.events({
                 } else {
                     sAlert.success('registration successful !',
                         {
-                            effect: 'slide', position: 'bottom-right', timeout: '8000', onRouteClose: false, stack: false, offset: '80px',
+                            effect: 'slide', position: 'bottom-right', timeout: '3000', onRouteClose: false, stack: false, offset: '80px',
                             onClose: function () {
                                 Router.go('/');
                             }
