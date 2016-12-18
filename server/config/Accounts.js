@@ -4,11 +4,11 @@ Accounts.config({
 });
 
 // Accounts.emailTemplates.siteName = "TheAmbula";
-Accounts.emailTemplates.from = "sajidhz@mail.theambula.lk";
+Accounts.emailTemplates.from = "postmaster@mail.theambula.lk";
 
 Accounts.emailTemplates.verifyEmail = {
   subject() {
-    return "[GoDunk] Verify Your Email Address";
+    return "[TheAmbula] Verify Your Email Address";
   },
   text(user, url) {
     let emailAddress = user.emails[0].address,
