@@ -36,8 +36,8 @@ Meteor.startup(function () {
   });
   Accounts.loginServiceConfiguration.insert({
     service: "google",
-    clientId: "390686010514-2k1lktgp7r2unobd64t1gi6c9duq6n7i.apps.googleusercontent.com",
-    secret: process.env.GOOGLE_SECRET
+    clientId: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_SECRET
   });
 
 });
