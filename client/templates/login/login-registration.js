@@ -62,7 +62,7 @@ Template.registration.events({
     'click .btngoogle': function (e) {
         e.preventDefault();
         Meteor.loginWithGoogle({
-            requestPermissions: ['user_friends', 'public_profile', 'email']
+            requestPermissions: ['profile', 'email']
         }, (err) => {
             console.log(err);
             if (err) {
