@@ -41,7 +41,7 @@ Template.postTile.helpers({
         try {
             var user = Meteor.users.find({_id: this.owner}, {fields: {profile: 1}}).fetch();
             var profile = user[0].profile;
-            return profile['first_name'] + ' ' + profile['last_name'];
+            return profile['first_name']?profile['first_name'] + ' ' + profile['last_name']:profile['name'];
         } catch (e) {
             //console.log(e);
         }

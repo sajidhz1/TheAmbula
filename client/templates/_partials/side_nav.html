@@ -7,7 +7,7 @@
             {{#each users}}
             {{#if currentUser}}
             
-            {{#if not_equals userObject.username currentUser.username}}
+            {{#if not_equals userObject._id currentUser._id}}
                  <li>
                 <a href="/channels/{{userObject._id}}">
                               {{#if userObject.profile.user_avatar }}
@@ -16,7 +16,12 @@
                                  <img class="img-circle" src="/images/user-avatar.jpg" >
 								{{/if}}
                            
-                            <b>{{userObject.profile.first_name}}</b>
+                            <b>{{#if userObject.profile.first_name}}
+										{{ userObject.profile.first_name }}
+									{{else}}
+										{{ userObject.profile.name }}
+								{{/if}}	
+                            </b>
                     </a>
                 </li>
                 {{/if}}
@@ -29,7 +34,12 @@
                                  <img class="img-circle" src="/images/user-avatar.jpg" >
 								{{/if}}
                            
-                            <b>{{userObject.profile.first_name}}</b>
+                             <b>{{#if userObject.profile.first_name}}
+										{{ userObject.profile.first_name }}
+									{{else}}
+										{{ userObject.profile.name }}
+								{{/if}}	
+                            </b>
                     </a>
                 </li>
             {{/if}}

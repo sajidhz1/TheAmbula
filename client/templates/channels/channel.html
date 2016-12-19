@@ -14,7 +14,12 @@
 							{{/if}}												
 						</div>
 						<div class="col-md-9 column">
-								<span class="text-capitalize"><h2>{{ profile.first_name}} {{ profile.last_name }}
+								<span class="text-capitalize"><h2>
+									{{#if profile.first_name}}
+										{{ profile.first_name}} {{ profile.last_name }}
+									{{else}}
+										{{ profile.name }}
+								{{/if}}									
 								</h2></span> <small>{{{profile.description }}}</small>
 						</div>
 						<div class="col-md-1 column">
