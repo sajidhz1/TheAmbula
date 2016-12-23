@@ -23,22 +23,23 @@
                     </a>
                     <span class="dropup">
                         <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
-                               data-toggle="dropdown">
+                           data-toggle="dropdown">
                                 <i class="material-icons">more_horiz</i>
                             </a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Report...</a></li>
+                            <li role="presentation"><a class="search-view-tile-report" role="menuitem" tabindex="-1"
+                                                       href="#">Report...</a></li>
                             <li class="divider"></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                           href="#">Copy Share URL</a></li>
-                                {{#if isOwner }}
-                                    <li class="divider"></li>
+                                                       href="#">Copy Share URL</a></li>
+                            {{#if isOwner }}
+                                <li class="divider"></li>
                                     <li role="presentation"><a class="search-view-dlete" role="menuitem" tabindex="-1"
                                                                href="#">Delete Recipe</a></li>
                                     <li class="divider"></li>
                                     <li role="presentation"><a class="search-view-edit" role="menuitem" tabindex="-1"
                                                                href="#">Edit Recipe</a></li>
-                                {{/if}}
+                            {{/if}}
                         </ul>
                     </span>
                 </div>

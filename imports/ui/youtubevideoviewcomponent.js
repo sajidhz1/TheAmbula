@@ -99,15 +99,35 @@ Template.youtubeVideoViewComp.events({
             videoIdToDelete: this.video._id,
             videoOwner: this.video.owner
         });
-        
+
     },
 
     'click .single-view-edit': function (event) {
 
         event.preventDefault();
 
-        Router.go('youtubeVideoUpdateForm',{videoId: this.video._id});
+        Router.go('youtubeVideoUpdateForm', {videoId: this.video._id});
 
     },
+
+    'click .single-view-tile-report': function (event) {
+
+        if (Meteor.user()) {
+            event.preventDefault();
+
+            Modal.show('recipeReportDialogBox', {
+                videoIdToReport: this.video._id
+            });
+        } else {
+            Bert.alert({
+                hideDelay: 5000,
+                title: 'Log In To theambula.lk',
+                message: 'You must be logged in to theambula.lk to report a post',
+                type: 'info',
+                style: 'fixed-top',
+                icon: 'fa-info-circle fa-2x'
+            });
+        }
+    }
 });
 

@@ -10,6 +10,11 @@ button {
     border-radius: 0px !important;
 }
 
+textarea{
+    resize: none !important;
+    width: 100%;
+}
+
 .small-card-title {
     width: 250px;
     white-space: nowrap;

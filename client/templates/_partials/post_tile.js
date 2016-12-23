@@ -25,9 +25,29 @@ Template.postTile.events({
 
         event.preventDefault();
 
-        Router.go('youtubeVideoUpdateForm',{videoId: this._id});
+        Router.go('youtubeVideoUpdateForm', {videoId: this._id});
 
     },
+
+    'click .post-tile-view-report': function (event) {
+
+        if(Meteor.user()){
+            event.preventDefault();
+
+            Modal.show('recipeReportDialogBox', {
+                videoIdToReport: this._id
+            });
+        }else{
+            Bert.alert({
+                hideDelay: 5000,
+                title: 'Log In To theambula.lk',
+                message: 'You must be logged in to theambula.lk to report a post',
+                type: 'info',
+                style: 'fixed-top',
+                icon: 'fa-info-circle fa-2x'
+            });
+        }
+    }
 });
 
 

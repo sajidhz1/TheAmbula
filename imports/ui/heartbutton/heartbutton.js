@@ -11,12 +11,7 @@ import './heartbutton.html';
 Template.heartButton.heartStatus = new ReactiveVar();
 
 Template.heartButton.onCreated(function bodyOnCreated() {
-    var dataContext = Template.currentData();
-
     this.state = new ReactiveDict();
-
-    console.log(dataContext.videoHeartId);
-
 });
 
 Template.heartButton.onRendered(function () {

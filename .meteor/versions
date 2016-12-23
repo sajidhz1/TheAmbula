@@ -40,6 +40,7 @@ es5-shim@4.6.15
 facebook@1.2.10
 fastclick@1.0.13
 fortawesome:fontawesome@4.7.0
+fourseven:scss@3.8.1
 geojson-utils@1.0.10
 google@1.1.15
 hot-code-push@1.0.4
@@ -116,6 +117,7 @@ templating@1.2.15
 templating-compiler@1.2.15
 templating-runtime@1.2.15
 templating-tools@1.0.5
+themeteorchef:bert@2.1.1
 tracker@1.1.1
 twbs:bootstrap@3.3.6
 ui@1.0.12

@@ -16,7 +16,7 @@
     color: #a94442;
 }
 
-#cancel, #submit, #deleteBtn, #cancelBtn {
+#cancel, #submit, #deleteBtn, #cancelBtn, .form-footer-btn {
     width: 10em;
 }
 
@@ -64,12 +64,12 @@ select option:first-child {
 
 /*//////////////////////heart button styles////////////////////*/
 
-a.heart-full{
+a.heart-full {
     background-size: 40px 40px;
-    background: #ffffff url("/images/heartbutton/full.png") no-repeat center !important;
+    background: #ffffff url("/images/heartbutton/full-heart.png") no-repeat center !important;
 }
 
-a.heart{
+a.heart {
     background-size: 40px 40px;
-    background: #ffffff url("/images/heartbutton/empty.png") no-repeat center;
+    background: #ffffff url("/images/heartbutton/empty-heart.png") no-repeat center;
 }
