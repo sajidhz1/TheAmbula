@@ -15,7 +15,12 @@
                 <img src="https://img.youtube.com/vi/{{videoId}}/mqdefault.jpg" style="width : 100%;"/>
             </div>
             <div class="mdl-card__actions mdl-card--border">
+                <div class="pull-left"><span > <a style="text-decoration:none;color : #222;" href="/channels/{{ owner }}"><strong>{{username}}</strong></a></span></div>
                 <div class="pull-right">
+                    <a id="heart"
+                       class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+                        <i class="material-icons md-18">favorite_border</i>
+                    </a>
                     <span>{{username}}</span>
                     {{>heartButton videoHeartId=_id}}
                     <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">

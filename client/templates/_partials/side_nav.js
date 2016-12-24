@@ -54,9 +54,9 @@ Template.sideNav.onCreated(function () {
 
 Template.sideNav.helpers({
   users: function () {
-    const userNames = Template.instance().distinct.get();
+    const userIds = Template.instance().distinct.get();
     // turn our array of project values into an array of {project: project}
-    return _.map(userNames, userObject => {
+    return _.map(userIds, userObject => {
 
       return { userObject }
     });

@@ -1,25 +1,26 @@
 <template name="youtubeVideoViewComp">
-    <div id="page-content-wrapper" class="container">
-        <div class="col-md-8 col-lg-8 col-sm-12">
-            <div class="ytvideoview-card-wide mdl-card mdl-shadow--4dp">
-                <div class="mdl-card__media">
-                    <div id="player">
+    <div id="page-content-wrapper">
+        <div class="container-fluid xyz">
+            <div class="col-md-8 col-lg-8 col-sm-12">
+                <div class="ytvideoview-card-wide mdl-card mdl-shadow--4dp">
+                    <div class="mdl-card__media">
+                        <div id="player">
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="ytvideoview-title-card-wide mdl-card mdl-shadow--4dp">
-                <div class="mdl-card__title">
-                    <h3 class="mdl-card__title-text">{{video.videoTitle}}</h3>
-                </div>
-                <div class="mdl-card__actions mdl-card--border">
-                    <div class="pull-right">
-                        {{>heartButton videoHeartId=video._id}}
-                        <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
-                            <i class="material-icons md-18">share</i>
-                        </a>
+                <div class="ytvideoview-title-card-wide mdl-card mdl-shadow--4dp">
+                    <div class="mdl-card__title">
+                        <h3 class="mdl-card__title-text">{{video.videoTitle}}</h3>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <div class="pull-right">
+                            {{>heartButton videoHeartId=video._id}}
+                            <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+                                <i class="material-icons md-18">share</i>
+                            </a>
 
-                        <span class="dropdown">
+                            <span class="dropdown">
                             <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
                                data-toggle="dropdown">
                                 <i class="material-icons">more_horiz</i>
@@ -40,31 +41,30 @@
                                 {{/if}}
                             </ul>
                         </span>
+                        </div>
+                        <div class="pull-left">
+                            {{#if profileAvatar }}
+                            <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150" src="{{c.url profileAvatar width=250 height=250 crop='fill'}}">                            {{else}}
+                            <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150" src="/images/user-avatar.jpg">                            {{/if}}
+                            <span><strong>{{ownerProfile}}</strong></span><br>
+                            <span><small>{{createdDate}}</small></span>
+                        </div>
                     </div>
-                    <div class="pull-left">
-                        {{#if profileAvatar }}
-                            <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150"
-                                 src="{{c.url profileAvatar width=250 height=250 crop='fill'}}">
-                        {{else}}
-                            <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150"
-                                 src="/images/user-avatar.jpg">
-                        {{/if}}
-                        <span><strong>{{ownerProfile}}</strong></span><br>
-                        <span><small>{{createdDate}}</small></span>
+                    <div class="mdl-card__supporting-text" style="width: 100%;border-top: 1px solid rgba(0,0,0,.1);">
+                        {{{video.videoDescription}}}
                     </div>
                 </div>
-                <div class="mdl-card__supporting-text" style="width: 100%;border-top: 1px solid rgba(0,0,0,.1);">
-                    {{{video.videoDescription}}}
+
+                <div class="ytvideoview-comments-card-wide mdl-card mdl-shadow--4dp">
+                    <div class="comment-section">
+                        {{> commentsBox id=video._id}}
+                    </div>
                 </div>
             </div>
+            <div class="col-md-4 col-lg-4 col-sm-12">
+                <div class="ytvideoview-recent-list-card-wide mdl-card mdl-shadow--4dp">
 
-            <div class="ytvideoview-comments-card-wide mdl-card mdl-shadow--4dp">
-
-            </div>
-        </div>
-        <div class="col-md-4 col-lg-4 col-sm-12">
-            <div class="ytvideoview-recent-list-card-wide mdl-card mdl-shadow--4dp">
-
+                </div>
             </div>
         </div>
     </div>

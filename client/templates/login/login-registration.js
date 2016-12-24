@@ -26,13 +26,19 @@ Template.registration.events({
             isNotEmpty(username) &&
             isEmail(email) &&
             areValidPassword(password, confirm)) {
-
+            $(this).hide();
             Accounts.createUser(user, function (err) {
                 if (err) {
                     FlashMessages.sendError(err);
+                    console.log(err.message);
                 } else {
-                    FlashMessages.sendSuccess('Successfully registered');
-                    Router.go('/');
+                    sAlert.success('registration successful !',
+                        {
+                            effect: 'slide', position: 'bottom-right', timeout: '3000', onRouteClose: false, stack: false, offset: '80px',
+                            onClose: function () {
+                                Router.go('/');
+                            }
+                        });
                 }
             });
 
@@ -40,23 +46,25 @@ Template.registration.events({
 
         return false;
     },
-      'click .btnfb': function (e) {
+    'click .btnfb': function (e) {
         e.preventDefault();
         Meteor.loginWithFacebook({
             requestPermissions: ['user_friends', 'public_profile', 'email']
         }, (err) => {
             if (err) {
+                console.log(err);
             } else {
                 Router.go('/');
             }
         });
         return false;
     },
-      'click .btngoogle': function (e) {
+    'click .btngoogle': function (e) {
         e.preventDefault();
         Meteor.loginWithGoogle({
-            requestPermissions: ['user_friends', 'public_profile', 'email']
+            requestPermissions: ['profile', 'email']
         }, (err) => {
+            console.log(err);
             if (err) {
             } else {
                 Router.go('/');
@@ -79,8 +87,8 @@ isNotEmpty = function (value) {
 };
 
 isEmail = function (value) {
-    var filter =  	
-/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var filter =
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (filter.test(value)) {
         return true;
     }
@@ -123,24 +131,26 @@ Template.login.events({
 
         return false;
     },
-      'click .btnfb': function (e) {
+    'click .btnfb': function (e) {
         e.preventDefault();
         Meteor.loginWithFacebook({
             requestPermissions: ['user_friends', 'public_profile', 'email']
         }, (err) => {
             if (err) {
+                console.log(err);
             } else {
                 Router.go('/');
             }
         });
         return false;
     },
-      'click .btngoogle': function (e) {
+    'click .btngoogle': function (e) {
         e.preventDefault();
         Meteor.loginWithGoogle({
-            requestPermissions: ['user_friends', 'public_profile', 'email']
+            requestPermissions: ['profile', 'email']
         }, (err) => {
             if (err) {
+                console.log(err);
             } else {
                 Router.go('/');
             }
