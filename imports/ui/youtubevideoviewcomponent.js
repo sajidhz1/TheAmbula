@@ -4,8 +4,6 @@
 import {Meteor} from 'meteor/meteor';
 import {Template} from 'meteor/templating';
 
-import {YoutubeVideos} from '../api/youtubevideos.js';
-
 import './youtubevideoviewcomponent.html';
 
 Template.youtubeVideoViewComp.onCreated(function bodyOnCreated() {

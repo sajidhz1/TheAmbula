@@ -52,6 +52,10 @@ select option:first-child {
     text-decoration: none;
 }
 
+a.mdl-button{
+    color: #000000;
+}
+
 .ytvideo-owner-thumbnail {
     width: 45px;
     height: 45px;
@@ -63,13 +67,14 @@ select option:first-child {
 }
 
 /*//////////////////////heart button styles////////////////////*/
-
-a.heart-full {
-    background-size: 40px 40px;
-    background: #ffffff url("/images/heartbutton/full-heart.png") no-repeat center !important;
+#heart {
+    padding-top: 6px;
 }
 
-a.heart {
-    background-size: 40px 40px;
-    background: #ffffff url("/images/heartbutton/empty-heart.png") no-repeat center;
+.heart-full{
+    color:#D1242F;
+}
+/*//////////////////single-post-stat-view styles////////////////*/
+.single-post-stat-view{
+    margin: 5px 15px;
 }

@@ -4,3 +4,4 @@
 import '../imports/api/youtubevideos.js';
 import '../imports/api/hearts.js';
 import '../imports/api/reports.js';
+import '../imports/api/counts.js';

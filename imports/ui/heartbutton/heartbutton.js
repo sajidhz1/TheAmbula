@@ -39,7 +39,7 @@ Template.heartButton.helpers({
 });
 
 Template.heartButton.events({
-    'click .heart': function (event, instance) {
+    'click #heart': function (event, instance) {
         var videoHeartId = this.videoHeartId;
 
         Meteor.call('videoLiked', videoHeartId, function (error, result) {
