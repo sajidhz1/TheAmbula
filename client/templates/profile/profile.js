@@ -132,7 +132,7 @@ Template.profileRecipeTile.events({
 
         event.preventDefault();
 
-        Router.go('youtubeVideoUpdateForm',{videoId: this._id});
+        Router.go('youtubeVideoUpdateForm', {videoId: this._id});
 
-    },
+    }
 });

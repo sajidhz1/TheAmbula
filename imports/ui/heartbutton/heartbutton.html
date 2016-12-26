@@ -1,5 +1,10 @@
 <template name="heartButton">
     <a id="heart"
-       class="{{#if isLiked}}heart-full{{/if}} heart mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+       class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+        {{#if isLiked}}
+            <i class="fa fa-heart fa-lg heart-full"></i>
+        {{else}}
+            <i class="fa fa-heart-o fa-lg"></i>
+        {{/if}}
     </a>
 </template>

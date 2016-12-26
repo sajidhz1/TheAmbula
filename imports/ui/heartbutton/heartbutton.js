@@ -11,12 +11,7 @@ import './heartbutton.html';
 Template.heartButton.heartStatus = new ReactiveVar();
 
 Template.heartButton.onCreated(function bodyOnCreated() {
-    var dataContext = Template.currentData();
-
     this.state = new ReactiveDict();
-
-    console.log(dataContext.videoHeartId);
-
 });
 
 Template.heartButton.onRendered(function () {
@@ -44,7 +39,7 @@ Template.heartButton.helpers({
 });
 
 Template.heartButton.events({
-    'click .heart': function (event, instance) {
+    'click #heart': function (event, instance) {
         var videoHeartId = this.videoHeartId;
 
         Meteor.call('videoLiked', videoHeartId, function (error, result) {

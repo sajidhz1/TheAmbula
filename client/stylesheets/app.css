@@ -10,6 +10,11 @@ button {
     border-radius: 0px !important;
 }
 
+textarea{
+    resize: none !important;
+    width: 100%;
+}
+
 .smGlobalBtn{ /* global button class */
     display: inline-block;
     position: relative;

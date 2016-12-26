@@ -3,9 +3,13 @@
  */
 import '../imports/ui/youtubevideoaddfrom.js';
 import '../imports/ui/youtubevideoviewcomponent.js';
-import '../imports/ui/confirmation_dialog/recipedeleteconfirmbox.js';
-import '../imports/ui/youtubevideoupdate/youtubevideoupdateform.js';
 import '../imports/ui/heartbutton/heartbutton';
+import '../imports/ui/youtubevideoupdate/youtubevideoupdateform.js';
+import '../imports/ui/singlepoststatsview/singlepoststatview.js';
+
+import '../imports/ui/confirmation_dialog/recipedeleteconfirmbox.js';
+import '../imports/ui/report_dialog/recipereportdialogbox.js';
+
 
 Meteor.startup(function () {
     sAlert.config({
