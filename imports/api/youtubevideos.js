@@ -129,5 +129,9 @@ Meteor.methods({
             }
         });
 
+    },
+    'youtubevideo.user': function (ytVideoID) { //  or try saving post ownerID in a Session
+        check(ytVideoID, String);
+        return YoutubeVideos.findOne(ytVideoID).owner;
     }
 });

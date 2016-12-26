@@ -70,9 +70,7 @@ Meteor.publish("heart-count-by-postId", function (postId) {
     });
 });
 
-
-
-
-
-
+Meteor.publish('notifications', function () {
+    return Notifications.find({postUserId: this.userId});
+});
 
