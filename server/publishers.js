@@ -28,6 +28,10 @@ Meteor.publish("get-ytvideo-by-id", function (videoId) {
     check(videoId, String);
     
     return YoutubeVideos.find({_id: videoId});
-})
+});
 
+
+Meteor.publish('notifications',function(){
+    return Notifications.find({ postUserId : this.userId });
+});
 

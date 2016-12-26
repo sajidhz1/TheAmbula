@@ -1,6 +1,5 @@
 import './nav.html';
 
-
 //inject type ahead when navbar is loaded
 Template.nav.rendered = function () {
     Meteor.typeahead.inject();
@@ -15,9 +14,13 @@ Template.nav.helpers({
             }
 
             callback(res.map(function (v) {
-                return {value: v.videoTitle};
+                return { value: v.videoTitle };
             }));
         });
+    },
+    notifications: function () {
+        console.log(Notifications.find({  postUserId : Meteor.userId()}).fetch());
+        return  Notifications.find({  postUserId : Meteor.userId()}).fetch();
     }
 
 });
@@ -25,20 +28,20 @@ Template.nav.helpers({
 Template.nav.events({
     'click #addNewYtVideo': function (e) {
         e.preventDefault();
-        if(Meteor.user()){
-             Modal.show('youtubeVideoAddForm');
-        }else{
+        if (Meteor.user()) {
+            Modal.show('youtubeVideoAddForm');
+        } else {
             Router.go('/login');
         }
-       
-    },
-    'click #logout' : function(e){
-      Meteor.logout(function(err){
-        if(err){
 
-        }else{
-          Router.go('/');
-        }
-      });
+    },
+    'click #logout': function (e) {
+        Meteor.logout(function (err) {
+            if (err) {
+
+            } else {
+                Router.go('/');
+            }
+        });
     }
 });

@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div class="navbar-brand">
-                    <a style="cursor:pointer;visibility:hidden;" data-toggle="collapse" class="toggle-button"  id="menu-toggle">
+                    <a style="cursor:pointer;visibility:hidden;" data-toggle="collapse" class="toggle-button" id="menu-toggle">
                         <span style="color:#bcaaa4" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                     </a>
                     <a class="#" href="{{pathFor 'homeIndex'}}" style="color:white;text-decoration:none">
@@ -40,15 +40,22 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <!--<ul id="login" class="nav navbar-nav navbar-right">{{> loginButtons }}</ul>-->
+
                 <ul class="nav navbar-nav navbar-right" style="margin-right : 5px;">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><i class="fa fa-bell" aria-hidden="true"></i></span><span class="badge badge-notify">{{notifications.length}}</span></a>
+                        <ul class="dropdown-menu">
+                            {{#each notifications}}
+                            <li><a href="/profile" id="profile">{{message}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </li>    
                     <li class=""><a id="addNewYtVideo" href="#"><i class="fa fa-cutlery" aria-hidden="true"></i>  New Recipe</a></li>
                     {{#if currentUser}}
                     <li class="dropdown">
                         {{#if currentUser.username}}
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome <strong>{{currentUser.username}} <span class="caret"></span></strong></a>
-                        {{else}}
-                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome <strong>{{currentUser.profile.name}} <span class="caret"></span></strong></a>                             
-                        {{/if}}   
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome <strong>{{currentUser.username}} <span class="caret"></span></strong></a>                        {{else}}
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome <strong>{{currentUser.profile.name}} <span class="caret"></span></strong></a>                        {{/if}}
                         <ul class="dropdown-menu">
                             <li><a href="/profile" id="profile">profile</a></li>
                             <li role="separator" class="divider"></li>
@@ -58,7 +65,7 @@
                     </li>
                     {{else}}
                     <li class=""><a href="/login"><i class="fa fa-user" aria-hidden="true"></i>  Login</a> </li>
-                     {{/if}}                   
+                    {{/if}}
                 </ul>
             </div>
         </div>

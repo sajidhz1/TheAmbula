@@ -54,6 +54,20 @@ Template.heartButton.events({
                         console.log(error)
                     } else {
                         instance.state.set('heartStatus', true);
+                        Meteor.call('youtubevideo.user', videoHeartId, function (error, result) {
+                            if (error) {
+                                console.log(error)
+                            } else {
+                                Meteor.call('newNotification', videoHeartId, result, 'likes your post', function (error, result) {
+                                    if (error) {
+                                        console.log(error)
+                                    } else {
+                                        console.log('notification added');
+                                    }
+                                });
+                            }
+                        });
+
                     }
                 });
             } else {
