@@ -67,7 +67,12 @@ Template.youtubeVideoViewComp.helpers({
         try {
             var user = Meteor.users.find({_id: this.video.owner}, {fields: {profile: 1}}).fetch();
             var profile = user[0].profile;
-            return profile['first_name'] + ' ' + profile['last_name'];
+            if(profile['first_name']){
+                return profile['first_name'] + ' ' + profile['last_name'];
+            }else{
+                return profile['name'];
+            }
+            
         } catch (e) {
             //console.log(e);
         }
