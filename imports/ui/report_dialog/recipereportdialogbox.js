@@ -85,9 +85,9 @@ Template.recipeReportDialogBox.events({
                 });
             } else {
                 Bert.alert({
-                    hideDelay: 5000,
+                    hideDelay: 7000,
                     message: 'You Have Already Reported This Post!',
-                    type: 'info',
+                    type: 'ambula-info',
                     style: 'fixed-top',
                     icon: 'fa-clock-o fa-2x'
                 });

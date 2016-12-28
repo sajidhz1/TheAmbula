@@ -39,10 +39,10 @@ Template.postTile.events({
             });
         }else{
             Bert.alert({
-                hideDelay: 5000,
-                title: 'Log In To theambula.lk',
+                hideDelay: 6000,
+                title: 'Log in to theambula.lk',
                 message: 'You must be logged in to theambula.lk to report a post',
-                type: 'info',
+                type: 'ambula-info',
                 style: 'fixed-top',
                 icon: 'fa-info-circle fa-2x'
             });
@@ -66,6 +66,7 @@ Template.postTile.helpers({
             //console.log(e);
         }
     },
+
     ownerID : function (){
           try {
             var user = Meteor.users.find({_id: this.owner}, {fields: {profile: 1}}).fetch();
@@ -74,6 +75,7 @@ Template.postTile.helpers({
             //console.log(e);
         }
     },
+    
     profileAvatar: function () {
         try {
             var user = Meteor.users.find({_id: this.owner}, {fields: {profile: 1}}).fetch();
