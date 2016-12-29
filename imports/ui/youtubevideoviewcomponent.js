@@ -4,8 +4,6 @@
 import {Meteor} from 'meteor/meteor';
 import {Template} from 'meteor/templating';
 
-import {YoutubeVideos} from '../api/youtubevideos.js';
-
 import './youtubevideoviewcomponent.html';
 
 Template.youtubeVideoViewComp.onCreated(function bodyOnCreated() {
@@ -69,7 +67,12 @@ Template.youtubeVideoViewComp.helpers({
         try {
             var user = Meteor.users.find({_id: this.video.owner}, {fields: {profile: 1}}).fetch();
             var profile = user[0].profile;
-            return profile['first_name'] + ' ' + profile['last_name'];
+            if(profile['first_name']){
+                return profile['first_name'] + ' ' + profile['last_name'];
+            }else{
+                return profile['name'];
+            }
+            
         } catch (e) {
             //console.log(e);
         }
@@ -83,7 +86,51 @@ Template.youtubeVideoViewComp.helpers({
         } catch (e) {
             //console.log(e);
         }
+    },
+
+    isOwner: function () {
+        return this.video.owner === Meteor.userId();
     }
 });
 
+Template.youtubeVideoViewComp.events({
+    'click .single-view-dlete': function (event) {
+
+        event.preventDefault();
+
+        Modal.show('recipeDeleteConfirmBox', {
+            videoIdToDelete: this.video._id,
+            videoOwner: this.video.owner
+        });
+
+    },
+
+    'click .single-view-edit': function (event) {
+
+        event.preventDefault();
+
+        Router.go('youtubeVideoUpdateForm', {videoId: this.video._id});
+
+    },
+
+    'click .single-view-tile-report': function (event) {
+
+        if (Meteor.user()) {
+            event.preventDefault();
+
+            Modal.show('recipeReportDialogBox', {
+                videoIdToReport: this.video._id
+            });
+        } else {
+            Bert.alert({
+                hideDelay: 5000,
+                title: 'Log In To theambula.lk',
+                message: 'You must be logged in to theambula.lk to report a post',
+                type: 'info',
+                style: 'fixed-top',
+                icon: 'fa-info-circle fa-2x'
+            });
+        }
+    }
+});
 

@@ -7,16 +7,21 @@
             {{#each users}}
             {{#if currentUser}}
             
-            {{#if not_equals userObject.username currentUser.username}}
+            {{#if not_equals userObject._id currentUser._id}}
                  <li>
                 <a href="/channels/{{userObject._id}}">
                               {{#if userObject.profile.user_avatar }}
 								<img class="img-circle" src="{{c.url userObject.profile.user_avatar width=30 height=30 crop='fill'}}">
 								{{else}}
-                                 <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
+                                 <img class="img-circle" src="/images/user-avatar.jpg" >
 								{{/if}}
                            
-                            <b>{{userObject.profile.first_name}}</b>
+                            <b>{{#if userObject.profile.first_name}}
+										{{ userObject.profile.first_name }}
+									{{else}}
+										{{ userObject.profile.name }}
+								{{/if}}	
+                            </b>
                     </a>
                 </li>
                 {{/if}}
@@ -26,26 +31,20 @@
                               {{#if userObject.profile.user_avatar }}
 								<img class="img-circle" src="{{c.url userObject.profile.user_avatar width=30 height=30 crop='fill'}}">
 								{{else}}
-                                 <img class="img-circle" src="/images/icons/apple-icon-60x60.png" >
+                                 <img class="img-circle" src="/images/user-avatar.jpg" >
 								{{/if}}
                            
-                            <b>{{userObject.profile.first_name}}</b>
+                             <b>{{#if userObject.profile.first_name}}
+										{{ userObject.profile.first_name }}
+									{{else}}
+										{{ userObject.profile.name }}
+								{{/if}}	
+                            </b>
                     </a>
                 </li>
             {{/if}}
             {{/each}}
-            <li>
-                <a href="#">
-                    <img class="img-circle" src="/images/icons/apple-icon-60x60.png">
-                    About
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img class="img-circle" src="/images/icons/apple-icon-60x60.png">
-                    Services
-                </a>
-            </li>
+       
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->

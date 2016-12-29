@@ -2,7 +2,8 @@
     <div class="col-xs-12 col-sm-8 col-md-8" style="margin-bottom:15px;">
         <div class="ytvideoview-hometile-card-wide mdl-card mdl-shadow--2dp">
             <div class="mdl-card__media">
-                <a class="panel-google-plus-image" href="https://plus.google.com/photos/115077481218689845626/albums/6028961040749409985/6028961040650432498">
+                <a class="panel-google-plus-image"
+                   href="https://plus.google.com/photos/115077481218689845626/albums/6028961040749409985/6028961040650432498">
                     <div class="col-md-12 embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" src="//www.youtube.com/embed/{{videoId}}"></iframe>
                     </div>
@@ -18,23 +19,44 @@
                     <span><small>{{createdDate}}</small></span>
                 </div>
             </a>
+            {{> singlePostStatView postId=_id}}
             <div class="mdl-card__actions mdl-card--border">
                 <div class="pull-right">
-                    <a id="heart" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
-                        <i class="material-icons md-18">favorite_border</i>
-                    </a>
+                    {{>heartButton videoHeartId=_id}}
                     <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
                         <i class="material-icons md-18">share</i>
                     </a>
-                    <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
-                        <i class="material-icons">more_horiz</i>
-                    </a>
+                    <span class="dropup">
+                        <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
+                           data-toggle="dropdown">
+                                <i class="material-icons md-25">more_horiz</i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li role="presentation"><a class="post-tile-view-report" role="menuitem" tabindex="-1"
+                                                       href="#">Report...</a></li>
+                            <li class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                       href="#">Copy Share URL</a></li>
+                            {{#if isOwner }}
+                                <li class="divider"></li>
+                                    <li role="presentation"><a class="post-tile-view-dlete" role="menuitem"
+                                                               tabindex="-1"
+                                                               href="#">Delete Recipe</a></li>
+                                <li class="divider"></li>
+                                    <li role="presentation"><a class="post-tile-view-edit" role="menuitem" tabindex="-1"
+                                                               href="#">Edit Recipe</a></li>
+                            {{/if}}
+                        </ul>
+                    </span>
                 </div>
                 <div class="pull-left">
                     {{#if profileAvatar }}
-                    <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150" src="{{c.url profileAvatar width=250 height=250 crop='fill'}}">                    {{else}}
-                    <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150" src="/images/user-avatar.jpg">                    {{/if}}
-                    <span><strong>{{ownerProfile}}</strong></span><br>
+                        <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150"
+                             src="{{c.url profileAvatar width=250 height=250 crop='fill'}}">                    {{else}}
+                        <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150"
+                             src="/images/user-avatar.jpg">                    {{/if}}
+                    <span><a style="text-decoration:none;color : #222;"
+                             href="/channels/{{ownerID }}"><strong>{{ownerProfile}}</strong></a></span><br>
                 </div>
             </div>
         </div>

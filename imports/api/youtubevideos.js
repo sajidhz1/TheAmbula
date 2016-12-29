@@ -27,7 +27,7 @@ Schemas.youtubevideo = new SimpleSchema({
         label: "Youtube video url",
         regEx: SimpleSchema.RegEx.Url,
     },
-    recipeCategory:{
+    recipeCategory: {
         type: String,
         label: "Recipe category",
     },
@@ -48,6 +48,13 @@ Schemas.youtubevideo = new SimpleSchema({
     username: {
         type: String,
         label: "Username of who saved the video",
+        optional: true
+
+    },
+    updatedAt: {
+        type: Date,
+        label: "Date video details were updated",
+        optional: true
     }
 });
 
@@ -66,4 +73,65 @@ Meteor.methods({
         return YoutubeVideos.insert(newYoutubeVideo, {validationContext: 'insertForm'});
 
     },
+
+    'youtubevideos.delete': function (ytVideoID) {
+
+        check(ytVideoID, String);
+
+        if (Meteor.isServer) {
+            if (!this.userId) {
+                throw new Meteor.Error('not-authorized');
+            }
+
+            const ytVideo = YoutubeVideos.findOne(ytVideoID);
+
+            if (ytVideo.owner !== this.userId) {
+                throw new Meteor.Error('not-authorized');
+            } else {
+                YoutubeVideos.remove(ytVideoID);
+            }
+        }
+    },
+
+    'youtubevideos.exist': function (ytVideoID) {
+
+        check(ytVideoID, String);
+
+        var ytVideo = YoutubeVideos.findOne({videoId: ytVideoID});
+        if (ytVideo) {
+            return true;
+        } else {
+            return false;
+        }
+
+    },
+
+    'youtubevideos.update': function (ytVideoID, videoTitle, videoCategory, videoDescription) {
+
+        check(ytVideoID, String);
+        check(videoTitle, String);
+        check(videoCategory, String);
+        check(videoDescription, String);
+
+        const ytVideo = YoutubeVideos.findOne(ytVideoID);
+
+        // Make sure only the task owner can make a task private
+        if (ytVideo.owner !== this.userId) {
+            throw new Meteor.Error('not-authorized');
+        }
+
+        return YoutubeVideos.update(ytVideoID, {
+            $set: {
+                videoTitle: videoTitle,
+                recipeCategory: videoCategory,
+                videoDescription: videoDescription,
+                updatedAt: new Date()
+            }
+        });
+
+    },
+    'youtubevideo.user': function (ytVideoID) { //  or try saving post ownerID in a Session
+        check(ytVideoID, String);
+        return YoutubeVideos.findOne(ytVideoID).owner;
+    }
 });

@@ -1,0 +1,9 @@
+<template name="singlePostStatView">
+    <div class="single-post-stat-view">
+        {{#if heartCount}}
+            <span><i class="fa fa-heart heart-full"></i> {{numberFormatter heartCount}}</span>
+        {{else}}
+            <span><i class="fa fa-heart-o"></i></span>
+        {{/if}}
+    </div>
+</template>

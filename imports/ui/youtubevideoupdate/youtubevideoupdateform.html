@@ -1,0 +1,70 @@
+<template name="youtubeVideoUpdateForm">
+    <div style="margin-top:50px;" class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
+        <div class="panel panel-custom">
+            <div class="panel-heading">
+                <div class="panel-title">Update Recipe Video Details</div>
+            </div>
+
+            <div style="padding-top:30px" class="panel-body">
+                <div class="col-md-12">
+                    <div class="form-area">
+                        <form id="editRecipeVideo" class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="videoTitleUpdt">Recipe Video Title</label>
+                                <input type="text" class="form-control" id="videoTitleUpdt" name="updt_video_title"
+                                       placeholder="Video Title" value="{{video.videoTitle}}">
+                                <p class="help-block with-errors">
+                                    {{#each errors}}
+                                        {{#if equals 'videoTitle' field}}
+                                            {{message}}
+                                        {{/if}}
+                                    {{/each}}
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label for="videoTitleUpdt">Recipe Category</label>
+                                <select class="form-control" id="recipeCategoryUpdt" name="updt_recipe_category">
+                                    <option value="" disabled selected>Select a category</option>
+                                    <option value="breakfast">Breakfast</option>
+                                    <option value="lunch">Lunch</option>
+                                    <option value="dinner">Dinner</option>
+                                    <option value="beverage">Beverage</option>
+                                    <option value="dessert">Dessert</option>
+                                </select>
+                                <p class="help-block with-errors">
+                                    {{#each errors}}
+                                        {{#if equals 'recipeCategory' field}}
+                                            {{message}}
+                                        {{/if}}
+                                    {{/each}}
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label for="videoDescriptionUpdt">Recipe Video Description</label>
+                                <div id="videoDescriptionUpdt" class="form-control">{{{video.videoDescription}}}</div>
+                                    <span class="help-block with-errors">
+                                        {{#each errors}}
+                                            {{#if equals 'videoDescription' field}}
+                                                {{message}}
+                                            {{/if}}
+                                        {{/each}}
+                                    </span>
+                            </div>
+                            <div class="form-group pull-right">
+                                <button type="button" id="cancel"
+                                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                                        data-dismiss="modal">
+                                    Cancel
+                                </button>
+                                <button type="submit" id="submit" name="submit"
+                                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                                    Save Changes
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

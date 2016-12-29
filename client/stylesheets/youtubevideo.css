@@ -9,18 +9,18 @@
 }
 
 .form-control, .btn {
-    border-radius: 0px;
+    border-radius: 0px !important;
 }
 
 .help-block {
     color: #a94442;
 }
 
-#cancel, #submit {
-    width: 135px;
+#cancel, #submit, #deleteBtn, #cancelBtn, .form-footer-btn {
+    width: 10em;
 }
 
-#cancel{
+#cancel {
     margin-right: 5px;
 }
 
@@ -52,8 +52,29 @@ select option:first-child {
     text-decoration: none;
 }
 
+a.mdl-button{
+    color: #000000;
+}
+
 .ytvideo-owner-thumbnail {
     width: 45px;
     height: 45px;
     border-radius: 50%;
+}
+
+.dropdown-menu .divider {
+    margin: 4px 0px !important;
+}
+
+/*//////////////////////heart button styles////////////////////*/
+#heart {
+    padding-top: 6px;
+}
+
+.heart-full{
+    color:#D1242F;
+}
+/*//////////////////single-post-stat-view styles////////////////*/
+.single-post-stat-view{
+    margin: 5px 15px;
 }

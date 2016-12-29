@@ -3,7 +3,8 @@
   border-color: #795548;
 }
 .navbar-default .navbar-brand {
-  color: #ecf0f1;
+    padding-top: 2px;
+    padding-bottom: 5px;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
@@ -138,4 +139,11 @@
 
 .tt-suggestion p {
   margin: 0;
+}
+
+.badge-notify{
+   background:red;
+   position:relative;
+   top: -10px;
+   left: -5px;
 }

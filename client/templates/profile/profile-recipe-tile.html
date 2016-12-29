@@ -1,0 +1,48 @@
+<template name="profileRecipeTile">
+    <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="ytvideoview-hometile-card-wide mdl-card mdl-shadow--2dp">
+            <a href="/recipe/{{_id}}">
+                <div class="mdl-card__title">
+                    <div class="mdl-card__title-text small-card-title">
+                        <div class="ellipsis-title">
+                            {{ videoTitle }}
+                        </div>
+                        <h6>~ on {{createdDate}}</h6>
+                    </div>
+                </div>
+                <div class="mdl-card__media">
+                    <img src="https://img.youtube.com/vi/{{videoId}}/mqdefault.jpg" style="width : 100%;"/>
+                </div>
+            </a>
+            <div class="mdl-card__actions mdl-card--border">
+                <div class="pull-right">
+                    {{>heartButton videoHeartId=_id}}
+                    <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+                        <i class="material-icons md-18">share</i>
+                    </a>
+                    <span class="dropup">
+                        <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
+                           data-toggle="dropdown">
+                                <i class="material-icons">more_horiz</i>
+                            </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                       href="#">Copy Share URL</a></li>
+                            {{#if isOwner }}
+                                <li class="divider"></li>
+                                <li role="presentation"><a class="profile-view-dlete" role="menuitem" tabindex="-1"
+                                                           href="#">Delete Recipe</a></li>
+                                <li class="divider"></li>
+                                <li role="presentation"><a class="profile-view-edit" role="menuitem" tabindex="-1"
+                                                           href="#">Edit Recipe</a></li>
+                            {{/if}}
+                        </ul>
+                    </span>
+                </div>
+                <div>
+                    {{> singlePostStatView postId=_id}}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
