@@ -113,7 +113,11 @@ Template.profileEdit.onRendered(function () {
 Template.profileRecipeTile.helpers({
     isOwner: function () {
         return this.owner === Meteor.userId();
-    }
+    },
+
+    createdDate: function () {
+        return moment(this.createdAt).format('MMMM Do YYYY');
+    },
 });
 
 Template.profileRecipeTile.events({

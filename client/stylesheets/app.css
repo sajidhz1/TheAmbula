@@ -523,3 +523,10 @@ textarea{
 .links {
     color: #3e2723;
 }
+
+/*////////////Bert alert custom notification styles //////////////*/
+.ambula-info{
+    background: #f7961e;
+    color: #ffffff;
+    font-size: 30em;
+}

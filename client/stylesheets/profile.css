@@ -1,0 +1,24 @@
+#profPic{
+    margin-bottom: 10px;
+}
+
+.small-card-title h6{
+    font-size: small;
+    margin-top: 3px;
+    margin-bottom: 1px;
+}
+
+.ellipsis-title{
+    margin: 10px 0px;
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    max-width: 100%;
+    height: 52px; /* Fallback for non-webkit */
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 1.3;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

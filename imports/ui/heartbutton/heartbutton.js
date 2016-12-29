@@ -40,40 +40,57 @@ Template.heartButton.helpers({
 
 Template.heartButton.events({
     'click #heart': function (event, instance) {
-        var videoHeartId = this.videoHeartId;
 
-        Meteor.call('videoLiked', videoHeartId, function (error, result) {
-            if (!result) {
-                Meteor.call('likeVideo', videoHeartId, function (error, result) {
-                    if (error) {
-                        console.log(error)
-                    } else {
-                        instance.state.set('heartStatus', true);
-                        Meteor.call('youtubevideo.user', videoHeartId, function (error, result) {
-                            if (error) {
-                                console.log(error)
-                            } else {
-                                Meteor.call('newNotification', videoHeartId, result, 'likes your post', function (error, result) {
-                                    if (error) {
-                                        console.log(error)
-                                    } else {
-                                        console.log('notification added');
-                                    }
-                                });
-                            }
-                        });
+        if (Meteor.user()) {
+            //To Reduce the lag, heart status would be changed to the negate of the current status without any db querying
+            //After querying it would be changed or not again accordingly
+            var currentHeartStatus = instance.state.get('heartStatus');
+            instance.state.set('heartStatus', !currentHeartStatus);
 
-                    }
-                });
-            } else {
-                Meteor.call('unlikeVideo', videoHeartId, function (error, result) {
-                    if (error) {
-                        console.log(error)
-                    } else {
-                        instance.state.set('heartStatus', false);
-                    }
-                });
-            }
-        });
+            var videoHeartId = this.videoHeartId;
+            Meteor.call('videoLiked', videoHeartId, function (error, result) {
+                if (!result) {
+                    Meteor.call('likeVideo', videoHeartId, function (error, result) {
+                        if (error) {
+                            console.log(error)
+                        } else {
+                            instance.state.set('heartStatus', true);
+                            Meteor.call('youtubevideo.user', videoHeartId, function (error, result) {
+                                if (error) {
+                                    console.log(error)
+                                } else {
+                                    Meteor.call('newNotification', videoHeartId, result, 'likes your post', function (error, result) {
+                                        if (error) {
+                                            console.log(error)
+                                        } else {
+                                            console.log('notification added');
+                                        }
+                                    });
+                                }
+                            });
+
+                        }
+                    });
+                } else {
+                    Meteor.call('unlikeVideo', videoHeartId, function (error, result) {
+                        if (error) {
+                            console.log(error)
+                        } else {
+                            instance.state.set('heartStatus', false);
+                        }
+                    });
+                }
+            });
+        } else {
+            Bert.alert({
+                hideDelay: 9000,
+                title: 'Log in to theambula.lk',
+                message: 'You must be logged in to theambula.lk to add favourites',
+                type: 'ambula-info',
+                style: 'fixed-top',
+                icon: 'fa-info-circle fa-2x'
+            });
+        }
+
     }
 });
