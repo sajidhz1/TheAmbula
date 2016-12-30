@@ -88,5 +88,17 @@ Template.postTile.helpers({
 
     isOwner: function () {
         return this.owner === Meteor.userId();
+    },
+     shareData: function() {
+         var data  =  Template.currentData();
+        return {
+            title: data.videoTitle,
+            author: data.ownerID,
+            url : 'http://www.theambula.lk/recipe/'+data._id,
+            image : 'https://img.youtube.com/vi/'+data.videoId+'/hqdefault.jpg',
+
+        }
+
     }
 });
+
