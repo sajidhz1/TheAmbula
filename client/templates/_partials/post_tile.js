@@ -91,11 +91,16 @@ Template.postTile.helpers({
     },
      shareData: function() {
          var data  =  Template.currentData();
+
+          var tmp = document.createElement("DIV");
+          tmp.innerHTML = data.videoDescription;
+    
         return {
             title: data.videoTitle,
             author: data.ownerID,
             url : 'http://www.theambula.lk/recipe/'+data._id,
             image : 'https://img.youtube.com/vi/'+data.videoId+'/hqdefault.jpg',
+            description : tmp.textContent || tmp.innerText || ""
 
         }
 
