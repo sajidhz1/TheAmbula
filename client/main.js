@@ -41,4 +41,16 @@ Meteor.startup(function () {
         // }
     });
 
+    if (Meteor.isClient) {
+        return SEO.config({
+            title: 'The Ambula - Sri Lankan Culinary Network',
+            meta: {
+                'description': "'The Ambula' intend to serve as a much needed platform for Sri Lankan culinary enthusiasts to gain knowledge on both traditional and modern Sri Lankan cuisine and various food products."
+            },
+            og: {
+                'image': 'http://www.theambula.lk/images/icons/apple-icon-180x180.png' 
+           }
+        });
+    }
+
 });

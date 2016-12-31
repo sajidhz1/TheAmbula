@@ -92,7 +92,7 @@ Template.youtubeVideoViewComp.helpers({
         return this.video.owner === Meteor.userId();
     },
      shareData: function() {
-         var data  =  Template.currentData();
+         var data  =  Template.currentData().video;
 
           var tmp = document.createElement("DIV");
           tmp.innerHTML = data.videoDescription;
