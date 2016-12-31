@@ -1,7 +1,14 @@
 <template name="layout">
   {{> nav }}
- <div id="wrapper" >
+  <div id="wrapper">
     {{> sideNav}}
+    <ul>
+      {{#each log}}
+      <li>
+        {{this}}
+      </li>
+      {{/each}}
+    </ul>
     {{>yield }}
-	</div>
+  </div>
 </template>
