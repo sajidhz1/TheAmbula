@@ -486,12 +486,18 @@ textarea{
 
 @media only screen and (max-width: 768px) {
     .xyz {
-        padding-top: 70px;
+        padding: 85px 0px 85px !important;
+        margin : 0px !important;
+    }
+
+    #page-content-wrapper {
+        padding : 0px !important;
     }
 
     #sidenav-title {
         padding-top: 70px !important;
     }
+   
 }
 
 .panel-google-plus .btn {
