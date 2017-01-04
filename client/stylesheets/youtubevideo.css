@@ -78,3 +78,20 @@ a.mdl-button{
 .single-post-stat-view{
     margin: 5px 15px;
 }
+
+/*///////Recipe Video Adding Toggle Option Related styles///////*/
+
+#recipeAddOptionToggle{
+    padding: 0px 15px;
+}
+
+.nav-pills > li > a{
+    color: #000000;
+    text-transform: uppercase;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #fff;
+    background-color: rgb(121,85,72);
+}
