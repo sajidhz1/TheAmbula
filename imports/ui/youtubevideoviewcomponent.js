@@ -67,7 +67,12 @@ Template.youtubeVideoViewComp.helpers({
         try {
             var user = Meteor.users.find({_id: this.video.owner}, {fields: {profile: 1}}).fetch();
             var profile = user[0].profile;
-            return profile['first_name'] + ' ' + profile['last_name'];
+            if(profile['first_name']){
+                return profile['first_name'] + ' ' + profile['last_name'];
+            }else{
+                return profile['name'];
+            }
+            
         } catch (e) {
             //console.log(e);
         }
@@ -85,6 +90,22 @@ Template.youtubeVideoViewComp.helpers({
 
     isOwner: function () {
         return this.video.owner === Meteor.userId();
+    },
+     shareData: function() {
+         var data  =  Template.currentData().video;
+
+          var tmp = document.createElement("DIV");
+          tmp.innerHTML = data.videoDescription;
+    
+        return {
+            title: data.videoTitle,
+            author: data.ownerID,
+            url : 'http://www.theambula.lk/recipe/'+data._id,
+            image : 'https://img.youtube.com/vi/'+data.videoId+'/hqdefault.jpg',
+            description : tmp.textContent || tmp.innerText || ""
+
+        }
+
     }
 });
 

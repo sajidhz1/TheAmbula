@@ -19,8 +19,10 @@ Template.nav.helpers({
         });
     },
     notifications: function () {
-        console.log(Notifications.find({  postUserId : Meteor.userId()}).fetch());
         return  Notifications.find({  postUserId : Meteor.userId()}).fetch();
+    },
+    notificationsCount : function(){
+        return  Notifications.find({  postUserId : Meteor.userId() , viewed : 0 }).count();
     }
 
 });
@@ -42,6 +44,12 @@ Template.nav.events({
             } else {
                 Router.go('/');
             }
+        });
+    },
+    'click #notifications-dropdown' : function(e){
+        e.preventDefault();
+        Meteor.call('updateViewed',function(err, res){
+
         });
     }
 });
