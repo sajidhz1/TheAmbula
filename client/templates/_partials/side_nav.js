@@ -36,15 +36,19 @@ Template.nav.events({
 
 Template.sideNav.onCreated(function () {
   this.distinct = new ReactiveVar();
-  Meteor.call('usersHasVideos', (error, result) => {
+  this.recipeCount = new ReactiveVar();
+
+  Meteor.call('getUserRecipeCount', (error, result)  => {
     if (error) {
       console.log(error);
     } else {
-      Meteor.call('getUserObjects' ,result , (error, result) => {
+      this.recipeCount.set(result);
+
+      var userIdArray = result.map(function(a) {return a.owner.owner;});
+      Meteor.call('getUserObjects', userIdArray, (error, result) => {
         if (error) {
           console.log(error);
         } else {
-          console.log(result);
           this.distinct.set(result); // save result when we get it
         }
       });
@@ -54,15 +58,17 @@ Template.sideNav.onCreated(function () {
 
 Template.sideNav.helpers({
   users: function () {
-    const userIds = Template.instance().distinct.get();
-    // turn our array of project values into an array of {project: project}
-    return _.map(userIds, userObject => {
 
-      return { userObject }
+    const userObjects = Template.instance().distinct.get();
+    const userRecipeCountObjects = Template.instance().recipeCount.get();
+    // turn our array of project values into an array of {project: project}
+    return _.map(userRecipeCountObjects, function (userRecipeCountObject) {
+      return _.extend(userRecipeCountObject , _.omit(_.findWhere(userObjects, { _id: userRecipeCountObject.owner.owner }), 'id'));
     });
   }
 });
 
 Template.registerHelper('not_equals', function (a, b) {
-      return a !== b;
-    });
+  return a !== b;
+});
+
