@@ -164,6 +164,12 @@ textarea{
     line-height: 40px;
 }
 
+.sidebar-nav li span {
+   display:inline-block;
+   margin-top : 5%;
+   margin-right: 2px;
+}
+
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
