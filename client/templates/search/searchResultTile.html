@@ -12,41 +12,14 @@
                 </div>
             </a>
             <div class="mdl-card__media">
-                <img src="https://img.youtube.com/vi/{{videoId}}/mqdefault.jpg" style="width : 100%;"/>
+                <img src="https://img.youtube.com/vi/{{videoId}}/mqdefault.jpg" style="width : 100%;" />
             </div>
             <div class="mdl-card__actions mdl-card--border">
-                <div class="pull-left"><span > <a style="text-decoration:none;color : #222;" href="/channels/{{ owner }}"><strong>{{username}}</strong></a></span></div>
+                <div class="pull-left"><span> <a style="text-decoration:none;color : #222;" href="/channels/{{ owner }}"><strong>{{username}}</strong></a></span></div>
                 <div class="pull-right">
-                    <a id="heart"
-                       class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
-                        <i class="material-icons md-18">favorite_border</i>
-                    </a>
-                    <span>{{username}}</span>
-                    {{>heartButton videoHeartId=_id}}
-                    <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
-                        <i class="material-icons md-18">share</i>
-                    </a>
-                    <span class="dropup">
-                        <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
-                           data-toggle="dropdown">
-                                <i class="material-icons">more_horiz</i>
-                            </a>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li role="presentation"><a class="search-view-tile-report" role="menuitem" tabindex="-1"
-                                                       href="#">Report...</a></li>
-                            <li class="divider"></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                       href="#">Copy Share URL</a></li>
-                            {{#if isOwner }}
-                                <li class="divider"></li>
-                                    <li role="presentation"><a class="search-view-dlete" role="menuitem" tabindex="-1"
-                                                               href="#">Delete Recipe</a></li>
-                                    <li class="divider"></li>
-                                    <li role="presentation"><a class="search-view-edit" role="menuitem" tabindex="-1"
-                                                               href="#">Edit Recipe</a></li>
-                            {{/if}}
-                        </ul>
-                    </span>
+                    <div>
+                        {{> singlePostStatView postId=_id}}
+                    </div>
                 </div>
             </div>
         </div>
