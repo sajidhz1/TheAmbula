@@ -31,6 +31,11 @@ Schemas.youtubevideo = new SimpleSchema({
         type: String,
         label: "Recipe category",
     },
+    vegan: {
+        type: Boolean,
+        label: "Recipe vegan status",
+        defaultValue: false
+    },
     videoDescription: {
         type: String,
         label: "Video description",
@@ -106,12 +111,13 @@ Meteor.methods({
 
     },
 
-    'youtubevideos.update': function (ytVideoID, videoTitle, videoCategory, videoDescription) {
+    'youtubevideos.update': function (ytVideoID, videoTitle, videoCategory, recipeVegan, videoDescription) {
 
         check(ytVideoID, String);
         check(videoTitle, String);
         check(videoCategory, String);
         check(videoDescription, String);
+        //check(recipeVegan, Boolean);
 
         const ytVideo = YoutubeVideos.findOne(ytVideoID);
 
@@ -124,6 +130,7 @@ Meteor.methods({
             $set: {
                 videoTitle: videoTitle,
                 recipeCategory: videoCategory,
+                vegan: recipeVegan,
                 videoDescription: videoDescription,
                 updatedAt: new Date()
             }
