@@ -15,6 +15,14 @@
                         <img style="margin-left:5px;" src="http://www.theambula.lk/images/ambula-nav.png" alt="The Ambula"/>
                     </a>
                 </div>
+                <div id="veganOption" class="navbar-brand pull-right text-center">
+                    <a class="#" href="{{pathFor 'homeIndex'}}">
+                        <i class="fa fa-envira fa-2x {{#if veganOnlySelected}}checked{{/if}}" aria-hidden="true"></i>
+                    </a>
+                    <p class="{{#if veganOnlySelected}}checked{{/if}}">
+                        vegan only
+                    </p>
+                </div>
             </div>
             <div class="col-md-offset-2">
                 <form class="navbar-form col-md-6" role="search" action="{{pathFor 'searchResults'}}">
@@ -42,16 +50,19 @@
 
                 <ul class="nav navbar-nav navbar-right" style="margin-right : 5px;">
                     {{#if currentUser}}
-                    <li class="dropdown">
-                        <a href="#" id="notifications-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><i class="fa fa-bell" aria-hidden="true"></i></span><span class="badge badge-notify">{{notificationsCount}}</span></a>
-                        <ul class="dropdown-menu">
-                            {{#each notifications}}
-                            <li style="padding :10px;">
-                                <a href="/recipe/{{postId}}" id=""><strong>{{message}}</strong></a>                            
-                            </li>
-                            {{/each}}
-                        </ul>
-                    </li>
+                        <li class="dropdown">
+                            <a href="#" id="notifications-dropdown" class="dropdown-toggle" data-toggle="dropdown"
+                               role="button" aria-haspopup="true" aria-expanded="false"><span><i class="fa fa-bell"
+                                                                                                 aria-hidden="true"></i></span><span
+                                    class="badge badge-notify">{{notificationsCount}}</span></a>
+                            <ul class="dropdown-menu">
+                                {{#each notifications}}
+                                    <li style="padding :10px;">
+                                        <a href="/recipe/{{postId}}" id=""><strong>{{message}}</strong></a>
+                                    </li>
+                                {{/each}}
+                            </ul>
+                        </li>
                     {{/if}}
                     <li class=""><a id="addNewYtVideo" href="#"><i class="fa fa-cutlery" aria-hidden="true"></i> New
                         Recipe</a></li>

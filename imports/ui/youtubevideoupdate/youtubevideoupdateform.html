@@ -1,5 +1,6 @@
 <template name="youtubeVideoUpdateForm">
-    <div style="margin-top:50px;" class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
+    <div style="margin-top:50px;"
+         class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
         <div class="panel panel-custom">
             <div class="panel-heading">
                 <div class="panel-title">Update Recipe Video Details</div>
@@ -22,22 +23,34 @@
                                 </p>
                             </div>
                             <div class="form-group">
-                                <label for="videoTitleUpdt">Recipe Category</label>
-                                <select class="form-control" id="recipeCategoryUpdt" name="updt_recipe_category">
-                                    <option value="" disabled selected>Select a category</option>
-                                    <option value="breakfast">Breakfast</option>
-                                    <option value="lunch">Lunch</option>
-                                    <option value="dinner">Dinner</option>
-                                    <option value="beverage">Beverage</option>
-                                    <option value="dessert">Dessert</option>
-                                </select>
-                                <p class="help-block with-errors">
-                                    {{#each errors}}
-                                        {{#if equals 'recipeCategory' field}}
-                                            {{message}}
-                                        {{/if}}
-                                    {{/each}}
-                                </p>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <label for="videoTitleUpdt">Recipe Category</label>
+                                        <select class="form-control" id="recipeCategoryUpdt"
+                                                name="updt_recipe_category">
+                                            <option value="" disabled selected>Select a category</option>
+                                            <option value="breakfast">Breakfast</option>
+                                            <option value="lunch">Lunch</option>
+                                            <option value="dinner">Dinner</option>
+                                            <option value="beverage">Beverage</option>
+                                            <option value="dessert">Dessert</option>
+                                        </select>
+                                        <p class="help-block with-errors">
+                                            {{#each errors}}
+                                                {{#if equals 'recipeCategory' field}}
+                                                    {{message}}
+                                                {{/if}}
+                                            {{/each}}
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <label for="videoTitleUpdt">Check if recipe is vegetarian</label>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" id="recipeVeganUpdt" name="updt_recipe_vegan"
+                                                          value=true>Fully Vegan</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="videoDescriptionUpdt">Recipe Video Description</label>

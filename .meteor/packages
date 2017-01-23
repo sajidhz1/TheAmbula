@@ -38,7 +38,14 @@ sergeyt:typeahead
 session@1.1.7
 check@1.2.4
 
+meteorhacks:aggregate
+
+aldeed:simple-schema
 aldeed:collection2
+alanning:roles
+
+dburles:collection-helpers
+matb33:collection-hooks
 alanning:roles
 
 peppelg:bootstrap-3-modal
@@ -61,3 +68,4 @@ reywood:iron-router-ga
 manuelschoebel:ms-seo
 meteorhacks:aggregate
 houston:admin
+

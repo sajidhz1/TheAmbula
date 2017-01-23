@@ -32,22 +32,30 @@
                                     </p>
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control" id="recipeCategory" name="recipe_category">
-                                        <option value="" disabled selected>Select a category</option>
-                                        <option value="breakfast">Breakfast</option>
-                                        <option value="lunch">Lunch</option>
-                                        <option value="dinner">Dinner</option>
-                                        <option value="beverage">Beverage</option>
-                                        <option value="dessert">Dessert</option>
-                                        <option value="snacks-appetizers">Snacks-Appetizers</option>
-                                    </select>
-                                    <p class="help-block with-errors">
-                                        {{#each errors}}
-                                            {{#if equals 'recipeCategory' field}}
-                                                {{message}}
-                                            {{/if}}
-                                        {{/each}}
-                                    </p>
+                                    <div class="row">
+                                        <div class="col-sm-8 col-md-8">
+                                            <select class="form-control" id="recipeCategory" name="recipe_category">
+                                                <option value="" disabled selected>Select a category</option>
+                                                <option value="breakfast">Breakfast</option>
+                                                <option value="lunch">Lunch</option>
+                                                <option value="dinner">Dinner</option>
+                                                <option value="beverage">Beverage</option>
+                                                <option value="dessert">Dessert</option>
+                                            </select>
+                                            <p class="help-block with-errors">
+                                                {{#each errors}}
+                                                    {{#if equals 'recipeCategory' field}}
+                                                        {{message}}
+                                                    {{/if}}
+                                                {{/each}}
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-4 col-md-4">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" id="recipeVegan" name="recipe_vegan" value=true>Fully Vegan</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div id="summernote" class="form-control"></div>
