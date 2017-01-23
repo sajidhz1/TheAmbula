@@ -46,7 +46,6 @@ alanning:roles
 
 dburles:collection-helpers
 matb33:collection-hooks
-alanning:roles
 
 peppelg:bootstrap-3-modal
 mrt:flash-messages
@@ -66,6 +65,5 @@ service-configuration
 joshowens:shareit
 reywood:iron-router-ga
 manuelschoebel:ms-seo
-meteorhacks:aggregate
 houston:admin
 
