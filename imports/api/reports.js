@@ -47,7 +47,7 @@ Meteor.methods({
     'addNewReport': function (report) {
         if (!this.userId) {
             throw new Meteor.Error('not-authorized');
-            return false;
+            //return false;
         }
         return Reports.insert(report, {reportValidationContext: 'reportForm'});
     },

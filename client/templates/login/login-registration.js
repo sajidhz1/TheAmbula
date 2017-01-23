@@ -64,7 +64,7 @@ Template.registration.events({
         Meteor.loginWithGoogle({
             requestPermissions: ['profile', 'email']
         }, (err) => {
-            console.log(err);
+            console.log(res);
             if (err) {
             } else {
                 Router.go('/');
@@ -125,8 +125,10 @@ Template.login.events({
                 FlashMessages.sendError(err.reason);
             } else {
                 FlashMessages.sendSuccess("You are now Logged In");
+                Meteor.call('updateUserRole');
                 Router.go('/');
             }
+
         });
 
         return false;

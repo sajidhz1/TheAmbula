@@ -5,25 +5,46 @@
         <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
             <label id="sidenav-title" style="text-align:center;width : 100%;padding : 3px;">Recipe Channels</label>
             {{#each users}}
-            {{#if currentUser}}
-            
-            {{#if not_equals userObject._id currentUser._id}}
-                 <li>
-                <a href="/channels/{{userObject._id}}">
-                              {{#if userObject.profile.user_avatar }}
-								<img class="img-circle" src="{{c.url userObject.profile.user_avatar width=30 height=30 crop='fill'}}">
-								{{else}}
-                                 <img class="img-circle" src="/images/user-avatar.jpg" >
-								{{/if}}
-                           
-                            <b>{{#if userObject.profile.first_name}}
-										{{ userObject.profile.first_name }}
-									{{else}}
-										{{ userObject.profile.name }}
-								{{/if}}	
-                            </b>
-                    </a>
-                </li>
+            {{#if profile}}
+                {{#if currentUser}}
+                
+                {{#if not_equals _id currentUser._id}}
+                    <li>
+                    <a href="/channels/{{_id}}">
+                                {{#if profile.user_avatar }}
+                                    <img class="img-circle" src="{{c.url profile.user_avatar width=30 height=30 crop='fill'}}">
+                                    {{else}}
+                                    <img class="img-circle" src="/images/user-avatar.jpg" >
+                                    {{/if}}
+                            
+                                <b>{{#if profile.first_name}}
+                                            {{ profile.first_name }}
+                                        {{else}}
+                                            {{ profile.name }}
+                                    {{/if}}	
+                                </b>
+                                <span class="pull-right">{{Total}}</span>
+                        </a>
+                    </li>
+                    {{/if}}
+                {{else}}
+                    <li>
+                    <a href="/channels/{{_id}}">
+                                {{#if profile.user_avatar }}
+                                    <img class="img-circle" src="{{c.url userObject.profile.user_avatar width=30 height=30 crop='fill'}}">
+                                    {{else}}
+                                    <img class="img-circle" src="/images/user-avatar.jpg" >
+                                    {{/if}}
+                            
+                                <b>{{#if profile.first_name}}
+                                            {{ profile.first_name }}
+                                        {{else}}
+                                            {{ profile.name }}
+                                    {{/if}}	
+                                </b>
+                                <span class="pull-right">{{Total}}</span>
+                        </a>
+                    </li>
                 {{/if}}
             {{else}}
                 <li>
