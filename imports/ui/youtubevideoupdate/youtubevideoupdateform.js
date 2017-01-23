@@ -30,6 +30,7 @@ Template.youtubeVideoUpdateForm.onRendered(function () {
     });
 
     $("#recipeCategoryUpdt").val(dataContext.video.recipeCategory);
+    document.getElementById("recipeVeganUpdt").checked = dataContext.video.vegan;
 });
 
 
@@ -44,21 +45,36 @@ Template.youtubeVideoUpdateForm.events({
     'submit #editRecipeVideo': function (event) {
         event.preventDefault();
 
-        const video_id = this.video._id;
+        let video_id = this.video._id;
 
         //Get value from form elements
-        const target = event.target;
+        let target = event.target;
 
-        const video_title = target.updt_video_title.value;
-        const recipe_category = $(target.updt_recipe_category).val();
-        const video_description = $('#videoDescriptionUpdt').summernote('code');
+        let video_title = target.updt_video_title.value;
+        let recipe_category = $(target.updt_recipe_category).val();
+        let recipe_vegan = document.getElementById('recipeVeganUpdt').checked;
 
-        Meteor.call('youtubevideos.update', video_id, video_title, recipe_category, video_description, function (error, result) {
+        let video_description = $('#videoDescriptionUpdt').summernote('code');
+
+        Meteor.call('youtubevideos.update', video_id, video_title, recipe_category, recipe_vegan, video_description, function (error, result) {
             if (result) {
-                sAlert.success('Successfully Updated !');
+                Bert.alert({
+                    hideDelay: 5000,
+                    title: 'Recipe Successfully Updated',
+                    message: 'your recipe at theambula.lk content was successfully updated',
+                    type: 'success',
+                    style: 'growl-top-right',
+                    icon: 'fa-flag fa-2x'
+                });
                 Router.go('youtubeVideoViewComp', {videoId: video_id});
             } else {
-                sAlert.error('Something went wrong while updating!', configOverwrite);
+                Bert.alert({
+                    hideDelay: 7000,
+                    message: 'Something went wrong while updating the recipe, please try again later!',
+                    type: 'danger',
+                    style: 'fixed-top',
+                    icon: 'fa-exclamation-triangle fa-2x'
+                });
                 console.log(error);
             }
         });

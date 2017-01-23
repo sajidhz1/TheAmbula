@@ -1,9 +1,16 @@
+import {Meteor} from 'meteor/meteor';
+import {Template} from 'meteor/templating';
+
 import './nav.html';
 
 //inject type ahead when navbar is loaded
 Template.nav.rendered = function () {
     Meteor.typeahead.inject();
 };
+
+Template.nav.onCreated(function bodyOnCreated() {
+    Session.set('veganOnly', false);
+});
 
 Template.nav.helpers({
     search: function (query, sync, callback) {
@@ -14,15 +21,21 @@ Template.nav.helpers({
             }
 
             callback(res.map(function (v) {
-                return { value: v.videoTitle };
+                return {value: v.videoTitle};
             }));
         });
     },
+
     notifications: function () {
-        return  Notifications.find({  postUserId : Meteor.userId()}).fetch();
+        return Notifications.find({postUserId: Meteor.userId()}).fetch();
     },
-    notificationsCount : function(){
-        return  Notifications.find({  postUserId : Meteor.userId() , viewed : 0 }).count();
+
+    notificationsCount: function () {
+        return Notifications.find({postUserId: Meteor.userId(), viewed: 0}).count();
+    },
+
+    veganOnlySelected: function () {
+        return Session.get('veganOnly');
     }
 
 });
@@ -46,10 +59,19 @@ Template.nav.events({
             }
         });
     },
-    'click #notifications-dropdown' : function(e){
+    'click #notifications-dropdown': function (e) {
         e.preventDefault();
-        Meteor.call('updateViewed',function(err, res){
+        Meteor.call('updateViewed', function (err, res) {
 
         });
+    },
+
+    'click #veganOption': function (e) {
+        e.preventDefault();
+        if (Session.get('veganOnly')) {
+            Session.set('veganOnly', false);
+        } else {
+            Session.set('veganOnly', true);
+        }
     }
 });
