@@ -67,11 +67,8 @@ Template.nav.events({
     },
 
     'click #veganOption': function (e) {
-        e.preventDefault();
-        if (Session.get('veganOnly')) {
-            Session.set('veganOnly', false);
-        } else {
-            Session.set('veganOnly', true);
-        }
+        var checked = $('#veganOption').prop('checked');
+            Session.set('veganOnly', checked);
+            console.log(Session.get("veganOnly"));
     }
 });
