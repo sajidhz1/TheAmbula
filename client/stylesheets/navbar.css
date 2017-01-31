@@ -1,89 +1,104 @@
 .navbar-default {
-  background-color: #3e2723;
-  border-color: #795548;
+    background-color: #3e2723;
+    border-color: #795548;
 }
+
 .navbar-default .navbar-brand {
     padding-top: 2px;
     padding-bottom: 5px;
 }
+
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #f7f7f7;
+    color: #f7f7f7;
 }
+
 .navbar-default .navbar-text {
-  color: #ecf0f1;
+    color: #ecf0f1;
 }
+
 .navbar-default .navbar-nav > li > a {
-  color: #ecf0f1;
+    color: #ecf0f1;
 }
+
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #f7f7f7;
+    color: #f7f7f7;
 }
+
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #f7f7f7;
-  background-color: #795548;
+    color: #f7f7f7;
+    background-color: #795548;
 }
+
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-  color: #f7f7f7;
-  background-color: #795548;
-}
-.navbar-default .navbar-toggle {
-  border-color: #795548;
-}
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-  background-color: #795548;
-}
-.navbar-default .navbar-toggle .icon-bar {
-  background-color: #ecf0f1;
-}
-.navbar-default .navbar-collapse,
-.navbar-default .navbar-form {
-  border-color: #ecf0f1;
-}
-.navbar-default .navbar-link {
-  color: #ecf0f1;
-}
-.navbar-default .navbar-link:hover {
-  color: #f7f7f7;
+    color: #f7f7f7;
+    background-color: #795548;
 }
 
-#login .dropdown-toggle{
+.navbar-default .navbar-toggle {
+    border-color: #795548;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #795548;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ecf0f1;
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: #ecf0f1;
+}
+
+.navbar-default .navbar-link {
+    color: #ecf0f1;
+}
+
+.navbar-default .navbar-link:hover {
+    color: #f7f7f7;
+}
+
+#login .dropdown-toggle {
     font-size: 20px;
 }
 
 @media (max-width: 768px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #ecf0f1;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #f7f7f7;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #f7f7f7;
-    background-color: #795548;
-  }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ecf0f1;
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #f7f7f7;
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #f7f7f7;
+        background-color: #795548;
+    }
 }
 
-.twitter-typeahead{
-      top : 3px;
-      position: absolute;
-      width: 100% !important;
+.twitter-typeahead {
+    top: 3px;
+    position: absolute;
+    width: 100% !important;
 }
 
-.typeahead ,
+.typeahead,
 .tt-query,
 .tt-hint {
-  margin-bottom: 0;
-  width: 100% !important;
+    margin-bottom: 0;
+    width: 100% !important;
 }
 
 /*.typeahead {
@@ -91,79 +106,81 @@
 }*/
 
 .typeahead:focus {
-  border: 2px solid #0097cf;
+    border: 2px solid #0097cf;
 }
 
 .tt-query {
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
 .tt-hint {
-  color: #999
+    color: #999
 }
 
 .tt-menu {
-  width: 422px;
-  margin: 4px 0;
-  padding: 8px 0;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  -webkit-border-radius: 8px;
-     -moz-border-radius: 8px;
-          border-radius: 8px;
-  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-          box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    width: 422px;
+    margin: 4px 0;
+    padding: 8px 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 }
 
 .tt-suggestion {
-  padding: 3px 20px;
-  font-size: 18px;
-  line-height: 24px;
+    padding: 3px 20px;
+    font-size: 18px;
+    line-height: 24px;
 }
 
 .tt-suggestion:hover {
-  cursor: pointer;
-  color: #fff;
-  background-color: #0097cf;
+    cursor: pointer;
+    color: #fff;
+    background-color: #0097cf;
 }
 
 .tt-suggestion.tt-cursor {
-  color: #fff;
-  background-color: #0097cf;
+    color: #fff;
+    background-color: #0097cf;
 
 }
 
 .tt-suggestion p {
-  margin: 0;
+    margin: 0;
 }
 
-.badge-notify{
-   background:red;
-   position:relative;
-   top: -10px;
-   left: -5px;
+.badge-notify {
+    background: red;
+    position: relative;
+    top: -10px;
+    left: -5px;
 }
 
 /*//////////////////////Styles related to vegan recipe search filter option ////////////////////////*/
-#veganOption{
-    padding-top: 2px;
-    padding-bottom: 2px;
+#veganOptionLabel {
     font-size: 15px;
     color: #FFFFFF;
     cursor: pointer;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 0px 15px;
 }
 
-#veganOption a>i{
+#veganOptionLabel > i {
     color: #FFFFFF;
-    -ms-transform: rotate(7deg); /* IE 9 */
-    -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+    font-size: 30px;
+    -ms-transform: rotate(100deg); /* IE 9 */
+    -webkit-transform: rotate(100deg); /* Chrome, Safari, Opera */
     transform: rotate(100deg);
 }
 
-#veganOption a>i.checked,p.checked{
+#veganOptionLabel.checked > label, #veganOptionLabel.checked > i {
     color: #56c335;
 }
