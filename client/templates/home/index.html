@@ -2,23 +2,31 @@
     <div id="page-content-wrapper" style="background: #fafafa;">
         <div class="container-fluid xyz">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-md-12" style="padding:0;background:#b1b1b1">
+                    <img src="http://lorempixel.com/1000/200/" alt="">
+                </div>                
+            </div>
+            <div class="row" style="margin-top:40px;">
+                <div class="col-lg-3" style="background:#F5EDE2;height :500px;">
+                    <!--  channels here  -->
+                        <h6>channels here</h6>
+                    
+                </div>
+                <div class="col-lg-6">
                     {{> collectionPagination}}
                 </div>
+                <div class="col-lg-3">
+                    {{>ad_tile }}
+                </div>
             </div>
-            <div class="col-lg-4" ></div>
         </div>
     </div>
 </template>
 
 <template name="collectionPagination">
-    {{#each videos}}
-        {{>postTile }}
-    {{/each}}
-
-    {{#if moreResults}}
+    {{#each videos}} {{>postTile }} {{/each}} {{#if moreResults}}
     <div class="col-sm-8 col-xs-12" id="showMoreResults" style="margin-left: 25px;">
-        <img class="loading" src="/images/loading.gif" >
+        <img class="loading" src="/images/loading.gif">
     </div>
     {{/if}}
 </template>
