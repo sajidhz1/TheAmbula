@@ -1,0 +1,26 @@
+/********************styles for new home screen*********************/
+
+/*////////////////Home screen recipe card style //////////////////*/
+
+.ytvideoview-hometile-card-title {
+    height: 138px;
+}
+
+.ytvideoview-hometile-card-title-text {
+    /*height: ;*/
+    margin-left: 10px !important;
+    padding-left: 0px;
+    padding-top: 20px;
+    height: 99px !important;
+    display: inline-block;
+    font-size: 1.1em !important;
+}
+
+.ytvideoview-hometile-card-title-text > span {
+    margin-right: 10px;
+}
+
+.ytvideoview-hometile-card-title-stats {
+    display: inline-block !important;
+    height: calc(100% - 100px);
+}

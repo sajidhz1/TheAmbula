@@ -31,7 +31,6 @@ select option:first-child {
 /*Google Material Design Related Styles*/
 .mdl-card__title {
     padding: 5px 15px 5px 15px !important;
-    font-size: large;
 }
 
 .mdl-card__title-text {
