@@ -2,7 +2,6 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
 
 body {
-    font-size: 62.5% !important;
     padding-top: 50px;
     background: #f5ede2 !important;
 }
@@ -552,3 +551,30 @@ textarea {
     top: 65px;
     position: fixed;
 }
+
+/*tag CLoud*/
+
+.cloud {
+    display: inline;
+    list-style-type: none;
+    width: 400px;
+    color: #ffffff;
+}
+.cloud li {
+    list-style: none;
+    display: inline;
+    margin-right: 20px;
+}
+
+.cloud li:nth-of-type(3n + 1) {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+.cloud li:nth-of-type(4n+3) {
+    font-size: 1.8em;
+}
+.cloud li:nth-of-type(5n - 3) {
+    font-size: 1.25em;
+    margin-top: 75px;
+}
+
