@@ -3,19 +3,19 @@
 
 body {
     padding-top: 50px;
-    background: #f5f5f5;
+    background: #f5ede2 !important;
 }
 
 button {
     border-radius: 0px !important;
 }
 
-textarea{
+textarea {
     resize: none !important;
     width: 100%;
 }
 
-.smGlobalBtn{ /* global button class */
+.smGlobalBtn { /* global button class */
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -30,53 +30,56 @@ textarea{
     font-weight: normal;
     line-height: 2em;
     border-radius: 25px;
-    -moz-border-radius:25px;
-    -webkit-border-radius:25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
     margin-right: 5px;
     margin-bottom: 5px;
 }
 
-.facebookBtn{
+.facebookBtn {
     background: #4060A5;
 }
 
-.facebookBtn:before{ /* use :before to add the relevant icons */
+.facebookBtn:before { /* use :before to add the relevant icons */
     font-family: "FontAwesome";
     content: "\f09a"; /* add facebook icon */
 }
 
-.facebookBtn:hover{
+.facebookBtn:hover {
     color: #4060A5;
     background: #fff;
 }
 
-.googleplusBtn{
+.googleplusBtn {
     background: #e64522;
 }
 
-.googleplusBtn:before{
-      font-family: "FontAwesome";
-      content: "\f16a"; /* add googleplus icon */
+.googleplusBtn:before {
+    font-family: "FontAwesome";
+    content: "\f16a"; /* add googleplus icon */
 }
 
-.googleplusBtn:hover{
-      color: #e64522;
-      background: #fff;
-      border-color: #e64522;
+.googleplusBtn:hover {
+    color: #e64522;
+    background: #fff;
+    border-color: #e64522;
 }
-.websiteButton{
+
+.websiteButton {
     background: #2b2b2b;
 }
-.websiteButton:before{ /* use :before to add the relevant icons */
+
+.websiteButton:before { /* use :before to add the relevant icons */
     font-family: "FontAwesome";
     content: "\f0ac"; /* add facebook icon */
 }
 
-.websiteButton:hover{
-      color: #2b2b2b;
-      background: #fff;
-      border-color: #2b2b2b;
+.websiteButton:hover {
+    color: #2b2b2b;
+    background: #fff;
+    border-color: #2b2b2b;
 }
+
 /*
 .small-card-title {
     width: 250px;
@@ -165,9 +168,9 @@ textarea{
 }
 
 .sidebar-nav li span {
-   display:inline-block;
-   margin-top : 5%;
-   margin-right: 2px;
+    display: inline-block;
+    margin-top: 5%;
+    margin-right: 2px;
 }
 
 .sidebar-nav li a {
@@ -237,7 +240,6 @@ textarea{
     #wrapper.toggled-2 #sidebar-wrapper:hover {
         width: 200px;
     }*/
-
     #page-content-wrapper {
         padding: 20px;
         position: relative;
@@ -250,7 +252,7 @@ textarea{
     #wrapper.toggled #page-content-wrapper {
         position: relative;
         margin-right: 0;
-       
+
     }
 
     #wrapper.toggled-2 #page-content-wrapper {
@@ -492,25 +494,27 @@ textarea{
 @media only screen and (max-width: 768px) {
     .xyz {
         padding: 85px 0px 85px !important;
-        margin : 0px !important;
+        margin: 0px !important;
     }
 
     #page-content-wrapper {
-        padding : 0px !important;
+        padding: 0px !important;
     }
 
     #sidenav-title {
         padding-top: 70px !important;
     }
-   
+
 }
 
 .panel-google-plus .btn {
     border-radius: 3px;
 }
-.mainbox{
+
+.mainbox {
     margin-top: 90px !important;
 }
+
 .panel-google-plus .btn-default {
     border: 1px solid rgb(217, 217, 217);
     box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 0px 0px;
@@ -536,15 +540,16 @@ textarea{
 }
 
 /*////////////Bert alert custom notification styles //////////////*/
-.ambula-info{
+.ambula-info {
     background: #f7961e;
     color: #ffffff;
     font-size: 30em;
 }
+
 /* fixed ad-div */
 .affix {
-    top:65px;
-    position:fixed;
+    top: 65px;
+    position: fixed;
 }
 
 /*tag CLoud*/

@@ -1,5 +1,5 @@
 <template name="homeIndex">
-    <div id="page-content-wrapper" style="background: #fafafa;">
+    <div class="container-fluid">
         <div class="container-fluid xyz">
             <div class="row">
                 <div class="col-md-12" style="padding:0;background:#4e342e;overflow:hidden;">
@@ -58,9 +58,12 @@
 </template>
 
 <template name="collectionPagination">
-    {{#each videos}} {{>postTile }} {{/each}} {{#if moreResults}}
-    <div class="col-sm-8 col-xs-12" id="showMoreResults" style="margin-left: 25px;">
-        <img class="loading" src="/images/loading.gif">
-    </div>
+    {{#each videos}}
+        {{>postTile }}
+    {{/each}}
+    {{#if moreResults}}
+        <div class="col-sm-8 col-xs-12 text-center" id="showMoreResults" style="margin-left: 25px;">
+            <img class="loading" src="/images/loading.gif">
+        </div>
     {{/if}}
 </template>
