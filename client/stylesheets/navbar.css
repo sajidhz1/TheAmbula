@@ -1,6 +1,6 @@
 .navbar-default {
   background-color: #ffffff;
-  border-color: #3e2723;
+  /*border-color: #3e2723;*/
 }
 .navbar-default .navbar-brand {
   color: #3e2723;
@@ -43,7 +43,7 @@
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
-  border-color: #3e2723;
+  /*border-color: #3e2723;*/
 }
 .navbar-default .navbar-link {
   color: #3e2723;
