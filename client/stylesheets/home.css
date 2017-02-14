@@ -2,25 +2,39 @@
 
 /*////////////////Home screen recipe card style //////////////////*/
 
-.ytvideoview-hometile-card-title {
-    height: 138px;
+.ytvideoview-hometile-card-media {
+    padding-top: 15px !important;
+}
+
+@media screen and (min-width: 992px) {
+    .ytvideoview-hometile-card-title {
+        padding-left: 0px !important;
+    }
+
+    .ytvideoview-hometile-card-title-text {
+        height: 115px !important;
+    }
+
+    .ytvideoview-hometile-card-title-container {
+        height: 150px !important;
+    }
+
+    .ytvideoview-hometile-card-title-date {
+        text-align: right;
+    }
 }
 
 .ytvideoview-hometile-card-title-text {
-    /*height: ;*/
-    margin-left: 10px !important;
-    padding-left: 0px;
-    padding-top: 20px;
-    height: 99px !important;
-    display: inline-block;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    overflow: hidden !important;
     font-size: 1.1em !important;
 }
 
-.ytvideoview-hometile-card-title-text > span {
-    margin-right: 10px;
+.ytvideoview-hometile-card-title-hearts {
+    padding: 15px 0px;
 }
 
-.ytvideoview-hometile-card-title-stats {
-    display: inline-block !important;
-    height: calc(100% - 100px);
+.ytvideoview-hometile-card-title-date {
+    padding: 15px 0px;
 }

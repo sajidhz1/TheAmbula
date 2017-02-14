@@ -30,7 +30,7 @@ select option:first-child {
 
 /*Google Material Design Related Styles*/
 .mdl-card__title {
-    padding: 5px 15px 5px 15px !important;
+    /*padding: 5px 15px 5px 15px !important;*/
 }
 
 .mdl-card__title-text {
@@ -75,5 +75,9 @@ a.mdl-button{
 }
 /*//////////////////single-post-stat-view styles////////////////*/
 .single-post-stat-view{
+    /*margin: 5px 15px;*/
+}
+
+.single-post-stat-view-single-view{
     margin: 5px 15px;
 }
