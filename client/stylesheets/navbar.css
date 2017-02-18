@@ -154,7 +154,7 @@
 /*//////////////////////Styles related to vegan recipe search filter option ////////////////////////*/
 #veganOptionLabel {
     font-size: 15px;
-    color: #FFFFFF;
+    color: #523410;
     cursor: pointer;
     margin-top: 8px;
     margin-bottom: 8px;
@@ -170,5 +170,5 @@
 }
 
 #veganOptionLabel.checked > label, #veganOptionLabel.checked > i {
-    color: #56c335;
+    color: #56c335 !important;
 }
