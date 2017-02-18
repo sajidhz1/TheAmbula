@@ -126,8 +126,8 @@
 
 /*//////////Mozilla////////*/
 _:-moz-tree-row(hover), .mdl-badge.sidenav-channel-list-badge[data-badge]::after {
-    top: 1.0em;
-    right: -0.7em;
+    top: -2.9em;
+    right: -5.5em;
 }
 
 /*////////////IE////////////*/
