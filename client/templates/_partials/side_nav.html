@@ -4,78 +4,74 @@
             <legend id="sidenav-channel-list-title">Recipe Channels</legend>
         </div>
         <ul id="sidenav-channel-list">
-            <li class="sidenav-channel-list-item">
-                <div class="row">
-                    <div class="col-md-3 sidenav-channel-list-image-col">
-                        <img class="channel-owner-thumbnail" id="profPic"
-                             src="/images/user-avatar.jpg">
-                        <span class="mdl-badge sidenav-channel-list-badge" data-badge="{{numberFormatter 1000}}">
-                        </span>
-                    </div>
-                    <div class="col-md-9 sidenav-channel-list-name-col">
-                        <div class="col-md-12 sidenav-channel-list-name">
-                            Dulitha Ruvin
-                        </div>
-                        <div class="col-md-12 sidenav-channel-list-vids">
-                            <span><i class="fa fa-heart heart-full"></i> {{numberFormatter heartCount}}</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="sidenav-channel-list-item">
-                <div class="row">
-                    <div class="col-md-3 sidenav-channel-list-image-col">
-                        <img class="channel-owner-thumbnail" id="profPic"
-                             src="/images/user-avatar.jpg">
-                        <span class="mdl-badge sidenav-channel-list-badge" data-badge="{{numberFormatter 999}}">
-                        </span>
-                    </div>
-                    <div class="col-md-9 sidenav-channel-list-name-col">
-                        <div class="col-md-12 sidenav-channel-list-name">
-                            Sajidh Zazahir
-                        </div>
-                        <div class="col-md-12 sidenav-channel-list-vids">
-                            <span><i class="fa fa-heart heart-full"></i> {{numberFormatter heartCount}}</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="sidenav-channel-list-item">
-                <div class="row">
-                    <div class="col-md-3 sidenav-channel-list-image-col">
-                        <img class="channel-owner-thumbnail" id="profPic"
-                             src="/images/user-avatar.jpg">
-                        <span class="mdl-badge sidenav-channel-list-badge" data-badge="{{numberFormatter 55}}" >
-                        </span>
-                    </div>
-                    <div class="col-md-9 sidenav-channel-list-name-col">
-                        <div class="col-md-12 sidenav-channel-list-name">
-                            Thishan Pavitra
-                        </div>
-                        <div class="col-md-12 sidenav-channel-list-vids">
-                            <span><i class="fa fa-heart heart-full"></i> {{numberFormatter heartCount}}</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="sidenav-channel-list-item">
-                <div class="row">
-                    <div class="col-md-3 sidenav-channel-list-image-col">
-                        <img class="channel-owner-thumbnail" id="profPic"
-                             src="/images/user-avatar.jpg">
-                        <span class="mdl-badge sidenav-channel-list-badge" data-badge="{{numberFormatter 85}}">
-                        </span>
-                    </div>
-                    <div class="col-md-9 sidenav-channel-list-name-col">
-                        <div class="col-md-12 sidenav-channel-list-name">
-                            Saminda Sampath
-                        </div>
-                        <div class="col-md-12 sidenav-channel-list-vids">
-                            <span><i class="fa fa-heart heart-full"></i> {{numberFormatter heartCount}}</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
+            {{#each users}}
+                {{#if profile}}
+                    {{#if currentUser}}
+                        {{#if not_equals _id currentUser._id}}
+                            <li class="sidenav-channel-list-item">
+                                <div class="row">
+                                    <div class="col-md-3 sidenav-channel-list-image-col">
+                                        {{#if profile.user_avatar }}
+                                            <img class="channel-owner-thumbnail" id="profPic"
+                                                 src="/images/user-avatar.jpg">
+                                        {{else}}
+                                            <img class="channel-owner-thumbnail" id="profPic"
+                                                 src="/images/user-avatar.jpg">
+                                        {{/if}}
+                                        <span class="mdl-badge sidenav-channel-list-badge"
+                                              data-badge="{{numberFormatter Total}}">
+                                        </span>
+                                    </div>
+                                    <div class="col-md-9 sidenav-channel-list-name-col">
+                                        <div class="col-md-12 sidenav-channel-list-name">
+                                            {{#if profile.first_name}}
+                                                {{ profile.first_name }}
+                                            {{else}}
+                                                {{ profile.name }}
+                                            {{/if}}
+                                        </div>
+                                        <div class="col-md-12 sidenav-channel-list-vids">
+                                        <span><i
+                                                class="fa fa-heart heart-full"></i> {{numberFormatter heartCount}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        {{/if}}
+                    {{else}}
+                        <li class="sidenav-channel-list-item">
+                            <div class="row">
+                                <div class="col-md-3 sidenav-channel-list-image-col">
+                                    {{#if profile.user_avatar }}
+                                        <img class="channel-owner-thumbnail" id="profPic"
+                                             src="/images/user-avatar.jpg">
+                                    {{else}}
+                                        <img class="channel-owner-thumbnail" id="profPic"
+                                             src="/images/user-avatar.jpg">
+                                    {{/if}}
+                                    <span class="mdl-badge sidenav-channel-list-badge"
+                                          data-badge="{{numberFormatter Total}}">
+                                    </span>
+                                </div>
+                                <div class="col-md-9 sidenav-channel-list-name-col">
+                                    <div class="col-md-12 sidenav-channel-list-name">
+                                        {{#if profile.first_name}}
+                                            {{ profile.first_name }}
+                                        {{else}}
+                                            {{ profile.name }}
+                                        {{/if}}
+                                    </div>
+                                    <div class="col-md-12 sidenav-channel-list-vids">
+                                        <span><i
+                                                class="fa fa-heart heart-full"></i> {{numberFormatter heartCount}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {{/if}}
+
+                {{/if}}
+            {{/each}}
         </ul>
     </div>
 </template>
