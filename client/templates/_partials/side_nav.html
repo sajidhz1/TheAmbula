@@ -1,55 +1,81 @@
 <template name="sideNav">
-
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
-            <label id="sidenav-title" style="text-align:center;width : 100%;padding : 3px;">Recipe Channels</label>
-            {{#each users}}
-            {{#if profile}}
-                {{#if currentUser}}
-                
-                {{#if not_equals _id currentUser._id}}
-                    <li>
-                    <a href="/channels/{{_id}}">
-                                {{#if profile.user_avatar }}
-                                    <img class="img-circle" src="{{c.url profile.user_avatar width=30 height=30 crop='fill'}}">
-                                    {{else}}
-                                    <img class="img-circle" src="/images/user-avatar.jpg" >
-                                    {{/if}}
-                            
-                                <b>{{#if profile.first_name}}
-                                            {{ profile.first_name }}
-                                        {{else}}
-                                            {{ profile.name }}
-                                    {{/if}}	
-                                </b>
-                                <span class="badge badge-important pull-right">{{Total}}</span>
-                        </a>
-                    </li>
-                    {{/if}}
-                {{else}}
-                    <li>
-                    <a href="/channels/{{_id}}">
-                                {{#if profile.user_avatar }}
-                                    <img class="img-circle" src="{{c.url userObject.profile.user_avatar width=30 height=30 crop='fill'}}">
-                                    {{else}}
-                                    <img class="img-circle" src="/images/user-avatar.jpg" >
-                                    {{/if}}
-                            
-                                <b>{{#if profile.first_name}}
-                                            {{ profile.first_name }}
-                                        {{else}}
-                                            {{ profile.name }}
-                                    {{/if}}	
-                                </b>
-                                <span class="badge badge-important pull-right">{{Total}}</span>
-                        </a>
-                    </li>
-                {{/if}}
-            {{/if}}    
-            {{/each}}
-       
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-right: 0px">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+            <legend id="sidenav-channel-list-title">Recipe Channels</legend>
+        </div>
+        <ul id="sidenav-channel-list">
+            <li class="sidenav-channel-list-item">
+                <div class="row">
+                    <div class="col-md-3 sidenav-channel-list-image-col">
+                        <img class="channel-owner-thumbnail" id="profPic"
+                             src="/images/user-avatar.jpg">
+                        <span class="mdl-badge sidenav-channel-list-badge" data-badge="{{numberFormatter 1000}}">
+                        </span>
+                    </div>
+                    <div class="col-md-9 sidenav-channel-list-name-col">
+                        <div class="col-md-12 sidenav-channel-list-name">
+                            Dulitha Ruvin
+                        </div>
+                        <div class="col-md-12 sidenav-channel-list-vids">
+                            <span><i class="fa fa-heart heart-full"></i> {{numberFormatter heartCount}}</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="sidenav-channel-list-item">
+                <div class="row">
+                    <div class="col-md-3 sidenav-channel-list-image-col">
+                        <img class="channel-owner-thumbnail" id="profPic"
+                             src="/images/user-avatar.jpg">
+                        <span class="mdl-badge sidenav-channel-list-badge" data-badge="{{numberFormatter 999}}">
+                        </span>
+                    </div>
+                    <div class="col-md-9 sidenav-channel-list-name-col">
+                        <div class="col-md-12 sidenav-channel-list-name">
+                            Sajidh Zazahir
+                        </div>
+                        <div class="col-md-12 sidenav-channel-list-vids">
+                            <span><i class="fa fa-heart heart-full"></i> {{numberFormatter heartCount}}</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="sidenav-channel-list-item">
+                <div class="row">
+                    <div class="col-md-3 sidenav-channel-list-image-col">
+                        <img class="channel-owner-thumbnail" id="profPic"
+                             src="/images/user-avatar.jpg">
+                        <span class="mdl-badge sidenav-channel-list-badge" data-badge="{{numberFormatter 55}}" >
+                        </span>
+                    </div>
+                    <div class="col-md-9 sidenav-channel-list-name-col">
+                        <div class="col-md-12 sidenav-channel-list-name">
+                            Thishan Pavitra
+                        </div>
+                        <div class="col-md-12 sidenav-channel-list-vids">
+                            <span><i class="fa fa-heart heart-full"></i> {{numberFormatter heartCount}}</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="sidenav-channel-list-item">
+                <div class="row">
+                    <div class="col-md-3 sidenav-channel-list-image-col">
+                        <img class="channel-owner-thumbnail" id="profPic"
+                             src="/images/user-avatar.jpg">
+                        <span class="mdl-badge sidenav-channel-list-badge" data-badge="{{numberFormatter 85}}">
+                        </span>
+                    </div>
+                    <div class="col-md-9 sidenav-channel-list-name-col">
+                        <div class="col-md-12 sidenav-channel-list-name">
+                            Saminda Sampath
+                        </div>
+                        <div class="col-md-12 sidenav-channel-list-vids">
+                            <span><i class="fa fa-heart heart-full"></i> {{numberFormatter heartCount}}</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
         </ul>
     </div>
-    <!-- /#sidebar-wrapper -->
 </template>
