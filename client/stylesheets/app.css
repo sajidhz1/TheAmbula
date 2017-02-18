@@ -553,6 +553,12 @@ textarea {
 }
 
 /*tag CLoud*/
+.cloud-container{
+    height: 125px;
+    padding:0;
+    background-image: url(/images/header_background.jpg);
+    overflow:hidden;
+}
 
 .cloud {
     display: inline;
@@ -569,11 +575,6 @@ textarea {
 {
     color: #fff;
 }
-.cloud li:nth-of-type(3n + 1) {
-    font-size: 1.5em;
-    top: 20px;
-    position: relative;
-}
 
 .cloud li:nth-of-type(2n-1) {
     font-size: 1.5em;
@@ -584,6 +585,7 @@ textarea {
 .cloud li:nth-of-type(4n+3) {
     font-size: 1.8em;
     top: 15px;
+    position: relative;
 }
 .cloud li:nth-of-type(5n - 3) {
     font-size: 1.25em;
@@ -591,3 +593,14 @@ textarea {
     position: relative;
 }
 
+@media (max-width: 767px) {
+    .cloud-container{
+        margin-top: 50px;
+    
+    }
+    .cloud li
+    {
+        top : 0px !important;
+        position: relative;
+    }
+  }
