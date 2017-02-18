@@ -79,8 +79,8 @@
 }
 
 .sidenav-channel-list-name {
-    font-size: 1.4em;
-    font-weight: 500;
+    font-size: 1.3em !important;
+    font-weight: 400;
 }
 
 .sidenav-channel-list-image-col, .sidenav-channel-list-name-col {
@@ -95,8 +95,6 @@
 }
 
 .mdl-badge.sidenav-channel-list-badge[data-badge]::after {
-    /*top: -2.9em;*/
-    /*right: -5.5em;*/
     font-size: 0.9em;
     width: 2em;
     height: 2em;
@@ -106,8 +104,13 @@
 
 .sidenav-channel-list-item {
     width: auto !important;
-    border-right: 2px solid gray;
-    border-bottom: 2px solid gray;
+    border-right: 1px solid #b1b1b1;
+    border-bottom: 1px solid #b1b1b1;
+    padding-top: 7px;
+}
+
+.sidenav-channel-list-item >a{
+    color: #000000 !important;
 }
 
 #sidenav-channel-list li:last-child {

@@ -9,18 +9,55 @@
                     {{#if currentUser}}
                         {{#if not_equals _id currentUser._id}}
                             <li class="sidenav-channel-list-item">
+                                <a href="/channels/{{_id}}">
+                                    <div class="row">
+                                        <div class="col-md-3 sidenav-channel-list-image-col">
+                                            {{#if profile.user_avatar }}
+                                                <img class="channel-owner-thumbnail" id="profPic"
+                                                     src="{{c.url profile.user_avatar}}">
+
+                                            {{else}}
+                                                <img class="channel-owner-thumbnail" id="profPic"
+                                                     src="/images/user-avatar.jpg">
+                                            {{/if}}
+                                            <span class="mdl-badge sidenav-channel-list-badge"
+                                                  data-badge="{{numberFormatter Total}}">
+                                        </span>
+                                        </div>
+                                        <div class="col-md-9 sidenav-channel-list-name-col">
+                                            <div class="col-md-12 sidenav-channel-list-name">
+                                                {{#if profile.first_name}}
+                                                    {{ profile.first_name }}
+                                                {{else}}
+                                                    {{ profile.name }}
+                                                {{/if}}
+                                            </div>
+                                            <div class="col-md-12 sidenav-channel-list-vids">
+                                                <!--<span><i-->
+                                                <!--class="fa fa-heart heart-full"></i> {{numberFormatter heartCount}}</span>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <span> gusghisglkhsg klskj</span>
+                            </li>
+                        {{/if}}
+                    {{else}}
+                        <li class="sidenav-channel-list-item">
+                            <a href="/channels/{{_id}}">
+
                                 <div class="row">
                                     <div class="col-md-3 sidenav-channel-list-image-col">
                                         {{#if profile.user_avatar }}
                                             <img class="channel-owner-thumbnail" id="profPic"
-                                                 src="/images/user-avatar.jpg">
+                                                 src="{{c.url profile.user_avatar}}">
                                         {{else}}
                                             <img class="channel-owner-thumbnail" id="profPic"
                                                  src="/images/user-avatar.jpg">
                                         {{/if}}
                                         <span class="mdl-badge sidenav-channel-list-badge"
                                               data-badge="{{numberFormatter Total}}">
-                                        </span>
+                                    </span>
                                     </div>
                                     <div class="col-md-9 sidenav-channel-list-name-col">
                                         <div class="col-md-12 sidenav-channel-list-name">
@@ -31,42 +68,12 @@
                                             {{/if}}
                                         </div>
                                         <div class="col-md-12 sidenav-channel-list-vids">
-                                        <span><i
-                                                class="fa fa-heart heart-full"></i> {{numberFormatter heartCount}}</span>
+                                            <!--<span><i-->
+                                            <!--class="fa fa-heart heart-full"></i> {{numberFormatter heartCount}}</span>-->
                                         </div>
                                     </div>
                                 </div>
-                            </li>
-                        {{/if}}
-                    {{else}}
-                        <li class="sidenav-channel-list-item">
-                            <div class="row">
-                                <div class="col-md-3 sidenav-channel-list-image-col">
-                                    {{#if profile.user_avatar }}
-                                        <img class="channel-owner-thumbnail" id="profPic"
-                                             src="/images/user-avatar.jpg">
-                                    {{else}}
-                                        <img class="channel-owner-thumbnail" id="profPic"
-                                             src="/images/user-avatar.jpg">
-                                    {{/if}}
-                                    <span class="mdl-badge sidenav-channel-list-badge"
-                                          data-badge="{{numberFormatter Total}}">
-                                    </span>
-                                </div>
-                                <div class="col-md-9 sidenav-channel-list-name-col">
-                                    <div class="col-md-12 sidenav-channel-list-name">
-                                        {{#if profile.first_name}}
-                                            {{ profile.first_name }}
-                                        {{else}}
-                                            {{ profile.name }}
-                                        {{/if}}
-                                    </div>
-                                    <div class="col-md-12 sidenav-channel-list-vids">
-                                        <span><i
-                                                class="fa fa-heart heart-full"></i> {{numberFormatter heartCount}}</span>
-                                    </div>
-                                </div>
-                            </div>
+                            </a>
                         </li>
                     {{/if}}
 
