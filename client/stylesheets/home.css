@@ -1,6 +1,9 @@
-/********************styles for new home screen*********************/
+/**********************styles for new home screen**********************/
 
-/*////////////////Home screen recipe card style //////////////////*/
+/*//////////////////Home screen recipe card style ////////////////////*/
+.ytvideoview-hometile {
+    margin-bottom: 15px;
+}
 
 .ytvideoview-hometile-card-media {
     padding-top: 15px !important;
@@ -22,6 +25,17 @@
     .ytvideoview-hometile-card-title-date {
         text-align: right;
     }
+
+}
+
+@media screen and (max-width: 768px) {
+    #myCarousel {
+        display: none;
+    }
+
+    .sidenav-channel-list-image-col{
+        height: auto !important;
+    }
 }
 
 .ytvideoview-hometile-card-title-text {
@@ -37,4 +51,89 @@
 
 .ytvideoview-hometile-card-title-date {
     padding: 15px 0px;
+}
+
+/*////////////////Side Nav Bar Chanel List Related Styles //////////////////*/
+#sidenav-channel-list-title {
+    height: auto !important;
+    background-color: #ffffff;
+    color: #523410;
+    font-weight: 300;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+
+#sidenav-channel-list {
+    list-style: none;
+}
+
+.channel-owner-thumbnail {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.sidenav-channel-list-image-col {
+    width: 60px;
+    height: 75px;
+}
+
+.sidenav-channel-list-name {
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+.sidenav-channel-list-image-col, .sidenav-channel-list-name-col {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.sidenav-channel-list-badge {
+    /*top: -25px;*/
+    /*left: 40px;*/
+    /*background-color: #bf1313;*/
+}
+
+.mdl-badge.sidenav-channel-list-badge[data-badge]::after {
+    /*top: -2.9em;*/
+    /*right: -5.5em;*/
+    font-size: 0.9em;
+    width: 2em;
+    height: 2em;
+    background-color: #bf1313 !important;
+    color: #FFFFFF !important;
+}
+
+.sidenav-channel-list-item {
+    width: auto !important;
+    border-right: 2px solid gray;
+    border-bottom: 2px solid gray;
+}
+
+#sidenav-channel-list li:last-child {
+    border-bottom: none !important;
+}
+
+/*//////////////////// Browser specific rules //////////////////*/
+
+/*////////chrome///////////*/
+@supports (-webkit-appearance:none) {
+    .mdl-badge.sidenav-channel-list-badge[data-badge]::after {
+        top: -2.9em;
+        right: -5.5em;
+    }
+}
+
+/*//////////Mozilla////////*/
+_:-moz-tree-row(hover), .mdl-badge.sidenav-channel-list-badge[data-badge]::after {
+    top: 1.0em;
+    right: -0.7em;
+}
+
+/*////////////IE////////////*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .mdl-badge.sidenav-channel-list-badge[data-badge]::after {
+        top: 1.4em;
+        right: -0.1em;
+    }
 }

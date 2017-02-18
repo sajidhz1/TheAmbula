@@ -1,5 +1,5 @@
 <template name="postTile">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom:15px;">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ytvideoview-hometile">
         <div class="ytvideoview-hometile-card-wide mdl-card mdl-shadow--2dp">
             <a href="/recipe/{{_id}}">
                 <!--<div class="row">-->
@@ -73,9 +73,11 @@
                 <div class="pull-left">
                     {{#if profileAvatar }}
                         <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150"
-                             src="{{c.url profileAvatar width=250 height=250 crop='fill'}}">                    {{else}}
+                             src="{{c.url profileAvatar width=250 height=250 crop='fill'}}">
+                    {{else}}
                         <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150"
-                             src="/images/user-avatar.jpg">                    {{/if}}
+                             src="/images/user-avatar.jpg">
+                    {{/if}}
                     <span><a style="text-decoration:none;color : #222;"
                              href="/channels/{{ownerID }}"><strong>{{ownerProfile}}</strong></a></span><br>
                 </div>
