@@ -68,7 +68,11 @@ Template.sideNav.helpers({
     users: function () {
 
         const userObjects = Template.instance().distinct.get();
-        const userRecipeCountObjects = Template.instance().recipeCount.get();
+        var userRecipeCountObjects = Template.instance().recipeCount.get();
+        userRecipeCountObjects = _.sortBy(userRecipeCountObjects, function(obj) {
+            return obj.Total * (-1);
+        });
+         //userRecipeCountObjects = userRecipeCountObjects.reverse();
         // turn our array of project values into an array of {project: project}
         return _.map(userRecipeCountObjects, function (userRecipeCountObject) {
             return _.extend(userRecipeCountObject, _.omit(_.findWhere(userObjects, {_id: userRecipeCountObject.owner.owner}), 'id'));
