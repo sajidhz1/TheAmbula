@@ -1,8 +1,6 @@
 <template name="sideNav">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-right: 0px">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-            <legend id="sidenav-channel-list-title">Recipe Channels</legend>
-        </div>
+        <h5 id="sidenav-channel-list-title">Recipe Channels</h5>
         <ul id="sidenav-channel-list">
             {{#each users}}
                 {{#if profile}}
@@ -75,7 +73,6 @@
                             </a>
                         </li>
                     {{/if}}
-
                 {{/if}}
             {{/each}}
         </ul>

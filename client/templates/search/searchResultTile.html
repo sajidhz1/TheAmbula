@@ -1,19 +1,19 @@
 <template name="searchTile">
-    <div class="col-xs-12 col-sm-4 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
         <div class="ytvideoview-hometile-card-wide mdl-card mdl-shadow--2dp">
             <a href="/recipe/{{_id}}">
                 <div class="mdl-card__title">
-                    <div class="mdl-card__title-text">
-                        <h6><span class="small-card-title">{{ videoTitle }}</span></h6>
-                        <div>
-                            <small><span>{{createdDate}}</span></small>
+                    <div class="mdl-card__title-text small-card-title">
+                        <div class="ellipsis-title">
+                            {{ videoTitle }}
                         </div>
+                        <!--<h6>~ on {{createdDate}}</h6>-->
                     </div>
                 </div>
+                <div class="mdl-card__media">
+                    <img src="https://img.youtube.com/vi/{{videoId}}/mqdefault.jpg" style="width : 100%;"/>
+                </div>
             </a>
-            <div class="mdl-card__media">
-                <img src="https://img.youtube.com/vi/{{videoId}}/mqdefault.jpg" style="width : 100%;" />
-            </div>
             <div class="mdl-card__actions mdl-card--border">
                 <div class="pull-left"><span> <a style="text-decoration:none;color : #222;" href="/channels/{{ owner }}"><strong>{{username}}</strong></a></span></div>
                 <div class="pull-right">
