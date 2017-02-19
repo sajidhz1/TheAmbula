@@ -55,12 +55,15 @@
 
 /*////////////////Side Nav Bar Chanel List Related Styles //////////////////*/
 #sidenav-channel-list-title {
-    height:  1.4em;
+    margin-top: 0px !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
     background-color: #ffffff;
     color: #523410;
     font-weight: 300;
-    border-radius: 10px;
-    text-transform: uppercase;
+    border-radius: 15px;
+    text-align: center;
+    text-transform: capitalize;
 }
 
 #sidenav-channel-list {
