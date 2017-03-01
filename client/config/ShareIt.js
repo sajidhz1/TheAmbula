@@ -1,7 +1,7 @@
  ShareIt.configure({
         sites: {
             'facebook': {
-            // 'appId': '753864634705819'
+              'appId': process.env.FACEBOOK_APPID
             }
         }
     });
