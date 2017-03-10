@@ -4,6 +4,8 @@
 import {Meteor} from 'meteor/meteor';
 import {Template} from 'meteor/templating';
 
+import { YoutubeVideos } from '../../imports/api/youtubevideos.js';
+
 import './youtubevideoviewcomponent.html';
 
 Template.youtubeVideoViewComp.onCreated(function bodyOnCreated() {
@@ -13,6 +15,9 @@ Template.youtubeVideoViewComp.onCreated(function bodyOnCreated() {
 
     //Subscription for video owner user profile
     Meteor.subscribe('get-user-by-id');
+
+    //Subscription for featured videos
+    Meteor.subscribe('featured-videos-collection');
 
     // Make sure it's in client
     if (Meteor.isClient) {
@@ -106,6 +111,18 @@ Template.youtubeVideoViewComp.helpers({
 
         }
 
+    },
+
+    featuredVideos: function () {
+        if (Session.get('veganOnly')) {
+            var count = YoutubeVideos.find({ 'vegan': true }).count();
+            var start = Math.floor(Math.random() * (count - 7)) + 0;
+            return YoutubeVideos.find({ 'vegan': true }, {skip: start , limit: 7, sort: {createdAt: -1}});
+        } else {
+            var count = YoutubeVideos.find().count();
+            var start = Math.floor(Math.random() * (count - 7)) + 0;
+            return YoutubeVideos.find({}, {skip: start , limit: 7, sort: {createdAt: -1}});
+        }
     }
 });
 

@@ -37,7 +37,7 @@ select option:first-child {
     display: inline-block !important;
 }
 
-.ytvideoview-card-wide, .ytvideoview-title-card-wide, .ytvideoview-desc-card-wide, .ytvideoview-recent-list-card-wide, .ytvideoview-comments-card-wide, .ytvideoview-hometile-card-wide {
+.ytvideoview-card-wide, .ytvideoview-title-card-wide, .ytvideoview-desc-card-wide, .ytvideoview-recent-list-card-wide, .ytvideoview-comments-card-wide, .ytvideoview-hometile-card-wide, .featuredvideos-list-card-wide {
     margin-bottom: 12px !important;
     width: 100% !important;
 }
@@ -51,7 +51,7 @@ select option:first-child {
     text-decoration: none;
 }
 
-a.mdl-button{
+a.mdl-button {
     color: #000000;
 }
 
@@ -70,19 +70,61 @@ a.mdl-button{
     padding-top: 6px;
 }
 
-.heart-full{
-    color:#D1242F;
+.heart-full {
+    color: #D1242F;
 }
+
 /*//////////////////single-post-stat-view styles////////////////*/
-.single-post-stat-view{
+.single-post-stat-view {
     /*margin: 5px 15px;*/
 }
 
-.single-post-stat-view-single-view{
+.single-post-stat-view-single-view {
     margin: 5px 15px;
 }
 
-.mdl-badge{
+.mdl-badge {
     /*position: absolute;*/
     /*background-position-x: 50px;*/
+}
+
+/*////////////Featured videos list Related Styles //////////////*/
+
+#featured-video-list-title {
+    margin-top: 0px !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #ffffff;
+    color: #523410;
+    font-size: 1.4em;
+    font-weight: 300;
+    border-radius: 15px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.featuredvideo-tile {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    height: 120px !important;
+}
+
+@media screen and (min-width: 992px) {
+    .featuredvideo-tile-card-title {
+        padding-left: 0px !important;
+    }
+
+    .featuredvideo-tile-card-title-text {
+        height: 115px !important;
+        font-size: 1em !important;
+    }
+
+    .ytvideoview-hometile-card-title-container {
+        height: 150px !important;
+    }
+
+    .ytvideoview-hometile-card-title-date {
+        text-align: right;
+    }
+
 }
