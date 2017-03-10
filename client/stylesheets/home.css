@@ -33,7 +33,7 @@
         display: none;
     }
 
-    .sidenav-channel-list-image-col{
+    .sidenav-channel-list-image-col {
         height: auto !important;
     }
 }
@@ -112,7 +112,7 @@
     padding-top: 7px;
 }
 
-.sidenav-channel-list-item >a{
+.sidenav-channel-list-item > a {
     color: #000000 !important;
 }
 
