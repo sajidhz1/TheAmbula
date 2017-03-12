@@ -26,10 +26,6 @@
         text-align: right;
     }
 
-    #side-nav-menu{
-        position: fixed !important;
-    }
-
 }
 
 @media screen and (max-width: 768px) {
