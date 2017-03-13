@@ -37,7 +37,10 @@ select option:first-child {
     display: inline-block !important;
 }
 
-.ytvideoview-card-wide, .ytvideoview-title-card-wide, .ytvideoview-desc-card-wide, .ytvideoview-recent-list-card-wide, .ytvideoview-comments-card-wide, .ytvideoview-hometile-card-wide {
+.ytvideoview-card-wide, .ytvideoview-title-card-wide,
+.ytvideoview-desc-card-wide, .ytvideoview-recent-list-card-wide,
+.ytvideoview-comments-card-wide, .ytvideoview-hometile-card-wide,
+.featuredvideos-list-card-wide, .ytvideoview-advertisement-card-wide {
     margin-bottom: 12px !important;
     width: 100% !important;
 }
@@ -51,7 +54,7 @@ select option:first-child {
     text-decoration: none;
 }
 
-a.mdl-button{
+a.mdl-button {
     color: #000000;
 }
 
@@ -70,19 +73,20 @@ a.mdl-button{
     padding-top: 6px;
 }
 
-.heart-full{
-    color:#D1242F;
+.heart-full {
+    color: #D1242F;
 }
+
 /*//////////////////single-post-stat-view styles////////////////*/
-.single-post-stat-view{
+.single-post-stat-view {
     /*margin: 5px 15px;*/
 }
 
-.single-post-stat-view-single-view{
+.single-post-stat-view-single-view {
     margin: 5px 15px;
 }
 
-.mdl-badge{
+.mdl-badge {
     /*position: absolute;*/
     /*background-position-x: 50px;*/
 }
