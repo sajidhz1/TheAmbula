@@ -87,6 +87,15 @@
                     {{>ad_tile}}
                 </div>
             </div>
+            <div class="col-md-4 col-lg-4 col-sm-12">
+                <h5 id="featured-video-list-title">Featured Recipes</h5>
+
+                <div class="featuredvideos-list-card-wide mdl-card mdl-shadow--4dp">
+                    {{#each featuredVideos}}
+                        {{>featuredVideoTile}}
+                    {{/each}}
+                </div>
+            </div>
         </div>
     </div>
 </template>

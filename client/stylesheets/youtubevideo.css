@@ -90,3 +90,44 @@ a.mdl-button {
     /*position: absolute;*/
     /*background-position-x: 50px;*/
 }
+
+/*////////////Featured videos list Related Styles //////////////*/
+
+#featured-video-list-title {
+    margin-top: 0px !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #ffffff;
+    color: #523410;
+    font-size: 1.4em;
+    font-weight: 300;
+    border-radius: 15px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.featuredvideo-tile {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    height: 120px !important;
+}
+
+@media screen and (min-width: 992px) {
+    .featuredvideo-tile-card-title {
+        padding-left: 0px !important;
+    }
+
+    .featuredvideo-tile-card-title-text {
+        height: 115px !important;
+        font-size: 1em !important;
+    }
+
+    .ytvideoview-hometile-card-title-container {
+        height: 150px !important;
+    }
+
+    .ytvideoview-hometile-card-title-date {
+        text-align: right;
+    }
+
+}
