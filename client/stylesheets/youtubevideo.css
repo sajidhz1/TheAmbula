@@ -37,7 +37,10 @@ select option:first-child {
     display: inline-block !important;
 }
 
-.ytvideoview-card-wide, .ytvideoview-title-card-wide, .ytvideoview-desc-card-wide, .ytvideoview-recent-list-card-wide, .ytvideoview-comments-card-wide, .ytvideoview-hometile-card-wide, .featuredvideos-list-card-wide {
+.ytvideoview-card-wide, .ytvideoview-title-card-wide,
+.ytvideoview-desc-card-wide, .ytvideoview-recent-list-card-wide,
+.ytvideoview-comments-card-wide, .ytvideoview-hometile-card-wide,
+.featuredvideos-list-card-wide, .ytvideoview-advertisement-card-wide {
     margin-bottom: 12px !important;
     width: 100% !important;
 }
