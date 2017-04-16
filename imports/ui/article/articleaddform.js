@@ -32,13 +32,6 @@ Template.articleAddForm.onRendered(function () {
             placeholder: 'Video Description'
         });
     });
-
-    var myDropzone = new Dropzone(document.getElementById('dropzone-area'), {
-        uploadMultiple: false,
-        acceptedFiles:'.jpg,.png,.jpeg,.gif',
-        parallelUploads: 6,
-        url: 'https://api.cloudinary.com/v1_1/cloud9/image/upload'
-    });
 });
 
 Template.articleAddForm.helpers({
