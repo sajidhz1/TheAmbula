@@ -2,6 +2,8 @@ import {Meteor} from 'meteor/meteor';
 
 import {YoutubeVideos} from '../imports/api/youtubevideos.js';
 import {Hearts} from '../imports/api/hearts.js';
+import {Articles} from '../imports/api/article.js';
+
 //
 Meteor.publish("search-videos", function (query) {
     check(query, String);
@@ -80,4 +82,10 @@ Meteor.publish('featured-videos-collection', function () {
     var start = Math.floor(Math.random() * (count - 7)) + 0;
     console.log(start);
     return YoutubeVideos.find({}, {skip: start , limit: 7, sort: {createdAt: -1}});
+});
+
+Meteor.publish("get-article-by-id",function (articleId) {
+    check(articleId, String);
+
+    return Articles.find({_id: articleId});
 });
