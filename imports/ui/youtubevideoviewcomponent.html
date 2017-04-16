@@ -13,7 +13,9 @@
                     <div class="mdl-card__title">
                         <h3 class="mdl-card__title-text">{{video.videoTitle}}</h3>
                     </div>
-                    {{> singlePostStatView postId=video._id}}
+                    <div class="single-post-stat-view-single-view">
+                        {{> singlePostStatView postId=video._id}}
+                    </div>
                     <div class="mdl-card__actions mdl-card--border">
                         <div class="pull-left">
                             {{#if profileAvatar }}
@@ -30,18 +32,18 @@
                             {{>heartButton videoHeartId=video._id}}
                             <span class="dropup">
                                 <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
-                                    data-toggle="dropdown"
+                                   data-toggle="dropdown"
                                 >
                                     <i class="material-icons md-18">share</i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                         <li role="presentation">
-                                        {{>shareit_facebook shareData}}
-                                    </li>
+                                            {{>shareit_facebook shareData}}
+                                        </li>
                                     <li class="divider"></li>
                                     <li role="presentation">
                                         {{>shareit_twitter }}
-                                        </li>
+                                    </li>
                                 </ul>
                             </span>
                             <span class="dropdown">
@@ -81,8 +83,17 @@
                 </div>
             </div>
             <div class="col-md-4 col-lg-4 col-sm-12">
-                <div class="ytvideoview-recent-list-card-wide mdl-card mdl-shadow--4dp">
+                <div class="ytvideoview-advertisement-card-wide mdl-card mdl-shadow--4dp">
+                    {{>ad_tile}}
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12">
+                <h5 id="featured-video-list-title">Featured Recipes</h5>
 
+                <div class="featuredvideos-list-card-wide mdl-card mdl-shadow--4dp">
+                    {{#each featuredVideos}}
+                        {{>featuredVideoTile}}
+                    {{/each}}
                 </div>
             </div>
         </div>

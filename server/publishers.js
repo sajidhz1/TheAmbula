@@ -74,3 +74,10 @@ Meteor.publish('notifications', function () {
     return Notifications.find({postUserId: this.userId});
 });
 
+
+Meteor.publish('featured-videos-collection', function () {
+    var count = YoutubeVideos.find().count();
+    var start = Math.floor(Math.random() * (count - 7)) + 0;
+    console.log(start);
+    return YoutubeVideos.find({}, {skip: start , limit: 7, sort: {createdAt: -1}});
+});

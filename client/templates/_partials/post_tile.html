@@ -1,39 +1,50 @@
 <template name="postTile">
-    <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:15px;">
-        <div class="ytvideoview-hometile-card-wide mdl-card mdl-shadow--2dp" >
-            <div class="mdl-card__media">        
-                    <div class="col-md-12 embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="//www.youtube.com/embed/{{videoId}}"></iframe>
-                    </div>
-            </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ytvideoview-hometile">
+        <div class="ytvideoview-hometile-card-wide mdl-card mdl-shadow--2dp">
             <a href="/recipe/{{_id}}">
-                <div class="mdl-card__title">
-                    <div class="mdl-card__title-text">
-                        <span>{{ videoTitle }}</span>
+                <!--<div class="row">-->
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ytvideoview-hometile-card-media"
+                     style="overflow: hidden;">
+                    <div class="mdl-card__media">
+                        <img src="https://img.youtube.com/vi/{{videoId}}/hqdefault.jpg" style="width: 100%">
                     </div>
                 </div>
-                <div style="margin-left:15px;color:#333;">
-                    <span><small>{{createdDate}}</small></span>
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 mdl-card__title ytvideoview-hometile-card-title">
+                    <div class="container ytvideoview-hometile-card-title-container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mdl-card__title-text ytvideoview-hometile-card-title-text">
+                                {{ videoTitle }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ytvideoview-hometile-card-title-hearts">
+                                {{> singlePostStatView postId=_id}}
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 mdl-card__subtitle-text ytvideoview-hometile-card-title-date">
+                                {{createdDate}}
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </a>
-            {{> singlePostStatView postId=_id}}
             <div class="mdl-card__actions mdl-card--border">
                 <div class="pull-right">
                     {{>heartButton videoHeartId=_id}}
                     <span class="dropup">
                         <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
-                            data-toggle="dropdown"
+                           data-toggle="dropdown"
                         >
                             <i class="material-icons md-18">share</i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right">
                                 <li role="presentation">
-                                {{>shareit_facebook shareData}}
-                            </li>
+                                    {{>shareit_facebook shareData}}
+                                </li>
                             <li class="divider"></li>
                             <li role="presentation">
                                 {{>shareit_twitter }}
-                                </li>
+                            </li>
                         </ul>
                     </span>
                     <span class="dropup">
@@ -62,9 +73,11 @@
                 <div class="pull-left">
                     {{#if profileAvatar }}
                         <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150"
-                             src="{{c.url profileAvatar width=250 height=250 crop='fill'}}">                    {{else}}
+                             src="{{c.url profileAvatar width=250 height=250 crop='fill'}}">
+                    {{else}}
                         <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150"
-                             src="/images/user-avatar.jpg">                    {{/if}}
+                             src="/images/user-avatar.jpg">
+                    {{/if}}
                     <span><a style="text-decoration:none;color : #222;"
                              href="/channels/{{ownerID }}"><strong>{{ownerProfile}}</strong></a></span><br>
                 </div>

@@ -1,12 +1,37 @@
 <template name="homeIndex">
-    <div id="page-content-wrapper" style="background: #fafafa;">
-        <div class="container-fluid xyz">
-            <div class="row">
-                <div class="col-lg-8">
-                    {{> collectionPagination}}
-                </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 cloud-container"  style="">
+                <ul class="cloud">
+                    <li><a href="/search?q=chicken">Chicken</a></li>
+                    <li><a href="/search?q=lunch">Lunch</a></li>
+                    <li><a href="/search?q=fish">Fish</a></li>
+                    <li><a href="/search?q=Savouries">Savouries</a></li>
+                    <li><a href="/search?q=quick">Quick</a></li>
+                    <li><a href="/search?q=mutton">Mutton</a></li>
+                    <li><a href="/search?q=dinner">Dinner</a></li>
+                    <li><a href="/search?q=easy">Easy</a></li>
+                    <li><a href="/search?q=breakfast">Breakfast</a></li>
+                    <li><a href="/search?q=milk">Milk</a></li>
+                    <li><a href="/search?q=cream">Cream</a></li>
+                    <li><a href="/search?q=cheese">Cheese</a></li>
+                    <li><a href="/search?q=spicy">Spicy</a></li>
+                    <li><a href="/search?q=vegan">Vegan</a></li>
+                    <li><a href="/search?q=sweet">Sweet</a></li>
+                    <li><a href="/search?q=village">Village</a></li>
+                </ul>
             </div>
-            <div class="col-lg-4" ></div>
+        </div>
+        <div class="row" style="margin-top:40px;">
+            <div class="col-lg-3">
+                {{>sideNav}}
+            </div>
+            <div class="col-lg-6">
+                {{> collectionPagination}}
+            </div>
+            <div class="col-lg-3">
+                {{>ad_tile }}
+            </div>
         </div>
     </div>
 </template>
@@ -15,10 +40,9 @@
     {{#each videos}}
         {{>postTile }}
     {{/each}}
-
     {{#if moreResults}}
-    <div class="col-sm-8 col-xs-12" id="showMoreResults" style="margin-left: 25px;">
-        <img class="loading" src="/images/loading.gif" >
-    </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" id="showMoreResults" style="margin-left: 25px;">
+            <img class="loading" src="/images/loading.gif">
+        </div>
     {{/if}}
 </template>
