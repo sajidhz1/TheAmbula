@@ -1,10 +1,10 @@
 /**
  * Created by Dulitha RD on 4/13/2017.
  */
-import {Meteor} from 'meteor/meteor';
-import {Template} from 'meteor/templating';
-import {ReactiveVar} from 'meteor/reactive-var';
-import {Articles} from './../../api/article.js';
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
+import { Articles } from './../../api/article.js';
 
 import './articleaddform.html';
 
@@ -26,8 +26,8 @@ Template.articleAddForm.onRendered(function () {
                 ['color', ['color']],
                 ['para', ['ul', 'ol', 'paragraph']],
                 ['height', ['height']],
-                ['insert',['link','table','hr']],
-                ['misc',['undo','redo','fullscreen','help']]
+                ['insert', ['link', 'table', 'hr']],
+                ['misc', ['undo', 'redo', 'fullscreen', 'help']]
             ],
             placeholder: 'Video Description'
         });
@@ -39,7 +39,7 @@ Template.articleAddForm.helpers({
         var context = Articles.simpleSchema().namedContext("insertForm");
 
         return context.invalidKeys().map(function (data) {
-            return {field: data.name, message: context.keyErrorMessage(data.name)}
+            return { field: data.name, message: context.keyErrorMessage(data.name) }
         });
 
     },
@@ -99,7 +99,7 @@ Template.articleAddForm.events({
                 }
 
             });
-        }catch (e){
+        } catch (e) {
             Bert.alert({
                 hideDelay: 5000,
                 message: 'Something went wrong, please try again later!',
@@ -110,4 +110,44 @@ Template.articleAddForm.events({
         }
     },
 
+});
+
+Template.dropzone.onRendered(function () {
+    var options = _.extend({}, Meteor.Dropzone.options, this.data);
+    console.log("dropzone rendered");
+
+    // if your dropzone has an id, you can pinpoint it exactly and do various client side operations on it.
+    if (this.data.id) {
+
+        var self = this;
+
+        this.dropzone.on('sending', function (file, xhr, formData) {
+            formData.append('file', file);
+            formData.append('api_key', 765487893716384);
+            formData.append('timestamp', Date.now() / 1000 | 0);
+            formData.append('upload_preset', 'testPreset');
+
+        });
+
+        // this is how you get the response from the ajax call.
+        this.dropzone.on('success', function (file, response) {
+            console.log(response);
+            $(file.previewTemplate).append('<span class="server_file">' + response.public_id + '</span>');
+        });
+
+        this.dropzone.on('removedfile', function (file, response) {
+            var server_file = $(file.previewTemplate).children('.server_file').text();
+            Cloudinary.delete(server_file, function (error, response) {
+                if (error) {
+                    console.log(error);
+                }
+            });
+        });
+
+        this.dropzone.on('error', function (file, response) {
+            console.log(response);
+        });
+    } else {
+        this.$('.dropzone').dropzone(options);
+    }
 });
