@@ -126,9 +126,10 @@ Template.profileRecipeTile.events({
 
         event.preventDefault();
 
-        Modal.show('recipeDeleteConfirmBox', {
-            videoIdToDelete: this._id,
-            videoOwner: this.owner
+        Modal.show('postDeleteConfirmBox', {
+            postToDelete: this._id,
+            postOwner: this.owner,
+            postType:'ytVideo'
         });
     },
 

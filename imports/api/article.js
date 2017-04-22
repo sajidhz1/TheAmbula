@@ -107,8 +107,8 @@ Meteor.methods({
 
     },
 
-    'articles.user': function (ytVideoID) { //  or try saving post ownerID in a Session
-        check(ytVideoID, String);
-        return Articles.findOne(ytVideoID).owner;
+    'article.user': function (articleId) { //  or try saving post ownerID in a Session
+        check(articleId, String);
+        return Articles.findOne(articleId).owner;
     }
 });

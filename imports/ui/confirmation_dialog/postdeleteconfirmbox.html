@@ -1,10 +1,10 @@
-<template name="recipeDeleteConfirmBox">
+<template name="postDeleteConfirmBox">
     <div id="ytVideoAddModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body row">
                     <div class="col-md-12">
-                        <h4 class="modal-title">Are you sure you want to permanently delete this recipe from <strong>theambula.lk</strong>
+                        <h4 class="modal-title">{{deleteMessage}} <strong>theambula.lk</strong>
                         </h4>
                     </div>
                 </div>
@@ -17,7 +17,7 @@
                         </button>
                         <button type="submit" id="deleteBtn"
                                 class="__delete mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
-                            Delete Recipe
+                            Delete
                         </button>
                     </div>
                 </div>

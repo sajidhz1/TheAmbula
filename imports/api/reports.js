@@ -14,6 +14,10 @@ Schemas.reports = new SimpleSchema({
         type: String,
         label: "Reporting Item Id"
     },
+    reportedItemType: {
+        type: String,
+        label: "Report Item Type"
+    },
     reportCategory: {
         type: String,
         label: "Report type"
@@ -52,10 +56,15 @@ Meteor.methods({
         return Reports.insert(report, {reportValidationContext: 'reportForm'});
     },
 
-    'reportExistForUser': function (reportItemId) {
+    'reportExistForUser': function (reportItemId, reportItemType) {
         check(reportItemId, String);
+        check(reportItemType, String);
 
-        var report = Reports.findOne({reportedItemId: reportItemId, userID: this.userId});
+        var report = Reports.findOne({
+            reportedItemId: reportItemId,
+            reportedItemType: reportItemType,
+            userID: this.userId
+        });
 
         if (report) {
             return true;
