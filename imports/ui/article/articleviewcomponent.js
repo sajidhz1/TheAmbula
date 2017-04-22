@@ -117,8 +117,9 @@ Template.articleViewComp.events({
         if (Meteor.user()) {
             event.preventDefault();
 
-            Modal.show('recipeReportDialogBox', {
-                videoIdToReport: this.article._id
+            Modal.show('postReportDialogBox', {
+                postToReport: this.article._id,
+                postTypeToReport: 'article'
             });
         } else {
             Bert.alert({

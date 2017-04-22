@@ -152,8 +152,9 @@ Template.youtubeVideoViewComp.events({
         if (Meteor.user()) {
             event.preventDefault();
 
-            Modal.show('recipeReportDialogBox', {
-                videoIdToReport: this.video._id
+            Modal.show('postReportDialogBox', {
+                postToReport: this.video._id,
+                postTypeToReport: 'ytVideo'
             });
         } else {
             Bert.alert({

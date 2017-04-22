@@ -35,8 +35,9 @@ Template.postTile.events({
         if(Meteor.user()){
             event.preventDefault();
 
-            Modal.show('recipeReportDialogBox', {
-                videoIdToReport: this._id
+            Modal.show('postReportDialogBox', {
+                postToReport: this._id,
+                postTypeToReport: 'ytVideo'
             });
         }else{
             Bert.alert({
