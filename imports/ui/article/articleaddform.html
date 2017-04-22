@@ -57,6 +57,7 @@
                                         {{/each}}
                                     </span>
                             </div>
+                            {{> dropzone url='https://api.cloudinary.com/v1_1/hwshbhsyq/image/upload' addRemoveLinks='true' uploadMultiple ='false' acceptedFiles='.jpg,.png,.jpeg,.gif' parallelUploads='6' id='dropzoneDiv'}}
                             <div class="form-group pull-right">
                                 <button type="button" id="cancel"
                                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
