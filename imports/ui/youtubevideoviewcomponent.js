@@ -131,9 +131,10 @@ Template.youtubeVideoViewComp.events({
 
         event.preventDefault();
 
-        Modal.show('recipeDeleteConfirmBox', {
-            videoIdToDelete: this.video._id,
-            videoOwner: this.video.owner
+        Modal.show('postDeleteConfirmBox', {
+            postToDelete: this.video._id,
+            postOwner: this.video.owner,
+            postType:'ytVideo'
         });
 
     },

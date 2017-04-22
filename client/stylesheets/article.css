@@ -73,14 +73,23 @@
     margin-bottom: 0px;
 }
 
-.article-category >span>a:hover{
-    text-underline:  none;
+.article-category >span>a:hover,.article-category >span>a:focus{
+    text-decoration:  none;
+}
+
+.article-stats{
+    text-align: left;
 }
 
 /*///////////////////////////////////////////*/
 /*///////Article paragraphs related styles/////*/
 .wrapper-container > p {
     line-height: 240%;
+    font-size: 1.2em;
+}
+
+.wrapper-container .article-body > p{
+    line-height: 235%;
     font-size: 1.2em;
 }
 
@@ -100,6 +109,12 @@
     padding-left: 5px;
     padding-right: 5px;
     background-color: rgba(245, 245, 245, 0.74);
+}
+
+/*////////////////////////////////////////////*/
+/*//////////Article Comment Box///////////////*/
+.wrapper-container .comments-box{
+    padding: 0em;
 }
 @media (max-width: 700px ) {
     .wrapper-container {

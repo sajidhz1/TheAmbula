@@ -44,7 +44,7 @@ Meteor.publish("heart-count-by-postId", function (postId) {
     // have run. Until then, we don't want to send a lot of
     // `self.changed()` messages - hence tracking the
     // `initializing` state.
-    var handle = Hearts.find({likedVideoId: postId}).observeChanges({
+    var handle = Hearts.find({likedPostId: postId}).observeChanges({
         added: function (id) {
             count++;
             if (!initializing)
