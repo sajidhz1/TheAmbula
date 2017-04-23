@@ -1,6 +1,6 @@
 Cloudinary.config({
-  cloud_name: 'sajidhz',
-  api_key: '817267987826562',
-  api_secret: 'MSHkriogFBQCqtPtxfTDV7RMdFg'
+  cloud_name: 'hwshbhsyq',
+  api_key: '765487893716384',
+  api_secret: 'rYsjtZYYZGWa9hT_6mF-9BSZ36I'
 });
 
