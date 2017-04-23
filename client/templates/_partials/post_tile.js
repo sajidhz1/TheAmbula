@@ -15,9 +15,10 @@ Template.postTile.events({
 
         event.preventDefault();
 
-        Modal.show('recipeDeleteConfirmBox', {
-            videoIdToDelete: this._id,
-            videoOwner: this.owner
+        Modal.show('postDeleteConfirmBox', {
+            postToDelete: this._id,
+            postOwner: this.owner,
+            postType:'ytVideo'
         });
     },
 
@@ -34,8 +35,9 @@ Template.postTile.events({
         if(Meteor.user()){
             event.preventDefault();
 
-            Modal.show('recipeReportDialogBox', {
-                videoIdToReport: this._id
+            Modal.show('postReportDialogBox', {
+                postToReport: this._id,
+                postTypeToReport: 'ytVideo'
             });
         }else{
             Bert.alert({

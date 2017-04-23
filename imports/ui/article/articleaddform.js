@@ -94,8 +94,9 @@ Template.articleAddForm.events({
                         icon: 'fa-floppy-o fa-2x'
                     });
 
+                    console.log('article ' + result);
                     /*TODO redirect to new article which was just saved*/
-                    Router.go('/');
+                    Router.go('/article/'+result);
                 }
 
             });
