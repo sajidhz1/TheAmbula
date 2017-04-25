@@ -29,6 +29,7 @@ caching-html-compiler@1.0.7
 callback-hook@1.0.10
 check@1.2.4
 coffeescript@1.0.17
+dbarrett:dropzonejs@4.2.1
 dburles:collection-helpers@1.0.4
 dburles:mongo-collection-instances@0.3.4
 ddp@1.2.5
