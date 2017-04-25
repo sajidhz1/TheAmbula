@@ -22,9 +22,15 @@ Schemas.article = new SimpleSchema({
         max: 10000,
         min: 1000
     },
-    articleType:{
+    articleType: {
         type: String,
         label: 'Article Type',
+    },
+    articleImages: {
+        type: [String],
+        label: 'Article Image',
+        minCount: 2,
+        maxCount: 12
     },
     createdAt: {
         type: Date,
@@ -107,8 +113,8 @@ Meteor.methods({
 
     },
 
-    'articles.user': function (ytVideoID) { //  or try saving post ownerID in a Session
-        check(ytVideoID, String);
-        return Articles.findOne(ytVideoID).owner;
+    'article.user': function (articleId) { //  or try saving post ownerID in a Session
+        check(articleId, String);
+        return Articles.findOne(articleId).owner;
     }
 });

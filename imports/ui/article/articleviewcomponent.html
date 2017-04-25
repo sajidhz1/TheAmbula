@@ -1,0 +1,117 @@
+<template name="articleViewComp">
+    <div class="container article-container">
+        <div class="row wrapper-container">
+            <h2 class="article-title">
+                <img class="title-image" src="/images/ambula-ad.jpg">
+                <span>{{article.articleTitle}}</span>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="wrapper-container">
+                <div class="article-details">
+                    {{#if profileAvatar }}
+                        <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150"
+                             src="{{c.url profileAvatar width=250 height=250 crop='fill'}}">
+                    {{else}}
+                        <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150"
+                             src="/images/user-avatar.jpg">
+                    {{/if}}
+                    <span class="article-owner"> by {{ownerProfile}}</span>
+                    |
+                    <span class="article-date">{{createdDate}}</span>
+                    <div class="article-category">
+                        <span>
+                            <a href="#"
+                               class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">{{article.articleType}}</a>
+                        </span>
+                    </div>
+                    <div class="article-stats">
+                        {{> singlePostStatView postId=article._id}}
+                    </div>
+                </div>
+                <div class="article-body">
+                    {{#each articleParagraphs}}
+                        {{#if conditionTrue index '<=' 2}}
+                            {{{bodyPara}}}
+                        {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+            <div class="article-gallery">
+
+            </div>
+            <div class="wrapper-container">
+                <div class="article-body">
+                    {{#each articleParagraphs}}
+                        {{#if conditionTrue index '>' 2}}
+                            {{{bodyPara}}}
+                        {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+            <div class="wrapper-container">
+                <div class="pull-right">
+                    {{>heartButton postHeartId=article._id postType="article"}}
+                    <span class="dropup">
+                                <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
+                                   data-toggle="dropdown">
+                                    <i class="material-icons md-18">share</i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                        <li role="presentation">
+                                            {{>shareit_facebook shareData}}
+                                        </li>
+                                    <li class="divider"></li>
+                                    <li role="presentation">
+                                        {{>shareit_twitter }}
+                                    </li>
+                                </ul>
+                    </span>
+                    <span class="dropup">
+                        <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
+                           data-toggle="dropdown">
+                                            <i class="material-icons">more_horiz</i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li role="presentation"><a class="single-view-tile-report" role="menuitem"
+                                                tabindex="-1"
+                                                href="#">Report...</a></li>
+                            <li class="divider"></li>
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="#">Copy Share URL</a>
+                            </li>
+                            {{#if isOwner }}
+                                <li class="divider"></li>
+                                <li role="presentation">
+                                    <a class="single-view-dlete" role="menuitem" tabindex="-1"
+                                       href="#">Delete Article</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li role="presentation">
+                                    <a class="single-view-edit" role="menuitem" tabindex="-1" href="#">Edit Article</a>
+                                </li>
+                            {{/if}}
+                        </ul>
+                    </span>
+                </div>
+                <div class="pull-left article-stats">
+                    {{> singlePostStatView postId=article._id}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="wrapper-container">
+                {{> commentsBox id=article._id}}
+            </div>
+        </div>
+    </div>
+    <div class="container article-extras">
+        <div class="row">
+            {{#each featuredVideos}}
+                <div class="col-md-4 col-sm-12 col-xs-12 article-extras-tile">
+                    {{>featuredVideoTile}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</template>

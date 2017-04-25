@@ -57,7 +57,22 @@
                                         {{/each}}
                                     </span>
                             </div>
-                            {{> dropzone url='https://api.cloudinary.com/v1_1/hwshbhsyq/image/upload' addRemoveLinks='true' uploadMultiple ='false' acceptedFiles='.jpg,.png,.jpeg,.gif' parallelUploads='6' id='dropzoneDiv'}}
+                            <div class="form-group">
+                                <label for="articlePhotos">Upload photos</label>
+                                {{> dropzone url='https://api.cloudinary.com/v1_1/hwshbhsyq/image/upload'
+                                addRemoveLinks='true'
+                                uploadMultiple ='false'
+                                acceptedFiles='.jpg,.png,.jpeg,.gif'
+                                parallelUploads='6' id='dropzoneDiv'
+                                }}
+                                <span class="help-block with-errors">
+                                    {{#each errors}}
+                                        {{#if equals 'articleImages' field}}
+                                            {{message}}
+                                        {{/if}}
+                                    {{/each}}
+                                </span>
+                            </div>
                             <div class="form-group pull-right">
                                 <button type="button" id="cancel"
                                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
@@ -68,6 +83,7 @@
                                     Save
                                 </button>
                             </div>
+                            <input id="dropZonePhotoIdList" value="" hidden>
                         </form>
                     </div>
                 </div>
