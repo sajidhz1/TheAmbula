@@ -2,7 +2,8 @@
     <div class="container article-container">
         <div class="row wrapper-container">
             <h2 class="article-title">
-                <img class="title-image" src="/images/ambula-ad.jpg">
+                <!--<img class="title-image" src="/images/ambula-ad.jpg">-->
+                <img class="title-image" src="{{c.url coverImage}}">
                 <span>{{article.articleTitle}}</span>
             </h2>
         </div>
@@ -37,9 +38,40 @@
                     {{/each}}
                 </div>
             </div>
-            <div class="article-gallery">
-
-            </div>
+            {{#if coverImage}}
+                <div class="article-gallery">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <a class="js-activate-s-image-box" data-full-image-src="{{c.url coverImage}}">
+                                    <img class="img-responsive"
+                                         src="{{c.url coverImage width=1200 height=550 crop='fill'}}"
+                                         alt="...">
+                                </a>
+                            </div>
+                            {{#each item in exisitingImageList}}
+                                <div class="item">
+                                    <a class="js-activate-s-image-box" data-full-image-src="{{c.url item}}">
+                                        <img class="img-responsive"
+                                             src="{{c.url item width=1200 height=550 crop='fill'}}"
+                                             alt="...">
+                                    </a>
+                                </div>
+                            {{/each}}
+                        </div>
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" role="button"
+                           data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" role="button"
+                           data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                </div>
+            {{/if}}
             <div class="wrapper-container">
                 <div class="article-body">
                     {{#each articleParagraphs}}
@@ -74,8 +106,8 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li role="presentation"><a class="single-view-tile-report" role="menuitem"
-                                                tabindex="-1"
-                                                href="#">Report...</a></li>
+                                                       tabindex="-1"
+                                                       href="#">Report...</a></li>
                             <li class="divider"></li>
                             <li role="presentation">
                                 <a role="menuitem" tabindex="-1" href="#">Copy Share URL</a>
