@@ -22,23 +22,24 @@
 .article-title {
     border-bottom: 1px solid #e6e6e6;
     font-size: 60px;
-    margin: 0;
+    margin: 2rem 0 0 0;
     overflow: hidden;
-    padding: 5rem 10% 2rem;
+    padding: 5rem 0 2rem;
     text-align: center;
     position: relative;
     line-height: 130%;
-    /*!*font-family: 'Oswald';*! !*TODO select good font thishan **/
+    /*/*font-family: 'Oswald';*/ /*TODO select good font thishan **/
     font-weight: 400
 }
 
 .wrapper-container .article-title img {
+    width: 100%;
     bottom: -30px;
-    left: 50%;
-    margin-left: -235px;
+    margin-left: auto;
+    margin-right: auto;
     position: absolute;
     z-index: 1;
-    opacity: 0.2;
+    -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))
 }
 
 .title-image {
@@ -64,7 +65,7 @@
     overflow: hidden;
 }
 
-.article-details .article-owner {
+.article-details .article-owner{
     font-weight: 600;
 }
 
@@ -73,11 +74,11 @@
     margin-bottom: 0px;
 }
 
-.article-category > span > a:hover, .article-category > span > a:focus {
-    text-decoration: none;
+.article-category >span>a:hover,.article-category >span>a:focus{
+    text-decoration:  none;
 }
 
-.article-stats {
+.article-stats{
     text-align: left;
 }
 
@@ -88,24 +89,41 @@
     font-size: 1.2em;
 }
 
-.wrapper-container .article-body > p {
+.wrapper-container .article-body > p{
     line-height: 235%;
     font-size: 1.2em;
 }
 
+
 /*///////////////////////////////////////////*/
 /*///////Article gallery related styles/////*/
-.article-gallery {
+.article-gallery{
     height: 500px;
     margin-bottom: 40px;
     background-color: #2b2b2b;
 }
 
-.article-extras {
-    margin-top: 25px;
+#carousel {
+    border:   1px solid black;
+    width:    200px;
+    position: relative;
+    top:      100px;
+    left:     100px;
+}
+#carousel div {
+    width:    200px;
 }
 
-.article-extras-tile {
+.js-activate-s-image-box{
+    cursor: pointer;
+}
+
+/*///////////////////////////////////////////*/
+/*///////Article extras related styles/////*/
+.article-extras{
+    margin-top: 25px;
+}
+.article-extras-tile{
     padding-left: 5px;
     padding-right: 5px;
     background-color: rgba(245, 245, 245, 0.74);
@@ -113,14 +131,13 @@
 
 /*////////////////////////////////////////////*/
 /*//////////Article Comment Box///////////////*/
-.wrapper-container .comments-box {
+.wrapper-container .comments-box{
     padding: 0em;
 }
 
 /*///////////////////////////////////////////*/
 /*///////Article dropzone related styles/////*/
-.dropzone .dz-preview.dz-image-preview .server_file,
-.dropzone .dz-preview.dz-image-preview .dz-details .dz-filename {
+.dz-preview .server_file{
     display: none;
 }
 
