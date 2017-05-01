@@ -131,9 +131,10 @@ Template.youtubeVideoViewComp.events({
 
         event.preventDefault();
 
-        Modal.show('recipeDeleteConfirmBox', {
-            videoIdToDelete: this.video._id,
-            videoOwner: this.video.owner
+        Modal.show('postDeleteConfirmBox', {
+            postToDelete: this.video._id,
+            postOwner: this.video.owner,
+            postType:'ytVideo'
         });
 
     },
@@ -151,8 +152,9 @@ Template.youtubeVideoViewComp.events({
         if (Meteor.user()) {
             event.preventDefault();
 
-            Modal.show('recipeReportDialogBox', {
-                videoIdToReport: this.video._id
+            Modal.show('postReportDialogBox', {
+                postToReport: this.video._id,
+                postTypeToReport: 'ytVideo'
             });
         } else {
             Bert.alert({

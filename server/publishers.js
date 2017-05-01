@@ -2,6 +2,8 @@ import {Meteor} from 'meteor/meteor';
 
 import {YoutubeVideos} from '../imports/api/youtubevideos.js';
 import {Hearts} from '../imports/api/hearts.js';
+import {Articles} from '../imports/api/article.js';
+
 //
 Meteor.publish("search-videos", function (query) {
     check(query, String);
@@ -42,7 +44,7 @@ Meteor.publish("heart-count-by-postId", function (postId) {
     // have run. Until then, we don't want to send a lot of
     // `self.changed()` messages - hence tracking the
     // `initializing` state.
-    var handle = Hearts.find({likedVideoId: postId}).observeChanges({
+    var handle = Hearts.find({likedPostId: postId}).observeChanges({
         added: function (id) {
             count++;
             if (!initializing)
@@ -80,4 +82,10 @@ Meteor.publish('featured-videos-collection', function () {
     var start = Math.floor(Math.random() * (count - 7)) + 0;
     console.log(start);
     return YoutubeVideos.find({}, {skip: start , limit: 7, sort: {createdAt: -1}});
+});
+
+Meteor.publish("get-article-by-id",function (articleId) {
+    check(articleId, String);
+
+    return Articles.find({_id: articleId});
 });

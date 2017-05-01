@@ -7,9 +7,10 @@ import '../imports/ui/heartbutton/heartbutton';
 import '../imports/ui/youtubevideoupdate/youtubevideoupdateform.js';
 import '../imports/ui/singlepoststatsview/singlepoststatview.js';
 import '../imports/ui/featuredvideotile/featuredvideotile.js';
-
-import '../imports/ui/confirmation_dialog/recipedeleteconfirmbox.js';
-import '../imports/ui/report_dialog/recipereportdialogbox.js';
+import '../imports/ui/article/articleaddform.js';
+import '../imports/ui/article/articleviewcomponent.js';
+import '../imports/ui/confirmation_dialog/postdeleteconfirmbox.js';
+import '../imports/ui/report_dialog/postreportdialogbox.js';
 
 
 Meteor.startup(function () {

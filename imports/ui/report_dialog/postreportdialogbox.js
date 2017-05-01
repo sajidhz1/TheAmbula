@@ -7,14 +7,14 @@ import {check} from 'meteor/check';
 import {ReactiveVar} from 'meteor/reactive-var';
 import {Reports} from '../../api/reports.js';
 
-import './recipereportdialogbox.html';
+import './postreportdialogbox.html';
 
-Template.recipeReportDialogBox.onCreated(function bodyOnCreated() {
+Template.postReportDialogBox.onCreated(function bodyOnCreated() {
     this.reportOptionsVar = new ReactiveVar(false);
     this.descriptionVisibleVar = new ReactiveVar(false);
 });
 
-Template.recipeReportDialogBox.events({
+Template.postReportDialogBox.events({
     'change [name=report_category]': function (event, template) {
         if (event.currentTarget.value == "something-else") {
             template.reportOptionsVar.set(true);
@@ -24,7 +24,7 @@ Template.recipeReportDialogBox.events({
     },
 
     'click .__cancel': function (e, t) {
-        Modal.hide('recipeReportDialogBox');
+        Modal.hide('postReportDialogBox');
     },
 
     'click #continueBtn': function (event, template) {
@@ -39,10 +39,12 @@ Template.recipeReportDialogBox.events({
         template.reportOptionsVar.set(true);
     },
 
-    'submit #reportVideoForm': function (event, template) {
+    'submit #reportPostoForm': function (event, template) {
         event.preventDefault();
         const target = event.target;
-        const reported_item = this.videoIdToReport;
+
+        const reported_item = this.postToReport;
+        const reported_item_type = this.postTypeToReport;
         const report_category = target.report_category.value;
         const description = target.report_description.value;
         const user_id = Meteor.userId();
@@ -53,20 +55,29 @@ Template.recipeReportDialogBox.events({
 
         var newReport = {
             reportedItemId: reported_item,
+            reportedItemType: reported_item_type,
             reportCategory: report_category,
             description: description,
             userID: user_id,
             createdAt: created_at
         };
 
-        Meteor.call('reportExistForUser', reported_item, function (error, result) {
+        Meteor.call('reportExistForUser', reported_item, reported_item_type, function (error, result) {
 
             if (!result) {
                 // Insert the report into the collection
 
                 Meteor.call('addNewReport', newReport, function (error, result) {
                     if (error) {
-                        //console.log(error);
+                        Bert.alert({
+                            hideDelay: 9000,
+                            title: 'Something went wrong',
+                            message: 'Something went wrong with the action, please try again later',
+                            type: 'ambula-info',
+                            style: 'fixed-top',
+                            icon: 'fa fa-exclamation-triangle fa-2x'
+                        });
+                        console.log(error);
                     } else {
                         template.reportOptionsVar.set(false);
                         template.descriptionVisibleVar.set(false);
@@ -98,7 +109,7 @@ Template.recipeReportDialogBox.events({
     }
 });
 
-Template.recipeReportDialogBox.helpers({
+Template.postReportDialogBox.helpers({
 
     somethingElseSelected: function () {
         return Template.instance().reportOptionsVar.get()

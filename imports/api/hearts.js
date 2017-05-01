@@ -10,13 +10,17 @@ export const Hearts = new Mongo.Collection('hearts');
 var Schemas = {};
 
 Schemas.hearts = new SimpleSchema({
-    likedVideoId: {
+    likedPostId: {
         type: String,
         label: "Video Id"
     },
     userID: {
         type: String,
         label: "User Id"
+    },
+    postType: {
+        type: String,
+        label: "Post Type"
     },
     createdAt: {
         type: Date,
@@ -28,8 +32,9 @@ Hearts.attachSchema(Schemas.hearts);
 
 Meteor.methods({
 
-    'likeVideo': function (videoId) {
-        check(videoId, String);
+    'likePost': function (postId, postType) {
+        check(postId, String);
+        check(postType, String);
 
         if (!this.userId) {
             throw new Meteor.Error('not-authorized');
@@ -37,23 +42,25 @@ Meteor.methods({
         }
 
         var heart = {
-            likedVideoId: videoId,
+            likedPostId: postId,
             userID: this.userId,
+            postType: postType,
             createdAt: new Date()
         };
 
         return Hearts.insert(heart);
     },
 
-    'unlikeVideo': function (videoId) {
-        check(videoId, String);
+    'unlikePost': function (postId, postType) {
+        check(postId, String);
+        check(postType, String);
 
         if (Meteor.isServer) {
             if (!this.userId) {
                 throw new Meteor.Error('not-authorized');
             }
 
-            var heart = Hearts.findOne({likedVideoId:videoId,userID: this.userId});
+            var heart = Hearts.findOne({likedPostId: postId, userID: this.userId, postType: postType});
 
             if (heart.userID !== this.userId) {
                 throw new Meteor.Error('not-authorized');
@@ -64,10 +71,11 @@ Meteor.methods({
 
     },
 
-    'videoLiked': function (videoId) {
-        check(videoId, String);
+    'postLiked': function (postId, postType) {
+        check(postId, String);
+        check(postType, String);
 
-        var heart = Hearts.findOne({likedVideoId:videoId,userID: this.userId});
+        var heart = Hearts.findOne({likedPostId: postId, userID: this.userId, postType: postType});
 
         if (heart) {
             return true;

@@ -50,6 +50,16 @@ Template.nav.events({
         }
 
     },
+
+    'click #addNewArticle': function (e) {
+        e.preventDefault();
+        if (Meteor.user()) {
+            Router.go('/addarticle');
+        } else {
+            Router.go('/login');
+        }
+    },
+
     'click #logout': function (e) {
         Meteor.logout(function (err) {
             if (err) {
@@ -68,7 +78,7 @@ Template.nav.events({
 
     'click #veganOption': function (e) {
         var checked = $('#veganOption').prop('checked');
-            Session.set('veganOnly', checked);
-            console.log(Session.get("veganOnly"));
+        Session.set('veganOnly', checked);
+        console.log(Session.get("veganOnly"));
     }
 });
