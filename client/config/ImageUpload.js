@@ -1,3 +1,3 @@
-Cloudinary.config({
+$.cloudinary.config({
   cloud_name: 'sajidhz'
 });
