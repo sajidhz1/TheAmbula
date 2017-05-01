@@ -59,10 +59,7 @@
                             </ul>
                         </li>
                     {{/if}}
-                    <li class=""><a id="addNewYtVideo" href="#"><i class="fa fa-cutlery" aria-hidden="true"></i> New
-                        Recipe</a></li>
-                    <li class=""><a id="addNewArticle" href="#"><i class="fa fa-file-text" aria-hidden="true"></i> New
-                        Article</a></li>
+                   
                     {{#if currentUser}}
                         <li class="dropdown">
                             {{#if currentUser.username}}
@@ -76,11 +73,23 @@
                                             class="caret"></span></strong></a> {{/if}}
                             <ul class="dropdown-menu">
                                 <li><a href="/profile" id="profile">Profile</a></li>
+                                 <li class="">
+                                     <a id="addNewYtVideo" href="#"><i class="fa fa-cutlery" aria-hidden="true"></i> 
+                                     New Recipe</a>
+                                 </li>
+                                <li class="">
+                                    <a id="addNewArticle" href="#"><i class="fa fa-file-text" aria-hidden="true"></i>
+                                     New Article</a>
+                                </li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#" id="logout">Logout</a></li>
                             </ul>
                         </li>
                     {{else}}
+                         <li class=""><a id="addNewYtVideo" href="#"><i class="fa fa-cutlery" aria-hidden="true"></i> New
+                        Recipe</a></li>
+                         <li class=""><a id="addNewArticle" href="#"><i class="fa fa-file-text" aria-hidden="true"></i> New
+                        Article</a></li>
                         <li class=""><a href="/login"><i class="fa fa-user" aria-hidden="true"></i> Login</a></li>
                     {{/if}}
                 </ul>
