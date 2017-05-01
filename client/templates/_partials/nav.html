@@ -72,7 +72,9 @@
                                     <strong>{{currentUser.profile.name}} <span
                                             class="caret"></span></strong></a> {{/if}}
                             <ul class="dropdown-menu">
-                                <li><a href="/profile" id="profile">Profile</a></li>
+                                <li><a href="/profile" id="profile">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                     Profile</a></li>
                                  <li class="">
                                      <a id="addNewYtVideo" href="#"><i class="fa fa-cutlery" aria-hidden="true"></i> 
                                      New Recipe</a>
@@ -82,7 +84,7 @@
                                      New Article</a>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#" id="logout">Logout</a></li>
+                                <li><a href="#" id="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
                             </ul>
                         </li>
                     {{else}}
