@@ -14,6 +14,12 @@ Template._loginButtonsLoggedInDropdownActions.onRendered(function () {
     }
 });
 
+Template.userProfile.onCreated(function bodyOnCreated() {
+    var self = this;
+
+
+});
+
 Template.userProfile.events({
     // Submit signup form event
     'submit form': function (e, t) {
@@ -55,11 +61,41 @@ Template.userProfile.events({
     }
 });
 
+Template.userProfile.helpers({
+    checkAvatarExists: function () {
+        return Meteor.user().profile.user_avatar;
+    },
+
+    testHelper: function () {
+        return ["sdf","asdfsadfs","Asdfsdafdafsdf"];
+    }
+});
 
 var trimInput = function (val) {
     return val.replace(/^\s*|\s*$/g, "");
 }
 
+//profile edit function
+Template.profileEdit.onRendered(function () {
+    var dataContext = Template.currentData();
+    $(document).ready(function () {
+        $('#userDescription').summernote({
+            height: 150,
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']]
+            ],
+            placeholder: 'User Description'
+        });
+
+    });
+
+});
 
 Template.profileEdit.events({
     'submit #editProfile': function (e) {
@@ -80,34 +116,6 @@ Template.profileEdit.events({
 
         sAlert.success('Successfully Updated !');
     }
-});
-
-Template.userProfile.helpers({
-    checkAvatarExists: function () {
-        return Meteor.user().profile.user_avatar;
-    }
-});
-
-//profile edit function
-Template.profileEdit.onRendered(function () {
-     var dataContext = Template.currentData();
-    $(document).ready(function () {
-        $('#userDescription').summernote({
-            height: 150,
-            toolbar: [
-                // [groupName, [list of button]]
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']]
-            ],
-            placeholder: 'User Description'
-        });
-
-    });
-    
 });
 
 Template.profileRecipeTile.helpers({
