@@ -1,0 +1,62 @@
+<template name="profileArticleTile">
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <div class="ytvideoview-hometile-card-wide mdl-card mdl-shadow--2dp">
+            <a href="/article/{{_id}}">
+                <div class="mdl-card__title">
+                    <div class="mdl-card__title-text small-card-title">
+                        <div class="ellipsis-title">
+                            {{ articleTitle }}
+                        </div>
+                        <h6>~ on {{createdDate}}</h6>
+                    </div>
+                </div>
+                <div class="mdl-card__media profile-tile-image">
+                    {{#if tileCover}}
+                        <img src="{{c.url tileCover}}" style="width : 100%;"/>
+                    {{else}}
+                        <img class="title-image" src="/images/ambula-ad.jpg">
+                    {{/if}}
+                </div>
+            </a>
+            <div class="mdl-card__actions mdl-card--border">
+                <div class="pull-right">
+                    {{>heartButton postHeartId=_id postType='article'}}
+                    <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+                        <i class="material-icons md-18">share</i>
+                    </a>
+                    <span class="dropup">
+                        <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
+                           data-toggle="dropdown">
+                                <i class="material-icons">more_horiz</i>
+                            </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            {{#if isOwner }}
+                                <li role="presentation">
+                                    <a role="menuitem" tabindex="-1" href="#">Copy Share URL</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li role="presentation"><a class="profile-view-tile-delete" role="menuitem"
+                                                           tabindex="-1"
+                                                           href="#">Delete Recipe</a></li>
+                                <li class="divider"></li>
+                                <li role="presentation"><a class="profile-view-tile-edit" role="menuitem" tabindex="-1"
+                                                           href="#">Edit Recipe</a></li>
+                            {{else}}
+                                <li role="presentation"><a class="profile-view-tile-report" role="menuitem"
+                                                           tabindex="-1"
+                                                           href="#">Report...</a></li>
+                                <li class="divider"></li>
+                                <li role="presentation">
+                                    <a role="menuitem" tabindex="-1" href="#">Copy Share URL</a>
+                                </li>
+                            {{/if}}
+                        </ul>
+                    </span>
+                </div>
+                <div>
+                    {{> singlePostStatView postId=_id}}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

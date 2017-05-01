@@ -10,7 +10,7 @@ import {YoutubeVideos} from './../../api/youtubevideos.js';
 
 import './articleviewcomponent.html';
 
-//To store the existing imageid in db
+//To store the existing image ids in db
 var dbImageList = new ReactiveArray();
 //To store the existing images in cloudinary by comparing to imageList from db
 var serverImageList = new ReactiveArray();
@@ -30,10 +30,8 @@ Template.articleViewComp.onCreated(function bodyOnCreated() {
             } else {
                 if (result) {
                     serverImageList.push(entry);
-                    galleryImageList.push(entry);
                 }
             }
-            ;
         });
     });
 
@@ -125,7 +123,7 @@ Template.articleViewComp.helpers({
 });
 
 Template.articleViewComp.events({
-    'click .single-view-dlete': function (event) {
+    'click .single-view-delete': function (event) {
 
         event.preventDefault();
 
@@ -145,7 +143,7 @@ Template.articleViewComp.events({
 
     },
 
-    'click .single-view-tile-report': function (event) {
+    'click .single-view-report': function (event) {
 
         if (Meteor.user()) {
             event.preventDefault();

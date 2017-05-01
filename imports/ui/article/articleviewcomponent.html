@@ -2,7 +2,6 @@
     <div class="container article-container">
         <div class="row wrapper-container">
             <h2 class="article-title">
-                <!--<img class="title-image" src="/images/ambula-ad.jpg">-->
                 <img class="title-image" src="{{c.url coverImage}}">
                 <span>{{article.articleTitle}}</span>
             </h2>
@@ -105,22 +104,26 @@
                                             <i class="material-icons">more_horiz</i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <li role="presentation"><a class="single-view-tile-report" role="menuitem"
-                                                       tabindex="-1"
-                                                       href="#">Report...</a></li>
-                            <li class="divider"></li>
-                            <li role="presentation">
-                                <a role="menuitem" tabindex="-1" href="#">Copy Share URL</a>
-                            </li>
                             {{#if isOwner }}
+                                <li role="presentation">
+                                    <a role="menuitem" tabindex="-1" href="#">Copy Share URL</a>
+                                </li>
                                 <li class="divider"></li>
                                 <li role="presentation">
-                                    <a class="single-view-dlete" role="menuitem" tabindex="-1"
+                                    <a class="single-view-delete" role="menuitem" tabindex="-1"
                                        href="#">Delete Article</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li role="presentation">
                                     <a class="single-view-edit" role="menuitem" tabindex="-1" href="#">Edit Article</a>
+                                </li>
+                            {{else}}
+                                <li role="presentation"><a class="single-view-report" role="menuitem"
+                                                           tabindex="-1"
+                                                           href="#">Report...</a></li>
+                                <li class="divider"></li>
+                                <li role="presentation">
+                                    <a role="menuitem" tabindex="-1" href="#">Copy Share URL</a>
                                 </li>
                             {{/if}}
                         </ul>
