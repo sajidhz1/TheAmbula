@@ -22,3 +22,47 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.profile-tile-image{
+    height: 200px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.profile-tile-image img {
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*Tab navigation related styles*/
+.nav-pills{
+    padding: 5px 15px 5px 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-pills > li > a {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    color: #523410;
+    text-transform: uppercase;
+    text-align: center;
+    width: 15rem;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus{
+    color: #fff;
+    background-color: #f7961e;
+}

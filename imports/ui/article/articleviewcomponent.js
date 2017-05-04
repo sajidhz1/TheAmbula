@@ -10,9 +10,30 @@ import {YoutubeVideos} from './../../api/youtubevideos.js';
 
 import './articleviewcomponent.html';
 
+//To store the existing image ids in db
+var dbImageList = new ReactiveArray();
+//To store the existing images in cloudinary by comparing to imageList from db
+var serverImageList = new ReactiveArray();
+
+Template.articleViewComp.onRendered(function () {
+
+});
 Template.articleViewComp.onCreated(function bodyOnCreated() {
-    //To access reactive data context of the template instance. The Computation is automatically stopped when the template is destroyed.
+
     var dataContext = Template.currentData();
+    dbImageList = dataContext.article.articleImages;
+
+    dbImageList.forEach(function (entry) {
+        Meteor.call('checkIfImageExists', entry, function (error, result) {
+            if (error) {
+                console.log('Error');
+            } else {
+                if (result) {
+                    serverImageList.push(entry);
+                }
+            }
+        });
+    });
 
     //Subscription for video owner user profile
     Meteor.subscribe('get-user-by-id');
@@ -88,18 +109,28 @@ Template.articleViewComp.helpers({
             n++
         });
         return bodyArray;
+    },
+
+    exisitingImageList: function () {
+        var galleryImageList = serverImageList.array();
+        galleryImageList.shift();
+        return galleryImageList;
+    },
+
+    coverImage: function () {
+        return serverImageList.array()[0];
     }
 });
 
 Template.articleViewComp.events({
-    'click .single-view-dlete': function (event) {
+    'click .single-view-delete': function (event) {
 
         event.preventDefault();
 
         Modal.show('postDeleteConfirmBox', {
             postToDelete: this.article._id,
             postOwner: this.article.owner,
-            postType:'article'
+            postType: 'article'
         });
 
     },
@@ -112,7 +143,7 @@ Template.articleViewComp.events({
 
     },
 
-    'click .single-view-tile-report': function (event) {
+    'click .single-view-report': function (event) {
 
         if (Meteor.user()) {
             event.preventDefault();
@@ -129,6 +160,15 @@ Template.articleViewComp.events({
                 type: 'info',
                 style: 'fixed-top',
                 icon: 'fa-info-circle fa-2x'
+            });
+        }
+    },
+
+    'click .js-activate-s-image-box': function (e) {
+        var imgPath = $(e.currentTarget).data('full-image-src');
+        if (imgPath) {
+            sImageBox.open(imgPath, {
+                animation: 'zoomIn'
             });
         }
     }

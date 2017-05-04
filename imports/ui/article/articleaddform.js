@@ -4,7 +4,6 @@
 import {Meteor} from 'meteor/meteor';
 import {Template} from 'meteor/templating';
 import {ReactiveVar} from 'meteor/reactive-var';
-// import { ReactiveArray } from 'meteor/reactivearray';
 import {Articles} from './../../api/article.js';
 
 import './articleaddform.html';
@@ -15,8 +14,6 @@ var imageList = new ReactiveArray();
 var queComplete = new ReactiveVar(true);
 
 Template.articleAddForm.onRendered(function () {
-
-    var dataContext = Template.currentData();
 
     $(document).ready(function () {
         $('#articleBody').summernote({
@@ -38,6 +35,7 @@ Template.articleAddForm.onRendered(function () {
             placeholder: 'Video Description'
         });
     });
+    
 });
 
 Template.articleAddForm.helpers({

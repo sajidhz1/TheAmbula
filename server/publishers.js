@@ -89,3 +89,9 @@ Meteor.publish("get-article-by-id",function (articleId) {
 
     return Articles.find({_id: articleId});
 });
+
+Meteor.publish("search-articles-by-owner", function (owner) {
+    check(owner, String);
+
+    return Articles.find({owner: owner});
+});

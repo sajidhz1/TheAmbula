@@ -33,3 +33,6 @@ WYSIWYG html 5 editor summernote added
 Reactive Array package adde to keep the returned and removed images from
 cloudinary for an article
     meteor add manuel:reactivearray
+
+package for viewing single images in a light box
+    meteor add juliancwirko:s-image-box
