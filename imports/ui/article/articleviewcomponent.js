@@ -139,7 +139,7 @@ Template.articleViewComp.events({
 
         event.preventDefault();
 
-        Router.go('youtubeVideoUpdateForm', {videoId: this.article._id});
+        // Router.go('youtubeVideoUpdateForm', {videoId: this.article._id});
 
     },
 

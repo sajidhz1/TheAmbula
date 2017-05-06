@@ -141,6 +141,52 @@
     display: none;
 }
 
+/*///////////////////////////////////////////*/
+/*/////Article home tiles related styles/////*/
+.article-hometile-card-wide{
+    margin-bottom: 12px !important;
+    width: 100% !important;
+}
+
+.hometile-article-title {
+    border-bottom: 1px solid #e6e6e6;
+    font-size: 60px;
+    margin: 0px;
+    overflow: hidden;
+    padding: 3rem 0 2rem;
+    text-align: center;
+    position: relative;
+    line-height: 130%;
+    /*/*font-family: 'Oswald';*/ /*TODO select good font thishan **/
+    font-weight: 300;
+    background-color: #FFFFFF;
+}
+
+.mdl-card__media .hometile-article-title img {
+    width: 100%;
+    bottom: -30px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    z-index: 1;
+    -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))) !important;
+}
+
+.hometile-title-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.mdl-card__media .hometile-article-title span {
+    position: relative;
+    z-index: 3;
+    color: #333333;
+    font-size: 4.0rem;
+}
+
+/*////////////////Media Queries//////////////////*/
+
 @media (max-width: 700px ) {
     .wrapper-container {
         width: 300px !important;
