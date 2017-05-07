@@ -604,3 +604,8 @@ textarea {
         position: relative;
     }
   }
+
+/*Share links related styles for the whole app*/
+.large.btn.shareit-facebook-colors,.large.btn.shareit-twitter-colors{
+    text-align: left !important;
+}

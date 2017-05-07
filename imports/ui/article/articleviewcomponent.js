@@ -4,42 +4,47 @@
 import {Meteor} from 'meteor/meteor';
 import {Template} from 'meteor/templating';
 
-import {Articles} from './../../api/article.js';
 import {YoutubeVideos} from './../../api/youtubevideos.js';
-
 
 import './articleviewcomponent.html';
 
-//To store the existing image ids in db
-var dbImageList = new ReactiveArray();
-//To store the existing images in cloudinary by comparing to imageList from db
-var serverImageList = new ReactiveArray();
+import {cloudinaryUrl} from './../../../lib/constants.js';
 
-Template.articleViewComp.onRendered(function () {
-
-});
 Template.articleViewComp.onCreated(function bodyOnCreated() {
 
-    var dataContext = Template.currentData();
-    dbImageList = dataContext.article.articleImages;
+    //To store the existing image ids in db
+    this.dbImageList = new ReactiveArray();
+    //To store the existing images in cloudinary by comparing to imageList from db
+    this.serverImageList = new ReactiveArray();
 
-    dbImageList.forEach(function (entry) {
-        Meteor.call('checkIfImageExists', entry, function (error, result) {
-            if (error) {
-                console.log('Error');
-            } else {
-                if (result) {
-                    serverImageList.push(entry);
-                }
-            }
-        });
-    });
+    this.coverImg = new ReactiveVar();
 
     //Subscription for video owner user profile
     Meteor.subscribe('get-user-by-id');
 
     //Subscription for featured videos
     Meteor.subscribe('featured-videos-collection');
+});
+
+Template.articleViewComp.onRendered(function () {
+
+    var dataContext = Template.currentData();
+
+    const instance = Template.instance();
+
+    this.dbImageList = dataContext.article.articleImages;
+
+    instance.dbImageList.forEach(function (entry) {
+        Meteor.call('checkIfImageExists', entry, function (error, result) {
+            if (error) {
+                console.log('Error');
+            } else {
+                if (result) {
+                    instance.serverImageList.push(entry);
+                }
+            }
+        });
+    });
 });
 
 Template.articleViewComp.helpers({
@@ -112,13 +117,40 @@ Template.articleViewComp.helpers({
     },
 
     exisitingImageList: function () {
-        var galleryImageList = serverImageList.array();
+        const instance = Template.instance();
+        var galleryImageList = instance.serverImageList.array();
         galleryImageList.shift();
         return galleryImageList;
     },
 
     coverImage: function () {
-        return serverImageList.array()[0];
+        const instance = Template.instance();
+        instance.coverImg.set(instance.serverImageList.array()[0]);
+        return instance.coverImg.get();
+    },
+
+    shareData: function () {
+        var data = Template.currentData();
+        const instance = Template.instance();
+
+        var body = data.article.articleBody;
+        var bodyArray = [];
+
+        body.split('</p>').map(function (data) {
+            bodyArray.push(data);
+        });
+
+        var tmp = document.createElement("DIV");
+        tmp.innerHTML = bodyArray[0].replace(/^(.{500}[^\s]*).*/, "$1");
+
+        return {
+            title: data.article.articleTitle,
+            author: data.article.ownerID,
+            url: 'http://www.theambula.lk/article/' + data.article._id,
+            image: cloudinaryUrl + instance.coverImg.get(),
+            description: tmp.textContent || tmp.innerText || tmp.innerHTML || ""
+        }
+
     }
 });
 
@@ -139,7 +171,7 @@ Template.articleViewComp.events({
 
         event.preventDefault();
 
-        Router.go('youtubeVideoUpdateForm', {videoId: this.article._id});
+        // Router.go('youtubeVideoUpdateForm', {videoId: this.article._id});
 
     },
 
