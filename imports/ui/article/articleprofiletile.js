@@ -4,33 +4,36 @@
 import {Meteor} from 'meteor/meteor';
 import {Template} from 'meteor/templating';
 import {ReactiveVar} from 'meteor/reactive-var';
-import {Articles} from './../../api/article.js';
 
 import './articleprofiletile.html';
 
-//To store the existing image ids in db
-var dbImageList = new ReactiveArray();
-
-//To store the existing images in cloudinary by comparing to imageList from db
-Template.profileArticleTile.serverImageList = new ReactiveVar([]);
-
-Template.profileArticleTile.tileImage = new ReactiveVar(false);
+import {cloudinaryUrl} from './../../../lib/constants.js';
 
 Template.profileArticleTile.onCreated(function bodyOnCreated() {
 
-    var dataContext = Template.currentData();
-    dbImageList = new ReactiveArray(dataContext.articleImages);
-    console.log(dataContext.articleTitle + " " +dataContext.articleImages);
+    //To store the existing image ids in db
+    this.dbImageList = new ReactiveArray();
+    //To store the existing images in cloudinary by comparing to imageList from db
+    this.serverImageList = new ReactiveArray();
+
+    this.tileImage = new ReactiveVar();
+
 });
 
 Template.profileArticleTile.onRendered(function () {
-    dbImageList.forEach(function (entry) {
+    var dataContext = Template.currentData();
+
+    const instance = Template.instance();
+
+    this.dbImageList = dataContext.articleImages;
+
+    instance.dbImageList.forEach(function (entry) {
         Meteor.call('checkIfImageExists', entry, function (error, result) {
             if (error) {
                 console.log('Error');
             } else {
                 if (result) {
-                    // dbImageList.remove(entry);
+                    instance.serverImageList.push(entry);
                 }
             }
         });
@@ -47,7 +50,33 @@ Template.profileArticleTile.helpers({
     },
 
     tileCover: function () {
-        return dbImageList.array()[0];
+        const instance = Template.instance();
+        instance.tileImage.set(instance.serverImageList.array()[0]);
+        return instance.tileImage.get();
+    },
+
+    shareData: function () {
+        var data = Template.currentData();
+        const instance = Template.instance();
+
+        var body = data.articleBody;
+        var bodyArray = [];
+
+        body.split('</p>').map(function (data) {
+            bodyArray.push(data);
+        });
+
+        var tmp = document.createElement("DIV");
+        tmp.innerHTML = bodyArray[0].replace(/^(.{500}[^\s]*).*/, "$1");
+
+        return {
+            title: data.articleTitle,
+            author: data.ownerID,
+            url: 'http://www.theambula.lk/article/' + data._id,
+            image: cloudinaryUrl + instance.tileImage.get(),
+            description: tmp.textContent || tmp.innerText || tmp.innerHTML || ""
+        }
+
     }
 });
 

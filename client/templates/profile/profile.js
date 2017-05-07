@@ -31,7 +31,7 @@ Template.userProfile.events({
         Cloudinary.upload(file, function (err, res) {
             console.log("Upload Error: " + err);
             console.log("Upload Result: " + res.public_id);
-            
+
             Meteor.users.update(Meteor.userId(), {$set: {"profile.user_avatar": res.public_id}});
 
             $('#inputArea').show();
@@ -46,7 +46,7 @@ Template.userProfile.events({
         var file = $('#userimage')[0].files[0]
         reader.onload = function (e) {
             // get loaded data and render thumbnail.
-         //   document.getElementById("profPic").src = e.target.result;
+            //   document.getElementById("profPic").src = e.target.result;
         };
         // read the image file as a data URL.
         reader.readAsDataURL(file);
@@ -67,7 +67,7 @@ Template.userProfile.helpers({
     },
 
     testHelper: function () {
-        return ["sdf","asdfsadfs","Asdfsdafdafsdf"];
+        return ["sdf", "asdfsadfs", "Asdfsdafdafsdf"];
     }
 });
 
@@ -126,6 +126,22 @@ Template.profileRecipeTile.helpers({
     createdDate: function () {
         return moment(this.createdAt).format('MMMM Do YYYY');
     },
+
+    shareData: function () {
+        var data = Template.currentData();
+
+        var tmp = document.createElement("DIV");
+        tmp.innerHTML = data.videoDescription;
+
+        return {
+            title: data.videoTitle,
+            author: data.ownerID,
+            url: 'http://www.theambula.lk/recipe/' + data._id,
+            image: 'https://img.youtube.com/vi/' + data.videoId + '/hqdefault.jpg',
+            description: tmp.textContent || tmp.innerText || ""
+
+        }
+    }
 });
 
 Template.profileRecipeTile.events({
@@ -137,7 +153,7 @@ Template.profileRecipeTile.events({
         Modal.show('postDeleteConfirmBox', {
             postToDelete: this._id,
             postOwner: this.owner,
-            postType:'ytVideo'
+            postType: 'ytVideo'
         });
     },
 

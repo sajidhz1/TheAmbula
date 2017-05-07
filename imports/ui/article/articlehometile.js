@@ -8,6 +8,7 @@ import {ReactiveDict} from 'meteor/reactive-dict';
 
 import './articlehometile.html';
 
+import {cloudinaryUrl} from './../../../lib/constants.js';
 
 Template.articleHomeTile.onCreated(function bodyOnCreated() {
 
@@ -39,6 +40,85 @@ Template.articleHomeTile.onRendered(function () {
             }
         });
     });
+});
+
+Template.articleHomeTile.helpers({
+    createdDate: function () {
+        return moment(this.createdAt).format('MMMM Do YYYY, h:mm:ss a');
+    },
+
+    articleHomeTileImage: function () {
+        const instance = Template.instance();
+        instance.tileImage.set(instance.serverImageList.array()[0]);
+        return instance.tileImage.get();
+    },
+
+    articleParagraph: function () {
+        var body = this.articleBody;
+        var bodyArray = [];
+
+        body.split('</p>').map(function (data) {
+            bodyArray.push(data + '</p>');
+        });
+        return bodyArray[0];
+    },
+
+    ownerProfile: function () {
+        try {
+            var user = Meteor.users.find({_id: this.owner}, {fields: {profile: 1}}).fetch();
+            var profile = user[0].profile;
+            return profile['first_name'] ? profile['first_name'] + ' ' + profile['last_name'] : profile['name'];
+        } catch (e) {
+            //console.log(e);
+        }
+    },
+
+    ownerID: function () {
+        try {
+            var user = Meteor.users.find({_id: this.owner}, {fields: {profile: 1}}).fetch();
+            return user[0]._id;
+        } catch (e) {
+            //console.log(e);
+        }
+    },
+
+    profileAvatar: function () {
+        try {
+            var user = Meteor.users.find({_id: this.owner}, {fields: {profile: 1}}).fetch();
+            var profile = user[0].profile;
+            return profile['user_avatar'];
+        } catch (e) {
+            //console.log(e);
+        }
+    },
+
+    isOwner: function () {
+        return this.owner === Meteor.userId();
+    },
+
+    shareData: function () {
+        var data = Template.currentData();
+        const instance = Template.instance();
+
+        var body = data.articleBody;
+        var bodyArray = [];
+
+        body.split('</p>').map(function (data) {
+            bodyArray.push(data);
+        });
+
+        var tmp = document.createElement("DIV");
+        tmp.innerHTML = bodyArray[0].replace(/^(.{500}[^\s]*).*/, "$1");
+
+        return {
+            title: data.articleTitle,
+            author: data.ownerID,
+            url: 'http://www.theambula.lk/article/' + data._id,
+            image: cloudinaryUrl+instance.tileImage.get(),
+            description: tmp.textContent || tmp.innerText || tmp.innerHTML ||""
+        }
+
+    }
 });
 
 Template.articleHomeTile.events({
@@ -80,67 +160,5 @@ Template.articleHomeTile.events({
                 icon: 'fa-info-circle fa-2x'
             });
         }
-    }
-});
-
-Template.articleHomeTile.helpers({
-    createdDate: function () {
-        return moment(this.createdAt).format('MMMM Do YYYY, h:mm:ss a');
-    },
-    
-    articleHomeTileImage: function () {
-        const instance = Template.instance();
-        instance.tileImage.set(instance.serverImageList.array()[0]);
-        return instance.tileImage.get();
-    },
-
-    ownerProfile: function () {
-        try {
-            var user = Meteor.users.find({_id: this.owner}, {fields: {profile: 1}}).fetch();
-            var profile = user[0].profile;
-            return profile['first_name'] ? profile['first_name'] + ' ' + profile['last_name'] : profile['name'];
-        } catch (e) {
-            //console.log(e);
-        }
-    },
-
-    ownerID: function () {
-        try {
-            var user = Meteor.users.find({_id: this.owner}, {fields: {profile: 1}}).fetch();
-            return user[0]._id;
-        } catch (e) {
-            //console.log(e);
-        }
-    },
-
-    profileAvatar: function () {
-        try {
-            var user = Meteor.users.find({_id: this.owner}, {fields: {profile: 1}}).fetch();
-            var profile = user[0].profile;
-            return profile['user_avatar'];
-        } catch (e) {
-            //console.log(e);
-        }
-    },
-
-    isOwner: function () {
-        return this.owner === Meteor.userId();
-    },
-
-    shareData: function () {
-        var data = Template.currentData();
-
-        var tmp = document.createElement("DIV");
-        tmp.innerHTML = data.videoDescription;
-
-        return {
-            title: data.articleTitle,
-            author: data.ownerID,
-            url: 'http://www.theambula.lk/article/' + data._id,
-            image: '',
-            description: tmp.textContent || tmp.innerText || ""
-
-        }
-
     }
 });

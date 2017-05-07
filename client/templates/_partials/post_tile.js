@@ -105,7 +105,6 @@ Template.postTile.helpers({
             description : tmp.textContent || tmp.innerText || ""
 
         }
-
     }
 });
 

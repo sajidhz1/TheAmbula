@@ -17,9 +17,22 @@
             <div class="mdl-card__actions mdl-card--border">
                 <div class="pull-right">
                     {{>heartButton postHeartId=_id postType='ytVideo'}}
-                    <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
-                        <i class="material-icons md-18">share</i>
-                    </a>
+                    <span class="dropup">
+                        <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
+                           data-toggle="dropdown"
+                        >
+                            <i class="material-icons md-18">share</i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                                <li role="presentation">
+                                    {{>shareit_facebook shareData}}
+                                </li>
+                            <li class="divider"></li>
+                            <li role="presentation">
+                                {{>shareit_twitter }}
+                            </li>
+                        </ul>
+                    </span>
                     <span class="dropup">
                         <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
                            data-toggle="dropdown">

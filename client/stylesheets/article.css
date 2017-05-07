@@ -149,40 +149,75 @@
 }
 
 .hometile-article-title {
+    max-height: 230px;
+    min-height: 230px;
     border-bottom: 1px solid #e6e6e6;
-    font-size: 60px;
+    font-size: 4.2rem;
     margin: 0px;
     overflow: hidden;
-    padding: 3rem 0 2rem;
+    padding: 0 0 2rem;
     text-align: center;
     position: relative;
-    line-height: 130%;
+    line-height: 80%;
     /*/*font-family: 'Oswald';*/ /*TODO select good font thishan **/
     font-weight: 300;
-    background-color: #FFFFFF;
 }
 
 .mdl-card__media .hometile-article-title img {
+    display: block;
     width: 100%;
-    bottom: -30px;
     margin-left: auto;
     margin-right: auto;
     position: absolute;
     z-index: 1;
-    -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))) !important;
 }
 
 .hometile-title-image {
-    display: block;
     max-width: 100%;
     height: auto;
 }
 
 .mdl-card__media .hometile-article-title span {
-    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom:20px;
+    padding: 0 5px 0px 5px;
     z-index: 3;
     color: #333333;
-    font-size: 4.0rem;
+    font-size: 3.1rem !important;
+}
+
+.layer {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF280C00', endColorstr='#004A1D00'); /* for IE */
+    background: -webkit-gradient(linear, left bottom, left top, from(#fafafa), to(rgba(75, 30, 0, 0))); /* for webkit browsers */
+    background: -moz-linear-gradient(bottom,  #fafafa,  rgba(75, 30, 0, 0)); /* for firefox 3.6+ */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+}
+
+.hometile-article-body{
+    background-color: #FFFFFF;
+    color: #000000;
+    display:block;
+    width:100%;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    max-height:100px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.hometile-article-body > p{
+    margin-bottom: 0px;
 }
 
 /*////////////////Media Queries//////////////////*/
@@ -208,6 +243,11 @@
     .article-category {
         float: none;
         text-align: center;
+    }
+
+    .hometile-article-title{
+        max-height: 180px;
+        min-height: 180px;
     }
 }
 
