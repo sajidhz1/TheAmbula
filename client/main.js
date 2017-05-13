@@ -10,6 +10,7 @@ import '../imports/ui/featuredvideotile/featuredvideotile.js';
 import '../imports/ui/article/articleaddform.js';
 import '../imports/ui/article/articleviewcomponent.js';
 import '../imports/ui/article/articleprofiletile.js';
+import '../imports/ui/article/articlehometile.js';
 import '../imports/ui/confirmation_dialog/postdeleteconfirmbox.js';
 import '../imports/ui/report_dialog/postreportdialogbox.js';
 

@@ -4,7 +4,7 @@
 import {HTTP} from 'meteor/http';
 
 var Future = Npm.require('fibers/future');
-var cloudinaryUrl = 'http://res.cloudinary.com/hwshbhsyq/image/upload/';
+import {cloudinaryUrl} from './../lib/constants.js';
 /**
  * Replace this with your target API or use the API URLs directly in the methods below.
  * @type {string}

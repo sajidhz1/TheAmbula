@@ -1,26 +1,28 @@
 /**
- * Created by Dulitha RD on 4/30/2017.
+ * Created by Dulitha RD on 5/6/2017.
  */
 import {Meteor} from 'meteor/meteor';
 import {Template} from 'meteor/templating';
 import {ReactiveVar} from 'meteor/reactive-var';
+import {ReactiveDict} from 'meteor/reactive-dict';
 
-import './articleprofiletile.html';
+import './articlehometile.html';
 
 import {cloudinaryUrl} from './../../../lib/constants.js';
 
-Template.profileArticleTile.onCreated(function bodyOnCreated() {
+Template.articleHomeTile.onCreated(function bodyOnCreated() {
 
-    //To store the existing image ids in db
     this.dbImageList = new ReactiveArray();
-    //To store the existing images in cloudinary by comparing to imageList from db
+
     this.serverImageList = new ReactiveArray();
 
     this.tileImage = new ReactiveVar();
 
+    Meteor.subscribe('get-user-by-id');
+
 });
 
-Template.profileArticleTile.onRendered(function () {
+Template.articleHomeTile.onRendered(function () {
     var dataContext = Template.currentData();
 
     const instance = Template.instance();
@@ -40,19 +42,58 @@ Template.profileArticleTile.onRendered(function () {
     });
 });
 
-Template.profileArticleTile.helpers({
-    isOwner: function () {
-        return this.owner === Meteor.userId();
-    },
-
+Template.articleHomeTile.helpers({
     createdDate: function () {
-        return moment(this.createdAt).format('MMMM Do YYYY');
+        return moment(this.createdAt).format('MMMM Do YYYY, h:mm:ss a');
     },
 
-    tileCover: function () {
+    articleHomeTileImage: function () {
         const instance = Template.instance();
         instance.tileImage.set(instance.serverImageList.array()[0]);
         return instance.tileImage.get();
+    },
+
+    articleParagraph: function () {
+        var body = this.articleBody;
+        var bodyArray = [];
+
+        body.split('</p>').map(function (data) {
+            bodyArray.push(data + '</p>');
+        });
+        return bodyArray[0];
+    },
+
+    ownerProfile: function () {
+        try {
+            var user = Meteor.users.find({_id: this.owner}, {fields: {profile: 1}}).fetch();
+            var profile = user[0].profile;
+            return profile['first_name'] ? profile['first_name'] + ' ' + profile['last_name'] : profile['name'];
+        } catch (e) {
+            //console.log(e);
+        }
+    },
+
+    ownerID: function () {
+        try {
+            var user = Meteor.users.find({_id: this.owner}, {fields: {profile: 1}}).fetch();
+            return user[0]._id;
+        } catch (e) {
+            //console.log(e);
+        }
+    },
+
+    profileAvatar: function () {
+        try {
+            var user = Meteor.users.find({_id: this.owner}, {fields: {profile: 1}}).fetch();
+            var profile = user[0].profile;
+            return profile['user_avatar'];
+        } catch (e) {
+            //console.log(e);
+        }
+    },
+
+    isOwner: function () {
+        return this.owner === Meteor.userId();
     },
 
     shareData: function () {
@@ -73,16 +114,15 @@ Template.profileArticleTile.helpers({
             title: data.articleTitle,
             author: data.ownerID,
             url: 'http://www.theambula.lk/article/' + data._id,
-            image: cloudinaryUrl + instance.tileImage.get(),
-            description: tmp.textContent || tmp.innerText || tmp.innerHTML || ""
+            image: cloudinaryUrl+instance.tileImage.get(),
+            description: tmp.textContent || tmp.innerText || tmp.innerHTML ||""
         }
 
     }
 });
 
-Template.profileArticleTile.events({
-
-    'click .profile-view-tile-delete': function (event) {
+Template.articleHomeTile.events({
+    'click .post-tile-view-delete': function (event) {
 
         event.preventDefault();
 
@@ -91,10 +131,9 @@ Template.profileArticleTile.events({
             postOwner: this.owner,
             postType: 'article'
         });
-
     },
 
-    'click .profile-view-tile-edit': function (event) {
+    'click .post-tile-view-edit': function (event) {
 
         event.preventDefault();
 
@@ -102,7 +141,7 @@ Template.profileArticleTile.events({
 
     },
 
-    'click .profile-view-tile-report': function (event) {
+    'click .post-tile-view-report': function (event) {
 
         if (Meteor.user()) {
             event.preventDefault();
@@ -113,13 +152,13 @@ Template.profileArticleTile.events({
             });
         } else {
             Bert.alert({
-                hideDelay: 5000,
-                title: 'Log In To theambula.lk',
+                hideDelay: 6000,
+                title: 'Log in to theambula.lk',
                 message: 'You must be logged in to theambula.lk to report a post',
-                type: 'info',
+                type: 'ambula-info',
                 style: 'fixed-top',
                 icon: 'fa-info-circle fa-2x'
             });
         }
-    },
+    }
 });
