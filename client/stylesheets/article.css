@@ -20,11 +20,10 @@
 }
 
 .article-title {
-    border-bottom: 1px solid #e6e6e6;
     font-size: 60px;
-    margin: 2rem 0 0 0;
+    margin: 0;
     overflow: hidden;
-    padding: 5rem 0 2rem;
+    padding: 17rem 0 2rem;
     text-align: center;
     position: relative;
     line-height: 130%;
@@ -32,14 +31,14 @@
     font-weight: 400
 }
 
-.wrapper-container .article-title img {
+.article-title img {
     width: 100%;
-    bottom: -30px;
+    bottom: -150px;
     margin-left: auto;
     margin-right: auto;
     position: absolute;
     z-index: 1;
-    -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))
+    opacity: 0.65;
 }
 
 .title-image {
@@ -48,7 +47,7 @@
     height: auto;
 }
 
-.wrapper-container .article-title span {
+.article-title span {
     position: relative;
     z-index: 3;
 }
@@ -98,7 +97,6 @@
 /*///////////////////////////////////////////*/
 /*///////Article gallery related styles/////*/
 .article-gallery{
-    height: 500px;
     margin-bottom: 40px;
     background-color: #2b2b2b;
 }
@@ -151,7 +149,7 @@
 .hometile-article-title {
     max-height: 230px;
     min-height: 230px;
-    border-bottom: 1px solid #e6e6e6;
+    /*border-bottom: 1px solid #e6e6e6;*/
     font-size: 4.2rem;
     margin: 0px;
     overflow: hidden;
@@ -193,8 +191,8 @@
 
 .layer {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF280C00', endColorstr='#004A1D00'); /* for IE */
-    background: -webkit-gradient(linear, left bottom, left top, from(#fafafa), to(rgba(75, 30, 0, 0))); /* for webkit browsers */
-    background: -moz-linear-gradient(bottom,  #fafafa,  rgba(75, 30, 0, 0)); /* for firefox 3.6+ */
+    background: -webkit-gradient(linear, left bottom, left top, from(#ffffff), to(rgba(75, 30, 0, 0))); /* for webkit browsers */
+    background: -moz-linear-gradient(bottom,  #FFFFFF,  rgba(75, 30, 0, 0)); /* for firefox 3.6+ */
     position: absolute;
     top: 0;
     left: 0;
@@ -233,7 +231,7 @@
     }
 
     .article-title img {
-        display: none;
+        /*display: none;*/
     }
 
     .article-details {
