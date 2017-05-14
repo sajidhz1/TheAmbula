@@ -5,6 +5,7 @@ import {Meteor} from 'meteor/meteor';
 import {Template} from 'meteor/templating';
 import {ReactiveVar} from 'meteor/reactive-var';
 import {Articles} from './../../api/article.js';
+import {cloudinaryUploadPreset,cloudinaryApiKey} from './../../../lib/constants.js';
 
 import './articleaddform.html';
 
@@ -35,7 +36,7 @@ Template.articleAddForm.onRendered(function () {
             placeholder: 'Video Description'
         });
     });
-    
+
 });
 
 Template.articleAddForm.helpers({
@@ -145,9 +146,9 @@ Template.dropzone.onRendered(function () {
         this.dropzone.on('sending', function (file, xhr, formData) {
             queComplete.set(false);
             formData.append('file', file);
-            formData.append('api_key', 765487893716384);
+            formData.append('api_key', cloudinaryApiKey);
             formData.append('timestamp', Date.now() / 1000 | 0);
-            formData.append('upload_preset', 'testPreset');
+            formData.append('upload_preset', cloudinaryUploadPreset);
         });
 
         // this is how you get the response from the ajax call.

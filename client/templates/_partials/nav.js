@@ -79,6 +79,5 @@ Template.nav.events({
     'click #veganOption': function (e) {
         var checked = $('#veganOption').prop('checked');
         Session.set('veganOnly', checked);
-        console.log(Session.get("veganOnly"));
     }
 });
