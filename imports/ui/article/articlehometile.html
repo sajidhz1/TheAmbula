@@ -1,0 +1,93 @@
+<template name="articleHomeTile">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ytvideoview-hometile">
+        <div class="article-hometile-card-wide mdl-card mdl-shadow--2dp">
+            <a href="/article/{{_id}}">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ytvideoview-hometile-card-media"
+                     style="overflow: hidden;">
+                    <div class="mdl-card__media">
+                        <div class="hometile-article-title">
+                            <div class="layer">
+                            </div>
+                            <img class="hometile-title-image" src="{{c.url articleHomeTileImage}}">
+                            <span>{{articleTitle}}</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ytvideoview-hometile-card-media">
+                <div class="mdl-card__media">
+                    <div class="hometile-article-body">
+                        {{{articleParagraph}}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mdl-card__title ytvideoview-hometile-card-title">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            {{> singlePostStatView postId=_id}}
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 mdl-card__subtitle-text ytvideoview-hometile-card-title-date">
+                            {{createdDate}}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <div class="pull-right">
+                    {{>heartButton postHeartId=_id postType='article'}}
+                    <span class="dropup">
+                        <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
+                           data-toggle="dropdown"
+                        >
+                            <i class="material-icons md-18">share</i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                                <li role="presentation">
+                                    {{>shareit_facebook shareData}}
+                                </li>
+                            <li class="divider"></li>
+                            <li role="presentation">
+                                {{>shareit_twitter }}
+                            </li>
+                        </ul>
+                    </span>
+                    <span class="dropup">
+                        <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
+                           data-toggle="dropdown">
+                                <i class="material-icons md-25">more_horiz</i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li role="presentation"><a class="post-tile-view-report" role="menuitem" tabindex="-1"
+                                                       href="#">Report...</a></li>
+                            <li class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                       href="#">Copy Share URL</a></li>
+                            {{#if isOwner }}
+                                <li class="divider"></li>
+                                    <li role="presentation"><a class="post-tile-view-delete" role="menuitem"
+                                                               tabindex="-1"
+                                                               href="#">Delete Article</a></li>
+                                <li class="divider"></li>
+                                    <li role="presentation"><a class="post-tile-view-edit" role="menuitem" tabindex="-1"
+                                                               href="#">Edit Article</a></li>
+                            {{/if}}
+                        </ul>
+                    </span>
+                </div>
+                <div class="pull-left">
+                    {{#if profileAvatar }}
+                        <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150"
+                             src="{{c.url profileAvatar width=250 height=250 crop='fill'}}">
+                    {{else}}
+                        <img class="ytvideo-owner-thumbnail" id="profPic" width="150" height="150"
+                             src="/images/user-avatar.jpg">
+                    {{/if}}
+                    <span><a style="text-decoration:none;color : #222;"
+                             href="/channels/{{ownerID }}"><strong>{{ownerProfile}}</strong></a></span><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

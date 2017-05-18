@@ -1,6 +1,8 @@
+import {cloudinaryCloudName,cloudinaryApiKey,cloudinaryApiSecret} from './../../lib/constants.js';
+
 Cloudinary.config({
-  cloud_name: 'hwshbhsyq',
-  api_key: '765487893716384',
-  api_secret: 'rYsjtZYYZGWa9hT_6mF-9BSZ36I'
+    cloud_name: cloudinaryCloudName,
+    api_key: cloudinaryApiKey,
+    api_secret: cloudinaryApiSecret
 });
 

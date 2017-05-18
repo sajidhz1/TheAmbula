@@ -1,3 +1,5 @@
+import {cloudinaryCloudName} from './../../lib/constants.js';
+
 $.cloudinary.config({
-  cloud_name: 'hwshbhsyq'
+  cloud_name: cloudinaryCloudName
 });
