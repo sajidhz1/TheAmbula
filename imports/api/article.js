@@ -19,7 +19,7 @@ Schemas.article = new SimpleSchema({
     articleBody: {
         type: String,
         label: "Article Body",
-        max: 10000,
+        max: 999999,
         min: 1000
     },
     articleType: {
