@@ -1,7 +1,49 @@
+
+
 <template name="homeIndex">
+    <script>
+        $('#topbg').mousemove(function(e){
+
+            var amountMovedX = (e.pageX * -1 / 2);
+            var amountMovedY = (e.pageY * -1 / 2);
+            $(this).css('background-position', amountMovedX + 'px ' + amountMovedY + 'px');
+        });
+    </script>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12 cloud-container" style="">
+            <div class="col-md-12 cloud-container" id="topbg">
+                <div class="row" style="text-align: center">
+                    <div class="col-md-12">
+                        <br>
+                        <form class="navbar-form" style="display: inline; margin : 0 auto ;" role="search"
+                              action="{{pathFor 'searchResults'}}">
+                            <div class="input-group">
+                                <input class="form-control typeahead" id="nav-search" name="q" type="text"
+                                       placeholder="හොඳම රෙසිපි හොයමු..."
+                                       autocomplete="off" spellcheck="off" data-source="search"/>
+                                <!--<div class="input-group-btn">-->
+                                    <button class="btn btn-lg" type="submit">
+                                        <i style="color:#f77200" class="glyphicon glyphicon-search"></i>
+                                    </button>
+                                <!--</div>-->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--<div id="navbar" class="collapse navbar-collapse">-->
+                    <!--<div id="veganOptionLabel"-->
+                         <!--class="checkbox navbar-nav navbar-text {{#if veganOnlySelected}}checked{{/if}}">-->
+
+                        <!--<label class="navbar-link" for="veganOption">-->
+                            <!--<input id="veganOption" type="checkbox" unchecked>-->
+                            <!--I am a Vegan-->
+                        <!--</label>-->
+                        <!--<i class="fa fa-envira" style="color:#3e2723"-->
+                           <!--aria-hidden="true"></i>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <br>
+                <br>
                 <ul class="cloud">
                     <li><a href="/search?q=chicken">Chicken</a></li>
                     <li><a href="/search?q=lunch">Lunch</a></li>
