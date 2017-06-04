@@ -2,8 +2,9 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
 
 body {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     background: #f5f2ed !important;
+
 }
 
 button {
@@ -554,16 +555,20 @@ textarea {
 
 /*tag CLoud*/
 .cloud-container{
-    height: 125px;
+    height: 250px;
     padding:0;
-    background-image: url(/images/header_background.jpg);
+    background-image: url(/images/top-rated-recipe-bg.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     overflow:hidden;
 }
 
 .cloud {
     display: inline;
     list-style-type: none;
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.7);
 }
 .cloud li {
     list-style: none;
@@ -572,8 +577,17 @@ textarea {
 }
 
 .cloud li a
+ {
+     color: rgba(255, 255, 255, 0.5);
+ }
+
+.cloud li a:hover
 {
-    color: #fff;
+    text-decoration: none !important;
+    transform:scale(2,2) !important;
+    -ms-transform:scale(2,2);
+    -webkit-transform: scale(2,2);
+    color: #ffffff;
 }
 
 .cloud li:nth-of-type(2n-1) {
