@@ -1,79 +1,103 @@
-.navbar-default {
-  background-color: #ffffff;
-  /*border-color: #3e2723;*/
-}
-.navbar-default .navbar-brand {
-  color: #3e2723;
-}
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-  color: #f77200;
-}
-.navbar-default .navbar-text {
-  color: #3e2723;
-}
-.navbar-default .navbar-nav > li > a {
-  color: #3e2723;
-}
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-  color: #f77200;
-}
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-  color: #f77200;
-  background-color: #3e2723;
-}
-.navbar-default .navbar-nav > .open > a,
-.navbar-default .navbar-nav > .open > a:hover,
-.navbar-default .navbar-nav > .open > a:focus {
-  color: #f77200;
-  background-color: #3e2723;
-}
-.navbar-default .navbar-toggle {
-  border-color: #3e2723;
-}
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-  background-color: #3e2723;
-}
-.navbar-default .navbar-toggle .icon-bar {
-  background-color: #3e2723;
-}
-.navbar-default .navbar-collapse,
-.navbar-default .navbar-form {
-  /*border-color: #3e2723;*/
-}
-.navbar-default .navbar-link {
-  color: #3e2723;
-}
-.navbar-default .navbar-link:hover {
-  color: #f77200;
+.navbar-inverse {
+    background-color: #ffffff;
+    /*border-color: #3e2723;*/
 }
 
-#nav-search{
-  width:430px !important;
+.navbar-inverse .navbar-brand {
+    color: #3e2723;
+}
+
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+    color: #f77200;
+}
+
+.navbar-inverse .navbar-text {
+    color: #3e2723;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #3e2723;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    color: #f77200;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+    color: #f77200;
+    background-color: #3e2723;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+    color: #f77200;
+    background-color: #3e2723;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #3e2723;
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #3e2723;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #3e2723;
+}
+
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+    /*border-color: #3e2723;*/
+}
+
+.navbar-inverse .navbar-link {
+    color: #3e2723;
+}
+
+.navbar-inverse .navbar-link:hover {
+    color: #f77200;
+}
+
+#nav-search {
+    height: 46px;
+    border:none;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #000000;
+    width: 300px !important;
+}
+
+#nav-search:focus{
+
+    background-color: #FFFFFF;
 }
 
 @media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #3e2723;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #f77200;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #f77200;
-    background-color: #3e2723;
-  }
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+        color: #3e2723;
+    }
 
-  #nav-search{
-    width: 100% !important;
-  }
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #f77200;
+    }
+
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #f77200;
+        background-color: #3e2723;
+    }
+
+    #nav-search {
+        width: 100% !important;
+    }
 }
 
 .twitter-typeahead {
@@ -94,7 +118,7 @@
 }*/
 
 .typeahead:focus {
-    border: 2px solid #0097cf;
+    border: 2px solid #cf7020;
 }
 
 .tt-query {
@@ -131,12 +155,12 @@
 .tt-suggestion:hover {
     cursor: pointer;
     color: #fff;
-    background-color: #0097cf;
+    background-color: #cf6e0c;
 }
 
 .tt-suggestion.tt-cursor {
     color: #fff;
-    background-color: #0097cf;
+    background-color: #cf6b15;
 
 }
 
@@ -151,10 +175,10 @@
     left: -5px;
 }
 
-/*//////////////////////Styles related to vegan recipe search filter option ////////////////////////*/
+/*Styles related to vegan recipe search filter option */
 #veganOptionLabel {
     font-size: 15px;
-    color: #523410;
+    color: #00d40c;
     cursor: pointer;
     margin-top: 8px;
     margin-bottom: 8px;
@@ -170,5 +194,73 @@
 }
 
 #veganOptionLabel.checked > label, #veganOptionLabel.checked > i {
-    color: #56c335 !important;
+    color: #c36407 !important;
+}
+
+/**********************************
+Responsive navbar-brand image CSS
+- Remove navbar-brand padding for firefox bug workaround
+- add 100% height and width auto ... similar to how bootstrap img-responsive class works
+***********************************/
+
+.navbar {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+    padding-right: 0;
+    padding-left: 0;
+    margin: 0;
+}
+
+.navbar-brand {
+    padding: 0px;
+}
+
+.navbar-brand > img {
+    height: 100%;
+    padding: 5px;
+    width: auto;
+}
+
+/* EXAMPLE 3
+
+line height is 20px by default so add 30px top and bottom to equal the new .navbar-brand 80px height  */
+
+.example3 .navbar-brand {
+    height: 70px;
+}
+
+.example3 .nav > li > a {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.example3 .navbar-toggle {
+    padding: 10px;
+    margin: 25px 15px 25px 0;
+}
+
+/* CSS Transform Align Navbar Brand Text ... This could also be achieved with table / table-cells */
+.navbar-alignit .navbar-header {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    height: 20px;
+}
+
+.navbar-alignit .navbar-brand {
+    /*top: 50%;*/
+    display: block;
+    position: relative;
+    height: auto;
+    transform: translate(0, -50%);
+    /*margin-right: 15px;*/
+    /*margin-left: 15px;*/
+}
+
+.navbar-nav > li > .dropdown-menu {
+    z-index: 9999;
+}
+
+body {
+    font-family: "Lato";
 }
