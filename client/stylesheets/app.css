@@ -557,10 +557,7 @@ textarea {
 .cloud-container{
     height: 250px;
     padding:0;
-    background-image: url(/images/top-rated-recipe-bg.jpg);
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url(/images/top-rated-recipe-bg.jpg) no-repeat fixed center;
     background-size: cover;
     overflow:hidden;
 }
